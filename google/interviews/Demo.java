@@ -53,7 +53,7 @@ public class Demo {
             if (complement.contains(value)) {
                 return true;
             }
-            complement.add(sum - value);
+            complement.add(sum - value); // this could underflow
         }
         return false;
     }
