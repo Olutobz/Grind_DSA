@@ -1,5 +1,6 @@
 public class TruncateSentence {
 
+    // TC -> O(N), SC -> O(1)
     public String truncateSentence(String s, int k) {
         if (s == null || s.length() == 0) return "";
         String[] words = s.split(" ");
