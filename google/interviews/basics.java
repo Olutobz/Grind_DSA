@@ -2,8 +2,10 @@ package interviews;
 
 public class basics {
     String firstName = "Damola";
-    String iddleName = "Olutoba";
+    String middleName = "Olutoba";
     String lastName = "Onikoyi";
 
-    void func() {}
+    void display(String fname, String mName,String lName) {
+        System.out.println();
+    }
 }
