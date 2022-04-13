@@ -18,6 +18,10 @@ public class basics {
     int subtraction () {
         return a - b;
     }
+    
+    int multiply () {
+        return a * b;
+    }
 
     public static void main(String[] args) {
         basics b = new basics();
