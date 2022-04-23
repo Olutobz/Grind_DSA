@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class HeightChecker {
+
+    // TC -> O(NLogN), SC -> O(N)
     public int heightChecker(int[] heights) {
         int[] expected = new int[heights.length];
         for (int i = 0; i < heights.length; i++) {
