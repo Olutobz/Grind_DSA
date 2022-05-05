@@ -23,6 +23,13 @@ public class basics {
         return a * b;
     }
 
+    String joinWords(String [] words) {
+        String sentence = "";
+        for (String w : words) {
+            sentence = sentence + w;
+        }
+        return sentence;
+    }
   
     public static void main(String[] args) {
         basics b = new basics();
