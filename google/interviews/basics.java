@@ -15,16 +15,22 @@ public class basics {
         return a + b;
     }
 
-    int subtraction () {
+    int subtraction() {
         return a - b;
     }
     
-    int multiply () {
+    int multiply() {
         return a * b;
     }
 
+  
     public static void main(String[] args) {
         basics b = new basics();
         b.display(b.firstName, b.middleName, b.lastName);
+
+        for(int i=0; i < 10; i++) {
+        System.out.print(i + "");
+    }
+
     }
 }
