@@ -20,7 +20,7 @@ public class SquaresOfASortedArray {
             }
             index--;
         }
-        // return an array of the squares of each number sorted in non-decreasing order.
+
         return newArr;
     }
 }
