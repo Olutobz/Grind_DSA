@@ -1,5 +1,7 @@
 package interviews;
 
+import java.util.HashMap;
+
 public class basics {
     String firstName = "Damola";
     String middleName = "Olutoba";
@@ -38,6 +40,12 @@ public class basics {
         for(int i=0; i < 10; i++) {
         System.out.print(i + "");
     }
+
+    HashMap<String, Integer> dict = new HashMap<>();
+    dict.put("toba", 1);
+    dict.put("damola", 2);
+    dict.put("onikoyi", 3);
+    dict.put("SWE Intern", 4);
 
     }
 }
