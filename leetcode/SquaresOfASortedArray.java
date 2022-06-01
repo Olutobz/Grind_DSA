@@ -1,6 +1,18 @@
+import java.util.Arrays;
+
 public class SquaresOfASortedArray {
-    // TC -> O(N), SC -> O(1) (output array is ignored)
+
+    // TC -> O(NLogN), SC -> O(1)
     public int[] sortedSquares(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] *= nums[i];
+        }
+        Arrays.sort(nums);
+        return nums;
+    }
+
+    // TC -> O(N), SC -> O(N)
+    public int[] sortedSquaresII(int[] nums) {
         if (nums == null || nums.length == 0) return null;
 
         int[] newArr = new int[nums.length];
