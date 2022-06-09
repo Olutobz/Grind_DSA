@@ -9,4 +9,14 @@ public class SumOfSquareNumbers {
         }
         return false;
     }
+
+
+    // TC -> O(sqrt(clog c)), SC -> O(1)
+    public boolean judgeSquareSumII(int c) {
+        for (int a = 0; a <= Math.sqrt(c); a++) {
+            double b = Math.sqrt(c - a * a);
+            if (b == (int) b) return true;
+        }
+        return false;
+    }
 }
