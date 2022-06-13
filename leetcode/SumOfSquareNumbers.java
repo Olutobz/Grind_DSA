@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class SumOfSquareNumbers {
     // TC -> O(C), SC -> O(1)
     public boolean judgeSquareSum(int c) {
@@ -33,4 +36,14 @@ public class SumOfSquareNumbers {
         return false;
     }
 
+    // TC -> O(sqrt c), SC -> O(N)
+    public boolean judgeSquareSumIV(int c) {
+        Set<Integer> set = new HashSet<>();
+
+        for (int a = 0; a <= Math.sqrt(c); a++) {
+            set.add(a * a);
+            if (set.contains(c - a * a)) return true;
+        }
+        return false;
+    }
 }
