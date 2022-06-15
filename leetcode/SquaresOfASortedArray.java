@@ -47,4 +47,22 @@ public class SquaresOfASortedArray {
 
         return newArr;
     }
+
+    public int[] sortedSquaresIV(int[] nums) {
+        int[] newArr = new int[nums.length];
+        int start = 0, end = nums.length - 1, index = nums.length - 1;
+
+        while (start <= end) {
+            if (Math.abs(nums[start]) >= Math.abs(nums[end])) {
+                newArr[index] = (int) Math.pow(nums[start], 2);
+                start++;
+            } else {
+                newArr[index] = (int) Math.pow(nums[end], 2);
+                end--;
+            }
+            index--;
+        }
+        return newArr;
+    }
+
 }
