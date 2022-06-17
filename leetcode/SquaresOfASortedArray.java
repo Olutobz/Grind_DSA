@@ -11,8 +11,20 @@ public class SquaresOfASortedArray {
         return nums;
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(NLogN), SC -> O(N)
     public int[] sortedSquaresII(int[] nums) {
+        int[] newArr = new int[nums.length];
+        int index = 0;
+        for (int num : nums) {
+            newArr[index] = (int) Math.pow(num, 2);
+            index++;
+        }
+        Arrays.sort(newArr);
+        return newArr;
+    }
+
+    // TC -> O(N), SC -> O(N)
+    public int[] sortedSquaresIII(int[] nums) {
         if (nums == null || nums.length == 0) return null;
 
         int[] newArr = new int[nums.length];
