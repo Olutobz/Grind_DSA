@@ -21,8 +21,12 @@ public class DVD {
         dvds[0] = new DVD("Spider-Man", "Marvel", 2008);
         dvds[1] = new DVD("Super-Man", "DC Comics", 1999);
         dvds[2] = new DVD("Avengers", "Marvel", 2018);
+        dvds[3] = new DVD("Stranger Things 4", "Netflix", 2020);
+        dvds[4] = new DVD("Manifest", "HBO", 2020);
         System.out.println(dvds[0]);
         System.out.println(dvds[1]);
         System.out.println(dvds[2]);
+        System.out.println(dvds[3]);
+        System.out.println(dvds[4]);
     }
 }
