@@ -1,9 +1,9 @@
 package arrays;
 
 public class DVD {
-    private String name;
-    private String director;
-    private int releaseYear;
+    private final String name;
+    private final String director;
+    private final int releaseYear;
 
     public DVD(String name, String director, int releaseYear) {
         this.name = name;
@@ -23,10 +23,16 @@ public class DVD {
         dvds[2] = new DVD("Avengers", "Marvel", 2018);
         dvds[3] = new DVD("Stranger Things 4", "Netflix", 2020);
         dvds[4] = new DVD("Manifest", "HBO", 2020);
+        dvds[5] = new DVD("All American", "HBO", 2020);
+        dvds[6] = new DVD("Silicon Valley", "HBO", 2017);
+
         System.out.println(dvds[0]);
         System.out.println(dvds[1]);
         System.out.println(dvds[2]);
         System.out.println(dvds[3]);
         System.out.println(dvds[4]);
+        System.out.println(dvds[5]);
+        System.out.println(dvds[6]);
+
     }
 }
