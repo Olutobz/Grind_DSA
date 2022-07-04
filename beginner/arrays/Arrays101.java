@@ -1,7 +1,8 @@
 package arrays;
 
-public class Samples {
+public class Arrays101 {
 
+    // Given a binary array nums, return the maximum number of consecutive 1's in the array.
     public int findMaxConsecutiveOnes(int[] nums) {
         int count = 0, max = 0;
         for (int num : nums) {
@@ -14,4 +15,5 @@ public class Samples {
         }
         return max;
     }
+
 }
