@@ -16,4 +16,19 @@ public class Arrays101 {
         return max;
     }
 
+    private int countDigits(Long digits) {
+     /*
+         O(n)
+        int count = 0;
+        while (digits != 0) {
+            digits = digits/10;
+            count++;
+        }
+        return count;
+        */
+
+        // O(1)
+        return (int) Math.floor(Math.log10(digits) + 1);
+    }
+
 }
