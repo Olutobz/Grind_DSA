@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class Arrays101 {
 
     // Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -17,18 +19,39 @@ public class Arrays101 {
     }
 
     private int countDigits(Long digits) {
-     /*
-         O(n)
         int count = 0;
         while (digits != 0) {
-            digits = digits/10;
+            digits = digits / 10;
             count++;
         }
         return count;
-        */
 
-        // O(1)
+        /* O(1)
         return (int) Math.floor(Math.log10(digits) + 1);
+        */
+    }
+
+    public void duplicateZeros(int[] arr) {
+        if (arr.length == 0) return;
+
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) {
+                for (int j = n - 1; j > i; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                i++;
+            }
+        }
+    }
+
+    public int[] runningSum(int[] nums) {
+        int[] result = new int[nums.length];
+        result[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            result[i] = result[i - 1] + nums[i];
+        }
+        return result;
     }
 
 }
