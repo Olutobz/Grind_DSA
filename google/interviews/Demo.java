@@ -18,9 +18,9 @@ public class Demo {
      * [1, 2, 3, 9] where sum = 8
      * [1  2, 4, 4,] where sum = 8
      *
-     * [Approach 1] O(N) -> The idea is to have a pointer on the low(i.e first) & high(i.e last) elems.
+     * [Approach 1] O(N) -> The idea is to have two pointers on the low(i.e first) & high(i.e last) elems.
      * This gives a pair which we can compare to the sum we are looking for. Iterate through the array,
-     * and we move low or high indices depending on if the current pair is lower or higher the target sum.
+     * and we move low or high indices depending on if the current pair is lower or higher than the target sum.
      *
      * [Approach 2] O(N) -> The idea is to use an HashSet<Integer> to store and look up the complement of
      * each element in the array data. Iterate through the array and check if it's complement is present
