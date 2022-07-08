@@ -1,7 +1,5 @@
 package arrays;
 
-import java.util.Arrays;
-
 public class Arrays101 {
 
     // Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -52,6 +50,22 @@ public class Arrays101 {
             result[i] = result[i - 1] + nums[i];
         }
         return result;
+    }
+
+    // Count Operations to Obtain Zero
+    public int countOperations(int num1, int num2) {
+        int steps = 0;
+        if(num1 < 0 || num2 < 0) return 0;
+        while(num1 != 0 && num2 != 0) {
+            if(num1 >= num2) {
+                num1 -= num2;
+            }
+            else {
+                num2 -= num1;
+            }
+            steps++;
+        }
+        return steps;
     }
 
 }
