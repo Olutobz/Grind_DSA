@@ -1,5 +1,8 @@
 package arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Arrays101 {
 
     // Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -66,6 +69,25 @@ public class Arrays101 {
             steps++;
         }
         return steps;
+    }
+
+    public List<String> fizzBuzz(int n) {
+        List<String> result = new ArrayList<>();
+
+        for(int i=1; i<=n; i++) {
+            String currStr = "";
+            if (i%3 == 0) {
+                currStr += "Fizz";
+            }
+            if(i%5 == 0) {
+                currStr += "Buzz";
+            }
+            if(currStr.isEmpty()) {
+                currStr += String.valueOf(i);
+            }
+            result.add(currStr);
+        }
+        return result;
     }
 
 }
