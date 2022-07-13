@@ -47,6 +47,26 @@ public class Arrays101 {
         }
     }
 
+    public void duplicateZerosFaster(int[] arr) {
+        int countZero = 0;
+        for(int a : arr) {
+            if(a == 0) countZero++;
+        }
+
+        int n = arr.length + countZero;
+
+        for(int i = arr.length-1, j = n-1; i>=0 && j>=0; i--, j--) {
+            if(arr[i] != 0) {
+                if(j < arr.length) arr[j] = arr[i];
+            }
+            else {
+                if (j < arr.length) arr[j] = arr[i];
+                j--;
+                if(j < arr.length) arr[j] = arr[i];
+            }
+        }
+    }
+
     public int[] runningSum(int[] nums) {
         int[] result = new int[nums.length];
         result[0] = nums[0];
