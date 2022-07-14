@@ -36,12 +36,14 @@ public class Arrays101 {
         if (arr.length == 0) return;
 
         int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             if (arr[i] == 0) {
-                for (int j = n - 1; j > i; j--) {
+                int j = n - 1;
+                while (j > i) {
                     arr[j] = arr[j - 1];
+                    j--;
                 }
-                arr[i+1] = 0;
+                arr[i + 1] = 0;
                 i++;
             }
         }
@@ -49,20 +51,18 @@ public class Arrays101 {
 
     public void duplicateZerosFaster(int[] arr) {
         int countZero = 0;
-        for(int a : arr) {
-            if(a == 0) countZero++;
+        for (int a : arr) {
+            if (a == 0) countZero++;
         }
 
         int n = arr.length + countZero;
-
-        for(int i = arr.length-1, j = n-1; i>=0 && j>=0; i--, j--) {
-            if(arr[i] != 0) {
-                if(j < arr.length) arr[j] = arr[i];
-            }
-            else {
+        for (int i = arr.length - 1, j = n - 1; i >= 0 && j >= 0; i--, j--) {
+            if (arr[i] != 0) {
+                if (j < arr.length) arr[j] = arr[i];
+            } else {
                 if (j < arr.length) arr[j] = arr[i];
                 j--;
-                if(j < arr.length) arr[j] = arr[i];
+                if (j < arr.length) arr[j] = arr[i];
             }
         }
     }
@@ -79,12 +79,11 @@ public class Arrays101 {
     // Count Operations to Obtain Zero
     public int countOperations(int num1, int num2) {
         int steps = 0;
-        if(num1 < 0 || num2 < 0) return 0;
-        while(num1 != 0 && num2 != 0) {
-            if(num1 >= num2) {
+        if (num1 < 0 || num2 < 0) return 0;
+        while (num1 != 0 && num2 != 0) {
+            if (num1 >= num2) {
                 num1 -= num2;
-            }
-            else {
+            } else {
                 num2 -= num1;
             }
             steps++;
@@ -95,15 +94,15 @@ public class Arrays101 {
     public List<String> fizzBuzz(int n) {
         List<String> result = new ArrayList<>();
 
-        for(int i=1; i<=n; i++) {
+        for (int i = 1; i <= n; i++) {
             String currStr = "";
-            if (i%3 == 0) {
+            if (i % 3 == 0) {
                 currStr += "Fizz";
             }
-            if(i%5 == 0) {
+            if (i % 5 == 0) {
                 currStr += "Buzz";
             }
-            if(currStr.isEmpty()) {
+            if (currStr.isEmpty()) {
                 currStr += String.valueOf(i);
             }
             result.add(currStr);
@@ -114,15 +113,15 @@ public class Arrays101 {
     public int[] sortedSquares(int[] nums) {
         int[] newArr = new int[nums.length];
         int start = 0;
-        int end = nums.length-1;
-        int index = newArr.length-1;
+        int end = nums.length - 1;
+        int index = newArr.length - 1;
 
-        for(int i=0; i<nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             nums[i] *= nums[i];
         }
 
-        while(start <= end) {
-            if(nums[start] > nums[end]) {
+        while (start <= end) {
+            if (nums[start] > nums[end]) {
                 newArr[index] = nums[start];
                 start++;
             } else {
@@ -131,7 +130,6 @@ public class Arrays101 {
             }
             index--;
         }
-
         // return an array of the squares of each number sorted in non-decreasing order.
         return newArr;
     }
