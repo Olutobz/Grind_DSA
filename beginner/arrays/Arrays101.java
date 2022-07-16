@@ -122,11 +122,9 @@ public class Arrays101 {
 
         while (start <= end) {
             if (nums[start] > nums[end]) {
-                newArr[index] = nums[start];
-                start++;
+                newArr[index] = nums[start++];
             } else {
-                newArr[index] = nums[end];
-                end--;
+                newArr[index] = nums[end--];
             }
             index--;
         }
