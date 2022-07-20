@@ -33,7 +33,7 @@ public class Demo {
     public static boolean hasSumWithPairs(final int[] data, int sum) {
         int low = 0;
         int high = data.length - 1;
-        while (low < high) {
+        while (low <= high) {
             int pair = data[low] + data[high];
             if (pair == sum) return true;
             else if (pair < sum) {
