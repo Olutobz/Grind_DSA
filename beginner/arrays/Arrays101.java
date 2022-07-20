@@ -153,10 +153,10 @@ public class Arrays101 {
     }
 
     public int removeElement(int[] nums, int val) {
-        if(nums.length == 0) return 0;
+        if (nums.length == 0) return 0;
         int k = 0;
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] != val) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
                 nums[k++] = nums[i];
             }
         }
@@ -166,12 +166,24 @@ public class Arrays101 {
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
         int k = 1;
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[i-1]) {
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
                 nums[k++] = nums[i];
             }
         }
         return k;
     }
 
+    // To check if there exists two integers N and M such that N is the double of M
+    public boolean checkIfExist(int[] arr) {
+        if (arr == null) return false;
+        for (int N = 0; N < arr.length; N++) {
+            for (int M = 0; M < arr.length; M++) {
+                if (arr[N] == arr[M] * 2 && N != M) return true;
+            }
+        }
+        return false;
+    }
+
 }
+
