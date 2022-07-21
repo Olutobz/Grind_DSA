@@ -36,7 +36,6 @@ public class Arrays101 {
 
     public void duplicateZeros(int[] arr) {
         if (arr.length == 0) return;
-
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             if (arr[i] == 0) {
@@ -56,7 +55,6 @@ public class Arrays101 {
         for (int a : arr) {
             if (a == 0) countZero++;
         }
-
         int n = arr.length + countZero;
         for (int i = arr.length - 1, j = n - 1; i >= 0 && j >= 0; i--, j--) {
             if (arr[i] != 0) {
@@ -196,6 +194,23 @@ public class Arrays101 {
             comp.add(num);
         }
         return false;
+    }
+
+    public boolean validMountainArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        while(start != end) {
+            if(arr[start] < arr[start + 1]) {
+                start++;
+            }
+            else if(arr[end] < arr[end - 1]) {
+                end--;
+            }
+            else {
+                return false;
+            }
+        }
+        return start != 0 && end != arr.length - 1;
     }
 
 }
