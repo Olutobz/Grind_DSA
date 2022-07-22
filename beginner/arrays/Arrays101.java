@@ -111,6 +111,8 @@ public class Arrays101 {
     }
 
     public int[] sortedSquares(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+
         int[] newArr = new int[nums.length];
         int start = 0;
         int end = nums.length - 1;
@@ -243,6 +245,31 @@ public class Arrays101 {
             j--;
         }
         return i > 0 && j < n - 1 && i == j;
+    }
+
+    public int[] replaceElementsFast(int[] arr) {
+        int n = arr.length;
+        int max = -1;
+        int temp;
+        for (int i = n - 1; i > -1; i--) {
+            temp = arr[i];
+            arr[i] = max;
+            max = Math.max(max, temp);
+        }
+        return arr;
+    }
+
+    public int[] replaceElementsSlow(int[] arr) {
+        int n = arr.length, max = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                max = Math.max(arr[j], max);
+            }
+            arr[i] = max;
+            max = 0;
+        }
+        arr[n - 1] = -1;
+        return arr;
     }
 
 }
