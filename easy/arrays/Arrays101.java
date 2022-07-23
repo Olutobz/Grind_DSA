@@ -286,11 +286,11 @@ public class Arrays101 {
 
     public int[] sortArrayByParity(int[] nums) {
         if (nums == null) return null;
-        for (int i = 0, j = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) {
-                int temp = nums[j];
-                nums[j++] = nums[i];
-                nums[i] = temp;
+        for (int readIndex = 0, writeIndex = 0; readIndex < nums.length; readIndex++) {
+            if (nums[readIndex] % 2 == 0) {
+                int temp = nums[writeIndex];
+                nums[writeIndex++] = nums[readIndex];
+                nums[readIndex] = temp;
             }
         }
         return nums;
