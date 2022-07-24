@@ -165,6 +165,22 @@ public class Arrays101 {
         return k;
     }
 
+    public int removeElementFaster(int[] nums, int val) {
+        if(nums.length == 0) return 0;
+        int length = nums.length;
+        int i = 0;
+        while (i < length) {
+            if(nums[i] == val) {
+                nums[i] = nums[length - 1];
+                length--;
+            }
+            else {
+                i++;
+            }
+        }
+        return length;
+    }
+
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
         int k = 1;
