@@ -1,9 +1,6 @@
 package arrays;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Arrays101 {
 
@@ -166,15 +163,14 @@ public class Arrays101 {
     }
 
     public int removeElementFaster(int[] nums, int val) {
-        if(nums.length == 0) return 0;
+        if (nums.length == 0) return 0;
         int length = nums.length;
         int i = 0;
         while (i < length) {
-            if(nums[i] == val) {
+            if (nums[i] == val) {
                 nums[i] = nums[length - 1];
                 length--;
-            }
-            else {
+            } else {
                 i++;
             }
         }
@@ -310,6 +306,20 @@ public class Arrays101 {
             }
         }
         return nums;
+    }
+
+    public int heightChecker(int[] heights) {
+        int[] expected = new int[heights.length];
+        for (int i = 0; i < heights.length; i++) {
+            expected[i] = heights[i];
+        }
+        Arrays.sort(expected);
+        int count = 0;
+        for (int i = 0; i < heights.length; i++) {
+            if (heights[i] != expected[i]) count++;
+        }
+
+        return count;
     }
 
 }
