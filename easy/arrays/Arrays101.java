@@ -322,5 +322,16 @@ public class Arrays101 {
         return count;
     }
 
+    public int thirdMax(int[] nums) {
+        int length = nums.length;
+        int count = 1;
+        Arrays.sort(nums);
+        for (int i = length - 2; i >= 0; i--) {
+            if (nums[i] != nums[i + 1]) count++;
+            if (count == 3) return count;
+        }
+        return nums[length - 1];
+    }
+
 }
 
