@@ -131,7 +131,7 @@ public class Arrays101 {
         return newArr;
     }
 
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
+    public void mergeSortedArrays(int[] nums1, int m, int[] nums2, int n) {
         for (int i = m + n - 1; i >= 0; i--) {
             if (m > 0 && n > 0) {
                 if (nums2[n - 1] > nums1[m - 1]) {
@@ -323,6 +323,7 @@ public class Arrays101 {
     }
 
     public int thirdMax(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
         int length = nums.length;
         int count = 1;
 
@@ -338,6 +339,7 @@ public class Arrays101 {
     }
 
     public int thirdMax2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
         Set<Integer> set = new HashSet<>();
         int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, max3 = Integer.MIN_VALUE;
 
@@ -361,6 +363,7 @@ public class Arrays101 {
     }
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
         List<Integer> missing = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
@@ -370,6 +373,21 @@ public class Arrays101 {
 
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > 0) missing.add(i + 1);
+        }
+
+        return missing;
+    }
+
+    public List<Integer> findDisappearedNumbersII(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+        List<Integer> missing = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            set.add(num);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (!set.contains(nums[i + 1])) missing.add(i + 1);
         }
 
         return missing;
