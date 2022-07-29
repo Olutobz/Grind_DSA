@@ -387,7 +387,7 @@ public class Arrays101 {
             set.add(num);
         }
         for (int i = 0; i < nums.length; i++) {
-            if (!set.contains(nums[i + 1])) missing.add(i + 1);
+            if (!(set.contains(i + 1))) missing.add(i + 1);
         }
 
         return missing;
