@@ -367,8 +367,8 @@ public class Arrays101 {
         List<Integer> missing = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
-            int n = Math.abs(nums[i]) - 1;
-            nums[n] = nums[n] > 0 ? -nums[n] : nums[n];
+            int index = Math.abs(nums[i]) - 1;
+            nums[index] = (nums[index] > 0) ? -1 * nums[index] : nums[index];
         }
 
         for (int i = 0; i < nums.length; i++) {
