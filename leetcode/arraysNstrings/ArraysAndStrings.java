@@ -2,6 +2,7 @@ package arraysNstrings;
 
 public class ArraysAndStrings {
 
+    // TC -> O(N) SC -> O(N)
     public int pivotIndex(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         int length = nums.length;
@@ -17,6 +18,22 @@ public class ArraysAndStrings {
 
         for (int i = 0; i < length; i++) {
             if (leftSum[i] == rightSum[i]) return i;
+        }
+
+        return -1;
+    }
+
+    // TC -> O(N) SC -> O(1)
+    public int pivotIndexII(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int sum = 0, preSum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (preSum * 2 == sum - nums[i]) return i;
+            preSum += nums[i];
         }
 
         return -1;
