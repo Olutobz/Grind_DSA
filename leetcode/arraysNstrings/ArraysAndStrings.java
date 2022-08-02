@@ -26,14 +26,14 @@ public class ArraysAndStrings {
     // TC -> O(N) SC -> O(1)
     public int pivotIndexII(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
-        int sum = 0, preSum = 0;
+        int sum = 0, leftSum = 0;
         for (int num : nums) {
             sum += num;
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (preSum * 2 == sum - nums[i]) return i;
-            preSum += nums[i];
+            if (leftSum * 2 == sum - nums[i]) return i;
+            leftSum += nums[i];
         }
 
         return -1;
