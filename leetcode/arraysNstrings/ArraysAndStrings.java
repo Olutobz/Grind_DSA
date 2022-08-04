@@ -41,25 +41,41 @@ public class ArraysAndStrings {
 
     public int dominantIndex(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
-        if (nums.length == 1) return 0;
 
-        int maxIndex = 0;
-        int maxValue = Integer.MIN_VALUE;
+        int maxElem = Integer.MIN_VALUE, maxIndex = -1, count = 0;
 
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > maxValue) {
-                maxValue = nums[i];
+            if (nums[i] > maxElem) {
+                maxElem = nums[i];
                 maxIndex = i;
             }
         }
 
-        for (int j = 0; j < nums.length; j++) {
-            if (!(maxValue >= 2 * nums[j] || j == maxIndex)) {
-                return -1;
+        for (int num : nums) {
+            if (maxElem >= num * 2) count++;
+        }
+
+        if (count == nums.length - 1) return maxIndex;
+
+        return -1;
+    }
+
+    public int dominantIndexII(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+
+        int max1 = 0, max2 = 0, maxIndex = -1;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > max1) {
+                max2 = max1;
+                max1 = nums[i];
+                maxIndex = i;
+            } else if (nums[i] > max2) {
+                max2 = nums[i];
             }
         }
 
-        return maxIndex;
+        return (max1 >= max2 * 2) ? maxIndex : -1;
     }
 
 
