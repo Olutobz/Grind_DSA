@@ -338,7 +338,8 @@ public class Arrays101 {
         return nums[length - 1];
     }
 
-    public int thirdMax2(int[] nums) {
+    @SuppressWarnings("DuplicatedCode")
+    private int thirdMax2(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         Set<Integer> set = new HashSet<>();
         int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, max3 = Integer.MIN_VALUE;
