@@ -162,7 +162,7 @@ public class Arrays101 {
         return k;
     }
 
-    public int removeElementFaster(int[] nums, int val) {
+    public int removeElementII(int[] nums, int val) {
         if (nums.length == 0) return 0;
         int length = nums.length;
         int i = 0;
@@ -387,6 +387,7 @@ public class Arrays101 {
         for (int num : nums) {
             set.add(num);
         }
+
         for (int i = 0; i < nums.length; i++) {
             if (!(set.contains(i + 1))) missing.add(i + 1);
         }
@@ -395,4 +396,3 @@ public class Arrays101 {
     }
 
 }
-
