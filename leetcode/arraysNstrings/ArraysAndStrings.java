@@ -17,11 +17,9 @@ public class ArraysAndStrings {
             leftSum[i] = leftSum[i - 1] + nums[i];
             rightSum[length - 1 - i] = rightSum[length - i] + nums[length - 1 - i];
         }
-
         for (int i = 0; i < length; i++) {
             if (leftSum[i] == rightSum[i]) return i;
         }
-
         return -1;
     }
 
@@ -29,15 +27,14 @@ public class ArraysAndStrings {
     public int pivotIndexII(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         int sum = 0, leftSum = 0;
+
         for (int num : nums) {
             sum += num;
         }
-
         for (int i = 0; i < nums.length; i++) {
             if (leftSum * 2 == sum - nums[i]) return i;
             leftSum += nums[i];
         }
-
         return -1;
     }
 
@@ -71,7 +68,6 @@ public class ArraysAndStrings {
                 max2 = nums[i];
             }
         }
-
         return (max1 >= max2 * 2) ? maxIndex : -1;
     }
 
@@ -118,16 +114,13 @@ public class ArraysAndStrings {
         for (int i = 1; i < length; i++) {
             left[i] = left[i - 1] * nums[i - 1];
         }
-
         right[length - 1] = 1;
         for (int i = length - 2; i >= 0; i--) {
             right[i] = right[i + 1] * nums[i + 1];
         }
-
         for (int k = 0; k < length; k++) {
             answer[k] = left[k] * right[k];
         }
-
         return answer;
 
     }
@@ -140,12 +133,10 @@ public class ArraysAndStrings {
             left[i] = temp;
             temp *= nums[i];
         }
-
         for (int i = length - 1, temp = 1; i >= 0; i--) {
             left[i] *= temp;
             temp *= nums[i];
         }
-
         return left;
     }
 
@@ -179,6 +170,7 @@ public class ArraysAndStrings {
     public boolean searchMatrix(int[][] matrix, int target) {
         int rows = matrix.length, cols = matrix[0].length;
         if (cols == 0) return false;
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (matrix[i][j] == target) return true;
@@ -199,7 +191,6 @@ public class ArraysAndStrings {
             else if (matrix[start][end] > target) end--;
             else start++;
         }
-
         return false;
     }
 
@@ -243,7 +234,6 @@ public class ArraysAndStrings {
             else if (mid > x / mid) right = mid - 1;
             else left = mid + 1;
         }
-
         return left;
     }
 
