@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArraysAndStrings {
 
-    // TC -> O(N) SC -> O(N)
+    // TC -> O(N), SC -> O(N)
     public int pivotIndex(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         int length = nums.length;
@@ -150,6 +150,7 @@ public class ArraysAndStrings {
     }
 
     public int[] plusOne(int[] digits) {
+        if (digits == null || digits.length == 0) return new int[0];
         int n = digits.length;
         for (int i = n - 1; i >= 0; i--) {
             if (digits[i] < 9) {
@@ -172,6 +173,52 @@ public class ArraysAndStrings {
             first++;
             last--;
         }
+    }
+
+    // TC -> O(M*N), SC -> O(1)
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int rows = matrix.length, cols = matrix[0].length;
+        if (cols == 0) return false;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == target) return true;
+            }
+        }
+        return false;
+    }
+
+    // TC -> O(M + N), SC -> O(1)
+    public boolean searchMatrixII(int[][] matrix, int target) {
+        if (matrix.length == 0 || matrix[0].length == 0) return false;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int start = 0, end = cols - 1;
+
+        while (start < rows && end >= 0) {
+            if (matrix[start][end] == target) return true;
+            else if (matrix[start][end] > target) end--;
+            else start++;
+        }
+
+        return false;
+    }
+
+    // TC -> O(LogM + LogN) -> O(Log(M*N)), SC -> O(1)
+    public boolean searchMatrixIII(int[][] matrix, int target) {
+        if (matrix.length == 0 || matrix[0].length == 0) return false;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int start = 0, end = rows * cols - 1;
+
+        while (start <= end) {
+            int pivotIndex = start + (end - start) / 2;
+            // formulae => a[x] : matrix[x / m][x % m] where m -> column of the matrix
+            int pivotElem = matrix[pivotIndex / cols][pivotIndex % cols];
+            if (target == pivotElem) return true;
+            else if (target < pivotElem) end = pivotIndex - 1;
+            else start = pivotIndex + 1;
+        }
+        return false;
     }
 
 }
