@@ -31,15 +31,19 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        int[][] a = new int[2][4];
-        printArray(a);
+//        int[][] a = new int[2][4];
+//        printArray(a);
+//
+//        int[][] b = new int[2][];
+//        printArray(b);
+//        b[0] = new int[2];
+//        b[1] = new int[3];
+//        printArray(b);
 
-        int[][] b = new int[2][];
-        printArray(b);
-        b[0] = new int[2];
-        b[1] = new int[3];
-        printArray(b);
-
+        int a = Integer.MAX_VALUE;
+        int b = Integer.MIN_VALUE;
+        System.out.println(a);
+        System.out.println(b);
     }
 
 }
