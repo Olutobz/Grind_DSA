@@ -71,6 +71,7 @@ public class ArraysAndStrings {
         return (max1 >= max2 * 2) ? maxIndex : -1;
     }
 
+    // TC -> O(N), SC -> O(1)
     @SuppressWarnings("DuplicatedCode")
     private int maximumProduct(int[] nums) {
         int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE, max3 = Integer.MIN_VALUE;
@@ -98,12 +99,14 @@ public class ArraysAndStrings {
         return Math.max(max1 * max2 * max3, min1 * min2 * max1);
     }
 
+    // TC -> O(NlogN), SC -> O(1)
     public int maximumProductII(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
         return Math.max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n - 3]);
     }
 
+    // TC -> O(N), SC -> O(N)
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] answer = new int[length];
@@ -125,6 +128,7 @@ public class ArraysAndStrings {
 
     }
 
+    // TC -> O(N), SC -> O(N)
     public int[] productExceptSelfII(int[] nums) {
         int length = nums.length;
         int[] left = new int[length];
@@ -140,6 +144,7 @@ public class ArraysAndStrings {
         return left;
     }
 
+    // TC -> O(N), SC -> O(N)
     public int[] plusOne(int[] digits) {
         if (digits == null || digits.length == 0) return new int[0];
         int n = digits.length;
@@ -155,6 +160,7 @@ public class ArraysAndStrings {
         return newDigits;
     }
 
+    // TC -> O(N), SC -> O(1)
     public void reverseString(char[] s) {
         int first = 0, last = s.length - 1;
         while (first < last) {
@@ -236,6 +242,7 @@ public class ArraysAndStrings {
         return left;
     }
 
+    // TC -> O(log(num)), SC -> O(1)
     public boolean isPerfectSquare(int num) {
         if (num == 0 || num == 1) return true;
         long left = 1, right = num;
@@ -248,6 +255,7 @@ public class ArraysAndStrings {
         return false;
     }
 
+    // TC -> O(log(num)), SC -> O(1)
     public boolean isPerfectSquareII(int num) {
         if (num == 0 || num == 1) return true;
         int start = 1, end = num;
