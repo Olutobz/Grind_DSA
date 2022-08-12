@@ -228,7 +228,7 @@ public class ArraysAndStrings {
         return -1;
     }
 
-    // TC -> O(logX), SC -> O(1)
+    // TC -> O(log x), SC -> O(1)
     public int mySqrtII(int x) {
         if (x == 0) return 0;
         int left = 1;
@@ -268,4 +268,26 @@ public class ArraysAndStrings {
         return false;
     }
 
+    // TC -> O(sqrt(clog c)), SC -> O(1)
+    public boolean judgeSquareSum(int c) {
+        for (int a = 0; a <= Math.sqrt(c); a++) {
+            double b = Math.sqrt(c - a * a);
+            if (b == (int) b) return true;
+        }
+        return false;
+    }
+
+    // TC -> O(N), SC -> O(1)
+    public boolean judgeSquareSumII(int c) {
+        if (c < 3) return true;
+        long a = 0, b = (int) Math.sqrt(c);
+
+        while (a <= b) {
+            long sum = (a * a) + (b * b);
+            if (sum == c) return true;
+            else if (sum < c) a++;
+            else b--;
+        }
+        return false;
+    }
 }
