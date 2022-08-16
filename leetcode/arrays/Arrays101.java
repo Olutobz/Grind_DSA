@@ -394,7 +394,7 @@ public class Arrays101 {
         return missing;
     }
 
-    // TC -> O(1), SC -> O(1)
+    // TC -> O(log(num)), SC -> O(1)
     public int addDigits(int num) {
         if (num == 0) return 0;
         while (num > 9) {
@@ -407,6 +407,55 @@ public class Arrays101 {
     public int addDigitsII(int num) {
         if (num == 0) return 0;
         return num % 9 == 0 ? 9 : num % 9;
+    }
+
+    // TC -> O(N^2), SC -> O(1)
+    public int singleNumber(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            int count = 0;
+            for (int i : nums) {
+                if (num == i) count++;
+            }
+
+            if (count == 1) {
+                result = num;
+            }
+        }
+        return result;
+    }
+
+    // TC -> O(NLogN), SC -> O(1)
+    public int singleNumberII(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i += 2) {
+            if (nums[i] != nums[i + 1]) return nums[i];
+        }
+        return nums[nums.length - 1];
+    }
+
+    // TC -> O(NLogN), SC -> O(N)
+    public int singleNumberIII(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } else map.put(num, 1);
+        }
+
+        for (int num : map.keySet()) {
+            if (map.get(num) == 1) return num;
+        }
+        return -1;
+    }
+
+    public int singleNumberIV(int[] nums) {
+        int res = 0;
+        for (int num : nums) {
+            res ^= num;
+        }
+        return res;
     }
 
 }
