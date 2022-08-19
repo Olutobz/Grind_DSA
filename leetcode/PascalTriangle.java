@@ -3,6 +3,7 @@ import java.util.List;
 
 public class PascalTriangle {
 
+    // TC -> O(N^2), SC -> O(N^2)
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> pascal = new ArrayList<>();
 
