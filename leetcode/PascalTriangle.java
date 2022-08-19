@@ -12,8 +12,8 @@ public class PascalTriangle {
             for (int j = 0; j <= i; j++) {
                 if (j == 0 || j == i) list.add(1);
                 else {
-                    list.add(pascal.get(pascal.size() - 1).get(j)
-                            + pascal.get(pascal.size() - 1).get(j - 1));
+                    list.add(pascal.get(i - 1).get(j)
+                            + pascal.get(i - 1).get(j - 1));
                 }
             }
             pascal.add(list);
