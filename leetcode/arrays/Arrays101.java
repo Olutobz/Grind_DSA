@@ -4,20 +4,6 @@ import java.util.*;
 
 public class Arrays101 {
 
-    // Given a binary array nums, return the maximum number of consecutive 1's in the array.
-    public int findMaxConsecutiveOnes(int[] nums) {
-        int count = 0, max = 0;
-        for (int num : nums) {
-            if (num == 0) {
-                count = 0;
-            } else if (num == 1) {
-                count++;
-            }
-            max = Math.max(count, max);
-        }
-        return max;
-    }
-
     public int countDigits(Long digits) {
         int count = 0;
         while (digits != 0) {
@@ -434,7 +420,7 @@ public class Arrays101 {
         return nums[nums.length - 1];
     }
 
-    // TC -> O(NLogN), SC -> O(N)
+    // TC -> O(N), SC -> O(N)
     public int singleNumberIII(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -450,6 +436,7 @@ public class Arrays101 {
         return -1;
     }
 
+    // TC -> O(N), SC -> O(1)
     public int singleNumberIV(int[] nums) {
         int res = 0;
         for (int num : nums) {
