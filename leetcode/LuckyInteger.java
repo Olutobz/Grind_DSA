@@ -23,7 +23,7 @@ public class LuckyInteger {
     public int findLuckyII(int[] arr) {
         if (arr == null || arr.length == 0) return -1;
 
-        Map<Integer, Integer> map = new HashMap();
+        Map<Integer, Integer> map = new HashMap<>();
         int max = -1;
 
         for (int num : arr) {
