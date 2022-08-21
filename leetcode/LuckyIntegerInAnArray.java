@@ -41,7 +41,7 @@ public class LuckyIntegerInAnArray {
         return max;
     }
 
-    // TC -> O(NLogN), SC -> O(LogN)
+    // TC -> O(NLogN), SC -> O(1)
     public int findLuckyIII(int[] arr) {
         Arrays.sort(arr);
         int ans = 0;

@@ -17,9 +17,11 @@ public class ArraysAndStrings {
             leftSum[i] = leftSum[i - 1] + nums[i];
             rightSum[length - 1 - i] = rightSum[length - i] + nums[length - 1 - i];
         }
+
         for (int i = 0; i < length; i++) {
             if (leftSum[i] == rightSum[i]) return i;
         }
+
         return -1;
     }
 
@@ -103,7 +105,7 @@ public class ArraysAndStrings {
     public int maximumProductII(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        return Math.max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n  - 3]);
+        return Math.max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n - 3]);
     }
 
     // TC -> O(N), SC -> O(N)
@@ -117,13 +119,16 @@ public class ArraysAndStrings {
         for (int i = 1; i < length; i++) {
             left[i] = left[i - 1] * nums[i - 1];
         }
+
         right[length - 1] = 1;
         for (int i = length - 2; i >= 0; i--) {
             right[i] = right[i + 1] * nums[i + 1];
         }
+
         for (int k = 0; k < length; k++) {
             answer[k] = left[k] * right[k];
         }
+
         return answer;
 
     }
@@ -265,10 +270,11 @@ public class ArraysAndStrings {
             else if (mid < num / mid) start = mid + 1;
             else end = mid - 1;
         }
+
         return false;
     }
 
-    // TC -> O(c), SC -> O(1)
+    // TC -> O(C), SC -> O(1)
     public boolean judgeSquareSum(int c) {
         for (long a = 0; a * a <= c; a++) {
             for (long b = 0; b * b <= c; b++) {
@@ -288,7 +294,7 @@ public class ArraysAndStrings {
         return false;
     }
 
-    // TC -> O(sqrt(clog c)), SC -> O(1)
+    // TC -> O(sqrt(Clog C)), SC -> O(1)
     public boolean judgeSquareSumIII(int c) {
         if (c < 3) return true;
         long a = 0, b = (int) Math.sqrt(c);
