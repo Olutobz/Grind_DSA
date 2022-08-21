@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LuckyInteger {
+public class LuckyIntegerInAnArray {
 
     // TC -> O(N), SC -> O(N)
     public int findLucky(int[] arr) {
