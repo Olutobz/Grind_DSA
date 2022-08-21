@@ -14,7 +14,8 @@ public class LuckyIntegerInAnArray {
         }
 
         for (int i = 500; i > 0; i--) {
-            if (freqArr[i] == i) return i;
+            if (freqArr[i] == i)
+                return i;
         }
 
         return -1;
@@ -40,7 +41,7 @@ public class LuckyIntegerInAnArray {
         return max;
     }
 
-    // TC -> O(NLogN), SC -> O(1)
+    // TC -> O(NLogN), SC -> O(LogN)
     public int findLuckyIII(int[] arr) {
         Arrays.sort(arr);
         int ans = 0;

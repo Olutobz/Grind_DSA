@@ -15,21 +15,27 @@ public class SpiralOrder {
 
         while (minRow <= maxRow && minCol <= maxCol) {
             // Go Right
-            for (int col = minCol; col <= maxCol; col++) list.add(matrix[minRow][col]);
+            for (int col = minCol; col <= maxCol; col++) {
+                list.add(matrix[minRow][col]);
+            }
             minRow++;
 
             // Go Down
-            for (int row = minRow; row <= maxRow; row++) list.add(matrix[row][maxCol]);
+            for (int row = minRow; row <= maxRow; row++) {
+                list.add(matrix[row][maxCol]);
+            }
             maxCol--;
 
             // Go Left
-            for (int col = maxCol; minRow <= maxRow && col >= minCol; col--)
+            for (int col = maxCol; minRow <= maxRow && col >= minCol; col--) {
                 list.add(matrix[maxRow][col]);
+            }
             maxRow--;
 
             // Go Up
-            for (int row = maxRow; minCol <= maxCol && row >= minRow; row--)
+            for (int row = maxRow; minCol <= maxCol && row >= minRow; row--) {
                 list.add(matrix[row][minCol]);
+            }
             minCol++;
 
         }
