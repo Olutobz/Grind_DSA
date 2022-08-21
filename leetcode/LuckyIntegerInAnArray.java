@@ -6,6 +6,7 @@ public class LuckyIntegerInAnArray {
 
     // TC -> O(N), SC -> O(N)
     public int findLucky(int[] arr) {
+        if (arr == null) return -1;
         int[] freqArr = new int[501];
 
         for (int num : arr) {
