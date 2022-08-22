@@ -6,17 +6,17 @@ public class Test {
 
     public static void printArray(int[][] arr) {
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(Arrays.toString(arr[i]));
+        for (int[] num : arr) {
+            System.out.println(Arrays.toString(num));
         }
         /* for (int[] a : arr) {
             System.out.println(Arrays.toString(a));
            }
         *  */
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; arr[i] != null && j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + " ");
+        for (int[] nums : arr) {
+            for (int j = 0; nums != null && j < nums.length; j++) {
+                System.out.print(nums[j] + " ");
             }
             System.out.println();
         }
