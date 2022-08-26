@@ -7,6 +7,8 @@
  * int guess(int num);
  */
 public class GuessNumberHigherOrLower {
+
+    // TC -> O(LogN), SC -> O(1)
     public int guessNumber(int n) {
         int start = 1, end = n;
 
