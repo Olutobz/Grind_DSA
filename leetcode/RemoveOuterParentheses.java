@@ -1,3 +1,4 @@
+import java.util.Stack;
 
 public class RemoveOuterParentheses {
 
@@ -13,6 +14,24 @@ public class RemoveOuterParentheses {
             } else {
                 opened--;
                 if (opened > 0) builder.append(c);
+            }
+        }
+
+        return builder.toString();
+    }
+
+    // TC -> O(N), SC -> O(N)
+    public String removeOuterParenthesesII(String s) {
+        StringBuilder builder = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '(') {
+                if (stack.size() > 0) builder.append(ch);
+                stack.push(ch);
+            } else {
+                stack.pop();
+                if (stack.size() > 0) builder.append(ch);
             }
         }
 
