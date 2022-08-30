@@ -32,6 +32,15 @@ public class LuckyIntegerInAnArray {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
+        /*
+           for (int key : map.keySet()) {
+             int value = map.get(key);
+             if (key == value) {
+                 max = Math.max(max, key);
+             }
+         }
+        */
+
         for (Map.Entry<Integer, Integer> e : map.entrySet()) {
             int key = e.getKey();
             int value = e.getValue();
