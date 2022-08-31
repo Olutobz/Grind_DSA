@@ -26,9 +26,9 @@ public class TwoSum {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            int potentialMatch = target - nums[i];
-            if (map.containsKey(potentialMatch)) {
-                return new int[]{map.get(potentialMatch), i};
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
             }
             map.put(nums[i], i);
         }
