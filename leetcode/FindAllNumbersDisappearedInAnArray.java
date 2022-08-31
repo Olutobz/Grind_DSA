@@ -3,9 +3,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class FindDisappearedNumbers {
+public class FindAllNumbersDisappearedInAnArray {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1) [assume the returned list does not count as extra space]
     public List<Integer> findDisappearedNumbers(int[] nums) {
         if (nums == null || nums.length == 0) return null;
         List<Integer> missing = new ArrayList<>();
