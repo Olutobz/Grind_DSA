@@ -1,4 +1,4 @@
-public class RemoveDuplicates {
+public class RemoveDuplicatesFromSortedArray {
     // TC -> O(N), SC -> O(1)
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;
