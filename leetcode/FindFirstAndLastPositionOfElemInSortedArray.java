@@ -9,7 +9,7 @@ public class FindFirstAndLastPositionOfElemInSortedArray {
     }
 
     private int findFirst(int[] arr, int target) {
-        int start = 0, end = arr.length - 1, index = -1;
+        int start = 0, end = arr.length - 1, first = -1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (arr[mid] >= target) {
@@ -17,13 +17,13 @@ public class FindFirstAndLastPositionOfElemInSortedArray {
             } else  {
                 start = mid + 1;
             }
-            if (arr[mid] == target) index = mid;
+            if (arr[mid] == target) first = mid;
         }
-        return index;
+        return first;
     }
 
     private int findLast(int[] arr, int target) {
-        int start = 0, end = arr.length - 1, index = -1;
+        int start = 0, end = arr.length - 1, last = -1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (arr[mid] <= target) {
@@ -31,8 +31,8 @@ public class FindFirstAndLastPositionOfElemInSortedArray {
             } else  {
                 end = mid - 1;
             }
-            if (arr[mid] == target) index = mid;
+            if (arr[mid] == target) last = mid;
         }
-        return index;
+        return last;
     }
 }
