@@ -39,6 +39,12 @@ public class Test {
         b[1] = new int[3];
         printArray(b);
 
+        int[] nums = {1,1,3,2,2,3,2,2};
+        int[] buc = new int[nums.length];
+
+        for( int e: nums){
+            System.out.print(buc[e]++ + " ");
+        }
     }
 
 
