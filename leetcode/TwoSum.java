@@ -21,7 +21,7 @@ public class TwoSum {
 
     // TC -> O(N), SC -> O(N)
     public int[] twoSumII(int[] nums, int target) {
-        if (nums == null || nums.length == 0) return new int[0];
+        if (nums == null || nums.length == 0) return new int[]{};
 
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class TwoSum {
             }
             map.put(nums[i], i);
         }
-        return new int[0];
+        return new int[]{};
 
     }
 
