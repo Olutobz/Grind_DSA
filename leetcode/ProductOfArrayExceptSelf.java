@@ -25,20 +25,20 @@ public class ProductOfArrayExceptSelf {
 
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1) (If we ignore the returned array)
     public int[] productExceptSelfII(int[] nums) {
         int length = nums.length;
-        int[] left = new int[length];
+        int[] arr = new int[length];
 
         for (int i = 0, temp = 1; i < length; i++) {
-            left[i] = temp;
+            arr[i] = temp;
             temp *= nums[i];
         }
         for (int i = length - 1, temp = 1; i >= 0; i--) {
-            left[i] *= temp;
+            arr[i] *= temp;
             temp *= nums[i];
         }
-        return left;
+        return arr;
     }
 
 }
