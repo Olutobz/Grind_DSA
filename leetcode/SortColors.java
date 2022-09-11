@@ -25,6 +25,7 @@ public class SortColors {
         }
     }
 
+    // TC -> O(N), SC -> O(1)
     public void sortColorsII(int[] nums) {
         if (nums == null || nums.length == 1) return;
         int count0 = 0, count1 = 0, count2 = 0;
