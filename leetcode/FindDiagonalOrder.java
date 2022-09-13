@@ -42,7 +42,7 @@ public class FindDiagonalOrder {
         return result;
     }
 
-    // TC -> O(M * N), SC -> O(N) (The Set will take extra memory to store int values)
+    // TC -> O(M * N), SC -> O(N) (The Map will take extra memory to store int values)
     public int[] findDiagonalOrderII(int[][] mat) {
         if (mat == null || mat.length == 0 || mat[0].length == 0) {
             return new int[0];
