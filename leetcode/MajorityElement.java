@@ -38,7 +38,6 @@ public class MajorityElement {
         if (nums.length == 1) return nums[0];
         int majorElem = nums.length / 2;
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
             if (map.get(num) > majorElem) {
@@ -50,23 +49,20 @@ public class MajorityElement {
         return majorElem;
     }
 
-    /* Boyer–Moore majority vote algorithm */
     // TC -> O(N), SC -> O(1)
+    /* Boyer–Moore majority vote algorithm */
     public int majorityElementIII(int[] nums) {
         if (nums.length == 1) return nums[0];
-        int majorElem = 0, count = 0;
+        int candidate = 0, count = 0;
 
         for (int num : nums) {
             if (count == 0) {
-                majorElem = num;
+                candidate = num;
             }
-            if (majorElem != num) {
-                count--;
-            } else {
-                count++;
-            }
+            count += (candidate != num) ? -1 : 1;
         }
-        return majorElem;
+
+        return candidate;
     }
 
 }
