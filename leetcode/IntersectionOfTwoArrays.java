@@ -32,7 +32,7 @@ public class IntersectionOfTwoArrays {
     }
 
     // TC -> O(NLogN + MLogM), SC -> O(N + M)
-    public int[] intersectionI(int[] nums1, int[] nums2) {
+    public int[] intersectionII(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
         }
@@ -62,7 +62,7 @@ public class IntersectionOfTwoArrays {
     }
 
     // TC -> O(NLogN + MLogM), SC -> O(N) [if we ignore the returned array]
-    public int[] intersectionII(int[] nums1, int[] nums2) {
+    public int[] intersectionIII(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
         }
