@@ -61,4 +61,41 @@ public class IntersectionOfTwoArrays {
         return result;
     }
 
+    // TC -> O(NLogN + MLogM), SC -> O(N) [if we ignore the returned array]
+    public int[] intersectionII(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
+            return new int[0];
+        }
+        Arrays.sort(nums1);
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums2) {
+            if (binarySearch(nums1, num)) {
+                set.add(num);
+            }
+        }
+        int[] result = new int[set.size()];
+        int k = 0;
+        for (int val : set) {
+            result[k++] = val;
+        }
+        return result;
+
+    }
+
+    private boolean binarySearch(int[] nums, int target) {
+        int start = 0, end = nums.length;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                return true;
+            } else if (nums[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return false;
+    }
+
 }
