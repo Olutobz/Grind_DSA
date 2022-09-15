@@ -4,7 +4,7 @@ import java.util.*;
  * Follow-up Question (1): What if the given array is already sorted? How would you optimize your algorithm?
  * Answer -> Approach 1 is the best choice since we skip the cost of sorting.
  * So time complexity is O(M+N) and the space complexity is O(N) because of our list, however this can
- * be improved by returning an array directly from the list.
+ * be improved by returning an array directly from the list using Java 8 streams.
  *
  * <p>
  * Follow-up Question (2): What if nums1's size is small compared to nums2's size? Which algorithm is better?
