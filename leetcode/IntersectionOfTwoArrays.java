@@ -61,7 +61,7 @@ public class IntersectionOfTwoArrays {
         return result;
     }
 
-    // TC -> O(NLogN + MLogM), SC -> O(N) [if we ignore the returned array]
+    // TC -> O(NLogN + MLogM), SC -> O(N) [without counting output as space]
     public int[] intersectionIII(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
