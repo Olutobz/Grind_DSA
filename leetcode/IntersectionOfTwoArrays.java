@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class IntersectionOfTwoArrays {
 
-    // TC -> O(N + M), SC -> O(N + M)
+    // TC -> O(N + M), SC -> O(max(N,M))
     public int[] intersection(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
@@ -31,7 +31,7 @@ public class IntersectionOfTwoArrays {
         return result;
     }
 
-    // TC -> O(NLogN + MLogM), SC -> O(N + M)
+    // TC -> O(NLogN + MLogM), SC -> O(max(N,M))
     public int[] intersectionII(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
