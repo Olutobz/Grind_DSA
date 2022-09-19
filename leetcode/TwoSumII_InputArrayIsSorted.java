@@ -66,16 +66,19 @@ public class TwoSumII_InputArrayIsSorted {
         if (numbers == null || numbers.length == 0) {
             return new int[0];
         }
+
         int start = 0, end = numbers.length - 1;
-        while (numbers[start] + numbers[end] != target) {
-            if (numbers[start] + numbers[end] < target) {
+        while (start < end) {
+            if (numbers[start] + numbers[end] == target) {
+                return new int[]{start + 1, end + 1};
+            } else if (numbers[start] + numbers[end] < target) {
                 start++;
             } else {
                 end--;
             }
         }
 
-        return new int[]{start + 1, end + 1};
+        return new int[]{};
     }
 
 }
