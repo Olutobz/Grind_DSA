@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MakeArrayZeroBySubtractingEqualAmounts {
+    // TC -> O(N), SC -> O(N)
     public int minimumOperations(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
