@@ -7,9 +7,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     // TC -> O(N), SC -> O(N)
     public int lengthOfLongestSubstring(String s) {
-        int left = 0, right = 0, max = 0;
         Set<Character> set = new HashSet<>();
-
+        int left = 0, right = 0, max = 0;
         while (right < s.length()) {
             if (set.contains(s.charAt(right))) {
                 set.remove(s.charAt(left));
