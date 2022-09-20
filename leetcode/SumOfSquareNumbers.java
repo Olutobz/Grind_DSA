@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SumOfSquareNumbers {
-    // TC -> O(C), SC -> O(1)
+    // TC -> O(C^2), SC -> O(1)
     public boolean judgeSquareSum(int c) {
         for (long a = 0; a * a <= c; a++) {
             for (long b = 0; b * b <= c; b++) {
