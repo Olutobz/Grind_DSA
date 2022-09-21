@@ -1,7 +1,31 @@
 public class SetMismatch {
 
-    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    // TC -> O(N^2), SC -> O(1) (if we ignore the output data)
     public int[] findErrorNums(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+        int[] result = new int[2];
+
+        for (int i = 1; i <= nums.length; i++) {
+            int count = 0;
+            for (int num : nums) {
+                if (num == i) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                result[0] = i;
+            } else if (count == 0) {
+                result[1] = i;
+            }
+        }
+
+        return result;
+    }
+
+    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    public int[] findErrorNumsII(int[] nums) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
         }
