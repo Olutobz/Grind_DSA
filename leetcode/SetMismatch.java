@@ -69,7 +69,7 @@ public class SetMismatch {
             return new int[]{};
         }
         int n = nums.length, duplicate = 0;
-        int actualSum = 0, expectedSum = (int) (Math.pow(n, 2) + n) / 2;
+        int actualSum = 0, correctSum = (int) (Math.pow(n, 2) + n) / 2;
 
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -80,7 +80,7 @@ public class SetMismatch {
             actualSum += num;
         }
 
-        int missing = duplicate + (expectedSum - actualSum);
+        int missing = duplicate + (correctSum - actualSum);
         return new int[]{duplicate, missing};
     }
 
