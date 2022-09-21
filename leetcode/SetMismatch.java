@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SetMismatch {
 
     // TC -> O(N^2), SC -> O(1) (if we ignore the output data)
@@ -24,8 +26,25 @@ public class SetMismatch {
         return result;
     }
 
-    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    // TC -> O(NLogN), SC -> O(sorting)
     public int[] findErrorNumsII(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+        int duplicate = 0, missing = 0;
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                duplicate = nums[i];
+            } else if (nums[i] > nums[i - 1] + 1) {
+                missing = nums[i - 1] + 1;
+            }
+        }
+        return new int[]{duplicate, nums[nums.length - 1] == nums.length ? missing : nums.length};
+    }
+
+    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    public int[] findErrorNumsIII(int[] nums) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
         }
