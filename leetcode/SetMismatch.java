@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SetMismatch {
 
@@ -65,11 +63,33 @@ public class SetMismatch {
         return new int[]{duplicate, missing};
     }
 
-    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    // TC -> O(N), SC -> O(N)
     public int[] findErrorNumsIV(int[] nums) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
         }
+        int n = nums.length, duplicate = 0;
+        int actualSum = 0, expectedSum = (int) (Math.pow(n, 2) + n) / 2;
+
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num)) {
+                duplicate = num;
+            }
+            set.add(num);
+            actualSum += num;
+        }
+
+        int missing = duplicate + (expectedSum - actualSum);
+        return new int[]{duplicate, missing};
+    }
+
+    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    public int[] findErrorNumsV(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+
         int[] result = new int[2];
         for (int i = 0; i < nums.length; i++) {
             int idx = Math.abs(nums[i]) - 1;
