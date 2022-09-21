@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SetMismatch {
 
@@ -8,13 +10,10 @@ public class SetMismatch {
             return new int[]{};
         }
         int[] result = new int[2];
-
         for (int i = 1; i <= nums.length; i++) {
             int count = 0;
             for (int num : nums) {
-                if (num == i) {
-                    count++;
-                }
+                if (num == i) count++;
             }
             if (count == 2) {
                 result[0] = i;
@@ -43,13 +42,35 @@ public class SetMismatch {
         return new int[]{duplicate, nums[nums.length - 1] == nums.length ? missing : nums.length};
     }
 
-    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    // TC -> O(N), SC -> O(N)
     public int[] findErrorNumsIII(int[] nums) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
         }
-        int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
+        int duplicate = 0, missing = 0;
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
 
+        for (int i = 1; i <= nums.length; i++) {
+            if (map.containsKey(i)) {
+                if (map.get(i) == 2) {
+                    duplicate = i;
+                }
+            } else {
+                missing = i;
+            }
+        }
+        return new int[]{duplicate, missing};
+    }
+
+    // TC -> O(N), SC -> O(1) (if we ignore the output data)
+    public int[] findErrorNumsIV(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+        int[] result = new int[2];
         for (int i = 0; i < nums.length; i++) {
             int idx = Math.abs(nums[i]) - 1;
             if (nums[idx] < 0) {
