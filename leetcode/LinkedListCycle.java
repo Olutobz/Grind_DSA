@@ -1,5 +1,10 @@
 public class LinkedListCycle {
 
+    /**
+     * Floyd’s Cycle-Finding Algorithm
+     * Or
+     * tortoise and the hare algorithm
+     */
     // TC -> O(N), SC -> O(1)
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
