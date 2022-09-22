@@ -16,7 +16,7 @@ public class FindTheDuplicateNumber {
         return -1;
     }
 
-    // TC -> O(NLogN), SC -> O(sorting)
+    // TC -> O(NLogN), SC -> O(sorting), O(LogN)
     public int findDuplicateII(int[] nums) {
         Arrays.sort(nums);
         for (int i = 1; i < nums.length; i++) {
@@ -55,17 +55,23 @@ public class FindTheDuplicateNumber {
 
     // TC -> O(N), SC -> O(1)
     public int findDuplicateV(int[] nums) {
-        int len = nums.length;
+        int len = nums.length, duplicate = 0;
 
         for (int i = 0; i < len; i++) {
-            int idx = Math.abs(nums[i]);
-            if (nums[idx] < 0) {
-                return idx;
+            int currNum = Math.abs(nums[i]);
+            if (nums[currNum] < 0) {
+                duplicate = currNum;
+                break;
             }
-            nums[idx] = -1 * nums[idx];
+            nums[currNum] = -1 * nums[currNum];
         }
 
-        return len;
+        // Restore the input values
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Math.abs(nums[i]);
+        }
+
+        return duplicate;
     }
 
 }
