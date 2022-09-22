@@ -21,6 +21,7 @@ public class LinkedListCycle {
         return false;
     }
 
+    // TC -> O(N), SC -> O(N)
     public boolean hasCycleII(ListNode head) {
         if (head == null || head.next == null) {
             return false;
