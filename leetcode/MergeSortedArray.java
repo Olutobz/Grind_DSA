@@ -23,16 +23,16 @@ public class MergeSortedArray {
 
     // TC -> O(M + N), SC -> O(1)
     public void mergeII(int[] nums1, int m, int[] nums2, int n) {
-        int firstArrIndex = m - 1, secondArrIndex = n - 1, index = m + n - 1;
-        while (secondArrIndex >= 0) {
-            if (firstArrIndex >= 0 && nums1[firstArrIndex] > nums2[secondArrIndex]) {
-                nums1[index] = nums1[firstArrIndex];
-                firstArrIndex--;
+        int arr1Index = m - 1, arr2Index = n - 1, index = m + n - 1;
+        while (arr2Index >= 0) {
+            if (arr1Index >= 0 && nums1[arr1Index] > nums2[arr2Index]) {
+                nums1[index] = nums1[arr1Index];
+                arr1Index--;
                 index--;
             } else {
-                nums1[index] = nums2[secondArrIndex];
+                nums1[index] = nums2[arr2Index];
                 index--;
-                secondArrIndex--;
+                arr2Index--;
             }
         }
     }
