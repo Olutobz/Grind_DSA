@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class HappyNumber {
 
-    // TC -> O(LogN), SC -> O(N)
+    // TC -> O(LogN), SC -> O(LogN)
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
         while (n != 1 && !set.contains(n)) {
@@ -22,6 +22,18 @@ public class HappyNumber {
             n = getNext(n);
         }
         return n == 1;
+    }
+
+    // TC -> O(LogN), SC -> O(1)
+    public boolean isHappyII(int n) {
+        int slowRunner = n;
+        int fastRunner = getNext(n);
+        while (fastRunner != slowRunner && fastRunner != 1) {
+            slowRunner = getNext(slowRunner);
+            fastRunner = getNext(getNext(fastRunner));
+        }
+
+        return fastRunner == 1;
     }
 
     private int getNext(int n) {
