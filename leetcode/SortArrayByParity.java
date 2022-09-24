@@ -1,6 +1,6 @@
 public class SortArrayByParity {
 
-    // TC -> O(N), SC -> O(1) (if we ignore the return array)
+    // TC -> O(N), SC -> O(1)
     public int[] sortArrayByParity(int[] nums) {
         if (nums == null) return null;
         for (int readIndex = 0, writeIndex = 0; readIndex < nums.length; readIndex++) {
