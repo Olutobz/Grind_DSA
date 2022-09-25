@@ -74,4 +74,24 @@ public class FindTheDuplicateNumber {
         return duplicate;
     }
 
+    // TC -> O(N), SC -> O(1)
+    public int findDuplicateVI(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+
+        // detect cycle
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+
+        slow = 0;
+        // detect entry point
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+
 }
