@@ -22,7 +22,7 @@ public class FindResultantArrayAfterRemovingAnagrams {
     }
 
     // TC -> O(N), SC -> O(26)
-    public boolean isAnagram(String s, String t) {
+    private boolean isAnagram(String s, String t) {
         if (s == null && t == null) return true;
         else if (s == null || t == null) return false;
         else if (s.length() != t.length()) return false;
