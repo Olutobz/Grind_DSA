@@ -21,5 +21,19 @@ public class FindNumbersWithEvenNumberOfDigits {
         return count;
     }
 
+    public int findNumbersII(int[] nums) {
+        // Check if array has items present in it
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        int count = 0;
+        for (int num : nums) {
+            if (String.valueOf(num).length() % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
