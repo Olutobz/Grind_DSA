@@ -1,7 +1,6 @@
 public class FindNumbersWithEvenNumberOfDigits {
 
     public int findNumbers(int[] nums) {
-        // Check if the array is empty
         if (nums.length == 0) {
             return 0;
         }
@@ -22,7 +21,6 @@ public class FindNumbersWithEvenNumberOfDigits {
     }
 
     public int findNumbersII(int[] nums) {
-        // Check if array has items present in it
         if (nums.length == 0) {
             return 0;
         }
