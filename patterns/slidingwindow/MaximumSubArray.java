@@ -1,3 +1,4 @@
+package slidingwindow;
 
 /**
  * Find the max sum subarray of a fixed size K
@@ -7,6 +8,7 @@
 
 public class MaximumSubArray {
 
+    // TC -> O(N), SC -> O(1)
     public static int findMaxSumSubArray(int[] nums, int k) {
         int maxValue = Integer.MIN_VALUE;
         int currRunningSum = 0;
