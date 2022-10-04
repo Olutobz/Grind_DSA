@@ -6,7 +6,7 @@ package slidingwindow;
  * [4,2,1,7,8,1,2,8,1,0],  K = 3
  */
 
-public class MaximumSubArray {
+public class MaximumSubarray {
 
     // TC -> O(N), SC -> O(1)
     public static int findMaxSumSubArray(int[] nums, int k) {
@@ -24,9 +24,9 @@ public class MaximumSubArray {
     }
 
     public static void main(String[] args) {
-        int[] testArr = new int[] {4,2,1,7,8,1,2,8,1,0};
+        int[] input = new int[]{4, 2, 1, 7, 8, 1, 2, 8, 1, 0};
         int k = 3;
-        System.out.println(findMaxSumSubArray(testArr, k));
+        System.out.println(findMaxSumSubArray(input, k));
     }
 
 }
