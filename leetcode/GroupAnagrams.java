@@ -27,8 +27,10 @@ public class GroupAnagrams {
         if (str == null || str.length == 0) {
             return new ArrayList<>();
         }
+
         Map<String, List<String>> map = new HashMap<>();
         for (String word : str) {
+            //only lower-case letters. so array of size 26 is enough
             char[] freq = new char[26];
             for (char c : word.toCharArray()) {
                 freq[c - 'a']++;
