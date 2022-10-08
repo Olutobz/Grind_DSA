@@ -21,4 +21,34 @@ public class FirstMissingPositive {
         }
         return res;
     }
+
+    // TC -> O(N), SC -> O(1)
+    public int firstMissingPositiveII(int[] nums) {
+        int len = nums.length;
+
+        for (int i = 0; i < len; i++) {
+            if (nums[i] <= 0 || nums[i] > len) {
+                nums[i] = len + 1;
+            }
+        }
+
+        // all the elems are +ve at this point
+        for (int i = 0; i < len; i++) {
+            int num = Math.abs(nums[i]);
+            if (num > len) continue;
+            num--;
+            if (nums[num] > 0) {
+                nums[num] = -1 * nums[num];
+            }
+        }
+
+        for (int i = 0; i < len; i++) {
+            if (nums[i] >= 0) {
+                return i + 1;
+            }
+        }
+
+        return len + 1;
+    }
+
 }
