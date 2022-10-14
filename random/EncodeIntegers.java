@@ -13,3 +13,12 @@
 */
 
 
+public class EncodeIntegers {
+
+    private static int encodeInt(int num) {
+       return 0;
+
+    }
+
+
+}
