@@ -16,7 +16,23 @@
 public class EncodeIntegers {
 
     private static int encodeInt(int num) {
-       return 0;
+        StringBuilder encodedStr = new StringBuilder();
+        String numStr = num + "";
+        int digitCount = 1;
+        char prevDigit = numStr.charAt(0);
+
+        for (int i = 1; i < numStr.length(); i++) {
+            if (numStr.charAt(i) == prevDigit) {
+                digitCount++;
+            }
+            else {
+                encodedStr.append(digitCount).append(prevDigit);
+                digitCount = 1;
+                prevDigit = numStr.charAt(i);
+            }
+        }
+        encodedStr.append(digitCount).append(prevDigit);
+        return Integer.parseInt(encodedStr.toString());
 
     }
 
