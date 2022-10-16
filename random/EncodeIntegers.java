@@ -24,8 +24,7 @@ public class EncodeIntegers {
         for (int i = 1; i < numStr.length(); i++) {
             if (numStr.charAt(i) == prevDigit) {
                 digitCount++;
-            }
-            else {
+            } else {
                 encodedStr.append(digitCount).append(prevDigit);
                 digitCount = 1;
                 prevDigit = numStr.charAt(i);
