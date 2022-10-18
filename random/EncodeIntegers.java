@@ -16,6 +16,7 @@
 public class EncodeIntegers {
 
     private static int encodeInt(int num) {
+        if (num < 0) throw new IllegalArgumentException("Enter a valid integer number");
         StringBuilder encodedStr = new StringBuilder();
         String numStr = num + "";
         int digitCount = 1;
