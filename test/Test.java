@@ -8,10 +8,6 @@ public class Test {
         for (int[] num : arr) {
             System.out.println(Arrays.toString(num));
         }
-        /* for (int[] a : arr) {
-            System.out.println(Arrays.toString(a));
-           }
-        *  */
 
         for (int[] nums : arr) {
             for (int j = 0; nums != null && j < nums.length; j++) {
