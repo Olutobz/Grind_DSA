@@ -7,6 +7,7 @@ public class LengthOfLastWords {
         return s.length();
     }
 
+    // TC -> O(N), SC -> O(1)
     public int lengthOfLastWordII(String s) {
         s = s.trim();
         int count = 0;
