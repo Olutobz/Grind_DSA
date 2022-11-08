@@ -57,4 +57,29 @@ public class CountServersThatCommunicate {
         return totalServers;
     }
 
+
+    // TC -> O(N * M), SC -> O(N + M)
+    public int countServersIII(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        // rc, cc for row count, column count;
+        int[] rc = new int[m];
+        int[] cc = new int[n];
+        int res = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] != 1) continue;
+                rc[i]++;
+                cc[j]++;
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] != 1) continue;
+                if (rc[i] > 1 || cc[j] > 1) res++;
+            }
+        }
+        return res;
+    }
+
 }
