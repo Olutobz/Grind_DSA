@@ -17,6 +17,7 @@ public class FindTheIndexOfTheFirstOccurrenceInAString {
 
     }
 
+    // TC -> O(M*N), SC -> O(1)
     public int strStrII(String haystack, String needle) {
         int m = needle.length();
         int n = haystack.length();
