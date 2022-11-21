@@ -1,8 +1,9 @@
 public class FindTheIndexOfTheFirstOccurrenceInAString {
     // TC -> O(M*N), SC -> O(1)
     public int strStr(String haystack, String needle) {
-        if (needle.isEmpty()) return 0;
-        if (haystack.isEmpty() || haystack.length() < needle.length()) return -1;
+        if (needle == null || haystack == null || haystack.length() < needle.length()) {
+            return -1;
+        }
 
         for (int i = 0, j = 0; i < haystack.length(); i++) {
             if (haystack.charAt(i) == needle.charAt(j)) {
