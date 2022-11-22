@@ -1,5 +1,5 @@
 public class FindTheIndexOfTheFirstOccurrenceInAString {
-    // TC -> O(M*N), SC -> O(1)
+    // TC -> O(MN), SC -> O(1)
     public int strStr(String haystack, String needle) {
         if (needle == null || haystack == null || haystack.length() < needle.length()) {
             return -1;
@@ -19,10 +19,13 @@ public class FindTheIndexOfTheFirstOccurrenceInAString {
 
     }
 
-    // TC -> O(M*N), SC -> O(1)
+    // TC -> O(MN), SC -> O(1)
     public int strStrII(String haystack, String needle) {
-        int m = needle.length();
-        int n = haystack.length();
+        if (needle == null || haystack == null || haystack.length() < needle.length()) {
+            return -1;
+        }
+
+        int m = needle.length(), n = haystack.length();
 
         for (int windowStart = 0; windowStart <= n - m; windowStart++) {
             for (int i = 0; i < m; i++) {
