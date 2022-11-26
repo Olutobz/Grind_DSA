@@ -3,6 +3,8 @@ import java.util.HashMap;
 public class AlternatingCharacters {
 
     public static int alternatingCharacters(String str) {
+        if (str == null || str.isEmpty()) return -1;
+
         HashMap<Character, Integer> count = new HashMap<>();
         int sumTotal = 0;
 
