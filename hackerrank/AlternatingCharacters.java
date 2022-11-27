@@ -21,4 +21,22 @@ public class AlternatingCharacters {
         return sumTotal;
     }
 
+    public static int alternatingCharactersII(String str) {
+        char[] sArray = str.toCharArray();
+        char currentLetter = sArray[0];
+        int count = 0;
+
+        for (int i = 0; i < sArray.length; i++) {
+            if (i == 0) {
+                continue;
+            }
+            if (sArray[i] == currentLetter) {
+                count++;
+            } else {
+                currentLetter = sArray[i];
+            }
+        }
+        return count;
+    }
+
 }
