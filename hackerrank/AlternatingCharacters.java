@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class AlternatingCharacters {
 
+    // TC -> O(N), SC -> O(N)
     public static int alternatingCharacters(String str) {
         if (str == null || str.isEmpty()) return -1;
 
@@ -21,6 +22,7 @@ public class AlternatingCharacters {
         return sumTotal;
     }
 
+    // TC -> O(N), SC -> O(N)
     public static int alternatingCharactersII(String str) {
         char[] sArray = str.toCharArray();
         char currentLetter = sArray[0];
