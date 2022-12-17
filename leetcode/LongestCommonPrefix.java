@@ -3,12 +3,12 @@ import java.util.Arrays;
 public class LongestCommonPrefix {
 
     // TC -> O(NLogN), SC -> O(1)
-    public String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0) return "";
+    public String longestCommonPrefix(String[] str) {
+        if (str == null || str.length == 0) return "";
 
-        Arrays.sort(strs);
-        String first = strs[0];
-        String last = strs[strs.length - 1];
+        Arrays.sort(str);
+        String first = str[0];
+        String last = str[str.length - 1];
         int c = 0;
         while (c < first.length()) {
             if (first.charAt(c) == last.charAt(c)) c++;
@@ -18,10 +18,11 @@ public class LongestCommonPrefix {
     }
 
     // TC -> O(NM), SC -> O(1)
-    public String longestCommonPrefixII(String[] strs) {
-        String prefix = strs[0];
-        for (int index = 1; index < strs.length; index++) {
-            while (strs[index].indexOf(prefix) != 0) {
+    public String longestCommonPrefixII(String[] str) {
+        if (str == null || str.length == 0) return "";
+        String prefix = str[0];
+        for (int index = 1; index < str.length; index++) {
+            while (str[index].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
             }
         }
