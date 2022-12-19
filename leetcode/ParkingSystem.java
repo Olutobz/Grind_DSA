@@ -15,9 +15,9 @@ public class ParkingSystem {
         this.small = small;
     }
 
+    // TC -> O(1), SC -> O(1)
     public boolean addCar(int carType) {
-        if (carType == 1 && big == 0 ||
-                carType == 2 && medium == 0 || carType == 3 && small == 0) {
+        if (carType == 1 && big == 0 || carType == 2 && medium == 0 || carType == 3 && small == 0) {
             return false;
         }
         if (carType == 1) big--;
@@ -35,6 +35,7 @@ public class ParkingSystem {
             this.map.put(3, small);
         }
 
+        // TC -> O(1), SC -> O(N)
         public boolean addCar(int carType) {
             int r = map.get(carType);
             if (r > 0) {
