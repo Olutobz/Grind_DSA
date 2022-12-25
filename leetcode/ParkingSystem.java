@@ -1,4 +1,5 @@
-
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Your ParkingSystem object will be instantiated and called as such:
@@ -23,5 +24,9 @@ public class ParkingSystem {
         if (carType == 2) medium--;
         if (carType == 3) small--;
         return true;
+    }
+
+    static class ParkingSystemII {
+
     }
 }
