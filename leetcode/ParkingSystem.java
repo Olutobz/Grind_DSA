@@ -27,6 +27,21 @@ public class ParkingSystem {
     }
 
     static class ParkingSystemII {
+        private final Map<Integer, Integer> map = new HashMap<>();
 
+        public ParkingSystemII(int big, int medium, int small) {
+            this.map.put(1, big);
+            this.map.put(2, medium);
+            this.map.put(3, small);
+        }
+
+        public boolean addCar(int carType) {
+            int r = map.get(carType);
+            if (r > 0) {
+                map.put(carType, r - 1);
+                return true;
+            }
+            return false;
+        }
     }
 }
