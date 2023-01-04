@@ -1,5 +1,6 @@
 public class ShuffleTheArray {
 
+    // TC -> O(N), SC -> O(1)
     public int[] shuffle(int[] nums, int n) {
         for (int i = n; i < nums.length; i++) {
             nums[i] = (nums[i] * 1024) + nums[i - n];
