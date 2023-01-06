@@ -2,6 +2,7 @@ public class ShuffleTheArray {
 
     // TC -> O(N), SC -> O(1)
     public int[] shuffle(int[] nums, int n) {
+        if (nums == null || nums.length == 0) return new int[]{};
         for (int i = n; i < nums.length; i++) {
             nums[i] = (nums[i] * 1024) + nums[i - n];
         }
@@ -16,6 +17,7 @@ public class ShuffleTheArray {
 
     // TC -> O(N), SC -> O(N)
     public int[] shuffleII(int[] nums, int n) {
+        if (nums == null || nums.length == 0) return new int[]{};
         int[] res = new int[n * 2];
         int idx = 0;
         for (int i = 0, j = n; idx < res.length; i++, j++) {
@@ -28,6 +30,7 @@ public class ShuffleTheArray {
 
     // TC -> O(N), SC -> O(N)
     public int[] shuffleIII(int[] nums, int n) {
+        if (nums == null || nums.length == 0) return new int[]{};
         int[] res = new int[n * 2];
         for (int i = 0; i < nums.length; i++) {
             res[2 * i] = nums[i];
