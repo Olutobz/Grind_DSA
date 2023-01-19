@@ -15,17 +15,7 @@ public class TruncateSentence {
         return s;
     }
 
-    // TC -> O(N), SC -> O(N)
-    public String truncateSentence(String s, int k) {
-        if (s == null || s.length() == 0) return "";
-        String[] words = s.split(" ");
-        StringBuilder res = new StringBuilder();
-        for (int i = 0; i < k; i++) {
-            res.append(words[i]).append(' ');
-        }
-        return res.toString().trim();
-    }
-
+    // TC -> O(N), SC -> O(1)
     public String truncateSentenceII(String s, int k) {
         if (s == null || s.length() == 0) return "";
         StringBuilder res = new StringBuilder();
@@ -36,6 +26,17 @@ public class TruncateSentence {
             res.append(s.charAt(i));
         }
         return res.toString();
+    }
+
+    // TC -> O(N), SC -> O(N)
+    public String truncateSentence(String s, int k) {
+        if (s == null || s.length() == 0) return "";
+        String[] words = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < k; i++) {
+            res.append(words[i]).append(' ');
+        }
+        return res.toString().trim();
     }
 
 }
