@@ -11,7 +11,6 @@ public class ShuffleTheArray {
             nums[idx] = nums[i] % 1024;
             nums[idx + 1] = nums[i] / 1024;
         }
-
         return nums;
     }
 
