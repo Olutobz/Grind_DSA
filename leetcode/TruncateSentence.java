@@ -3,11 +3,11 @@ public class TruncateSentence {
     // TC -> O(N), SC -> O(1)
     public String truncateSentenceIII(String s, int k) {
         if (s == null || s.length() == 0) return "";
-        int count = 0;
+        int spaceCount = 0;
         for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == ' ') {
-                count++;
-                if (count == k) {
+                spaceCount++;
+                if (spaceCount == k) {
                     return s.substring(0, i);
                 }
             }
