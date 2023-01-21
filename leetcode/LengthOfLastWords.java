@@ -4,7 +4,6 @@ public class LengthOfLastWords {
     public int lengthOfLastWord(String s) {
         if (s == null || s.length() == 0) return -1;
         int count = 0;
-
         for (int i = s.length() - 1; i >= 0; i--) {
             if (s.charAt(i) != ' ') { // a letter is found so count
                 count++;
