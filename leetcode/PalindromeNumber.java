@@ -1,4 +1,6 @@
 public class PalindromeNumber {
+
+    // TC -> O(N), SC -> O(1);
     public boolean isPalindrome(int x) {
         String temp = Integer.toString(x);
         int i = 0, j = temp.length() - 1;
