@@ -1,5 +1,5 @@
 public class AddStrings {
-    // TC -> O(N), SC -> O(1)
+    // TC -> O(max(N, M)), SC -> O(1)
     public String addStrings(String num1, String num2) {
         if (num1 == null || num1.length() == 0) return num2;
         if (num2 == null || num2.length() == 0) return num1;
