@@ -15,16 +15,16 @@ public class RemoveElement {
     // TC -> O(N), SC -> O(1)
     public int removeElementII(int[] nums, int val) {
         if (nums.length == 0) return 0;
-        int length = nums.length;
+        int end = nums.length;
         int i = 0;
-        while (i < length) {
+        while (i < end) {
             if (nums[i] == val) {
-                nums[i] = nums[length - 1];
-                length--;
+                nums[i] = nums[end - 1];
+                end--;
             } else {
                 i++;
             }
         }
-        return length;
+        return end;
     }
 }
