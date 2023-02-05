@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class ArrayPartition {
+
+    // TC -> O(N), SC -> O(1)
     public int arrayPairSum(int[] nums) {
         if (nums == null || nums.length == 0) {
             return -1;
@@ -8,11 +10,9 @@ public class ArrayPartition {
 
         Arrays.sort(nums);
         int res = 0;
-
         for (int i = 0; i < nums.length; i += 2) {
             res += nums[i];
         }
-
         return res;
     }
 }
