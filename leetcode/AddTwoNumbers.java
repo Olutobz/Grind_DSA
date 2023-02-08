@@ -1,5 +1,6 @@
 public class AddTwoNumbers {
 
+    // TC -> O(max(N,M)), SC -> O(max(N,M)) where N is length of l1 & M is length of l2
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
@@ -19,8 +20,7 @@ public class AddTwoNumbers {
 
             sum += carry;
             carry = sum / 10;
-            ListNode node = new ListNode(sum % 10);
-            curr.next = node;
+            curr.next = new ListNode(sum % 10);
             curr = curr.next;
 
         }
