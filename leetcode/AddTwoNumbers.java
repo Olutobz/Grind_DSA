@@ -3,7 +3,7 @@ public class AddTwoNumbers {
     // TC -> O(max(N,M)), SC -> O(max(N,M)) where N is length of l1 & M is length of l2
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
-        ListNode curr = dummy;
+        ListNode pointer = dummy;
         int carry = 0;
 
         while (l1 != null || l2 != null || carry == 1) {
@@ -20,8 +20,8 @@ public class AddTwoNumbers {
 
             sum += carry;
             carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
+            pointer.next = new ListNode(sum % 10);
+            pointer = pointer.next;
 
         }
 
