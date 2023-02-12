@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MinimumSizeSubarraySum {
 
     // TC -> O(N), SC -> O(1)
@@ -16,4 +18,5 @@ public class MinimumSizeSubarraySum {
         }
         return min == Integer.MAX_VALUE ? 0 : min;
     }
+
 }
