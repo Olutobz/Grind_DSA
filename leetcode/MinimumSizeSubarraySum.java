@@ -19,4 +19,21 @@ public class MinimumSizeSubarraySum {
         return min == Integer.MAX_VALUE ? 0 : min;
     }
 
+    // TC -> O(NLogN), SC -> O(1)
+    public int minSubArrayLenII(int target, int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        Arrays.sort(nums);
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    min = Math.min(min, j - i + 1);
+                }
+            }
+        }
+
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
 }
