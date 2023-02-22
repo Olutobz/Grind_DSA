@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SummaryRanges {
+    // TC -> O(N), SC -> O(1) [If we ignore the returning list of strings]
     public List<String> summaryRanges(int[] nums) {
         List<String> res = new ArrayList<>();
         if (nums == null || nums.length == 0) {
