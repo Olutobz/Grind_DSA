@@ -8,7 +8,7 @@ public class MinimumSizeSubarraySum {
         int min = Integer.MAX_VALUE;
         int sum = 0;
 
-        for (int windowEnd = 0, windowStart = 0; windowEnd < nums.length; windowEnd++) {
+        for (int windowStart = 0, windowEnd = 0; windowEnd < nums.length; windowEnd++) {
             sum += nums[windowEnd];
             while (sum >= target) {
                 min = Math.min(min, windowEnd - windowStart + 1);
