@@ -23,6 +23,9 @@ public class MaxNumberOfKSumPairs {
 
     // TC -> O(N), SC -> O(N)
     public int maxOperationsII(int[] nums, int k) {
+        if (nums == null || k <= 0) {
+            throw new IllegalArgumentException("Input array is null");
+        }
         Map<Integer, Integer> map = new HashMap<>();
         int count = 0;
         for (int num : nums) {
