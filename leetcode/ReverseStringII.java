@@ -1,5 +1,6 @@
 public class ReverseStringII {
 
+    // TC -> O(N), SC -> O(N)
     public String reverseStr(String s, int k) {
         if (s == null || s.isEmpty()) return s;
         if (k == 0) return s;
@@ -13,6 +14,7 @@ public class ReverseStringII {
         return new String(arr);
     }
 
+    // TC -> O(N), SC -> O(1)
     private void swap(char[] arr, int left, int right) {
         while (left < right) {
             char temp = arr[left];
@@ -23,6 +25,7 @@ public class ReverseStringII {
         }
     }
 
+    // TC -> O(N), SC -> O(1)
     public String reverseStrII(String s, int k) {
         if (s == null || s.isEmpty()) return s;
         if (k == 0) return s;
