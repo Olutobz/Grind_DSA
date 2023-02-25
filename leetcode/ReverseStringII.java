@@ -1,4 +1,5 @@
 public class ReverseStringII {
+
     public String reverseStr(String s, int k) {
         if (s == null || s.isEmpty()) return s;
         if (k == 0) return s;
@@ -20,5 +21,25 @@ public class ReverseStringII {
             left++;
             right--;
         }
+    }
+
+    public String reverseStrII(String s, int k) {
+        if (s == null || s.isEmpty()) return s;
+        if (k == 0) return s;
+        StringBuilder sb = new StringBuilder(s);
+        int i = 0;
+        while (i < s.length()) {
+            int j = Math.min(i + k - 1, s.length() - 1);
+            while (i < j) {
+                char temp = sb.charAt(i);
+                sb.setCharAt(i, s.charAt(j));
+                sb.setCharAt(j, temp);
+                i++;
+                j--;
+            }
+            i += 2 * k;
+        }
+
+        return sb.toString();
     }
 }
