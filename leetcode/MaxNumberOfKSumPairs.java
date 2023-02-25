@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MaxNumberOfKSumPairs {
+    // TC -> O(N^2), SC -> O(1)
     public int maxOperations(int[] nums, int k) {
         if (nums == null || k <= 0) {
             throw new IllegalArgumentException("Input array is null");
@@ -20,6 +21,7 @@ public class MaxNumberOfKSumPairs {
         return count;
     }
 
+    // TC -> O(N), SC -> O(N)
     public int maxOperationsII(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         int count = 0;
