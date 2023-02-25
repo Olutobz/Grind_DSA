@@ -7,12 +7,11 @@ public class FindResultantArrayAfterRemovingAnagrams {
 
     // TC -> O(K*NLogN), SC -> O(1)
     public List<String> removeAnagrams(String[] words) {
-        String prev = "";
         List<String> res = new ArrayList<>();
-        if (words.length == 0) {
+        if (words == null) {
             return res;
         }
-
+        String prev = "";
         for (String word : words) {
             char[] ch = word.toCharArray();
             Arrays.sort(ch);
