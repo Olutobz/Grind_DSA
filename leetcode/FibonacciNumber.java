@@ -24,26 +24,27 @@ public class FibonacciNumber {
 
         int[] map = new int[n + 1];
         for (int i = 2; i <= n; i++) {
-            map[i] = map[i-1] + map[i-2];
+            map[i] = map[i - 1] + map[i - 2];
         }
 
         return map[n];
     }
 
+    // TC -> O(2^N), SC -> O(N)
     public int fibIII(int n) {
         if (n <= 1) return n;
 
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0, 0);
         map.put(1, 1);
-
         return getFibFromMap(n, map);
 
     }
 
+    // TC -> O(2^N), SC -> O(1)
     private int getFibFromMap(int N, HashMap<Integer, Integer> map) {
         if (!map.containsKey(N)) {
-            int currenFib = getFibFromMap(N - 1, map) + getFibFromMap(N-2, map);
+            int currenFib = getFibFromMap(N - 1, map) + getFibFromMap(N - 2, map);
             map.put(N, currenFib);
         }
         return map.get(N);
