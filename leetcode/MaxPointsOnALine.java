@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MaxPointsOnALine {
+    // TC -> O(N^2), SC -> O(N)
     public int maxPoints(int[][] points) {
         if (points.length == 1) return 1;
         int res = 0;
