@@ -35,7 +35,7 @@ public class GroupAnagrams {
             for (char c : word.toCharArray()) {
                 freq[c - 'a']++;
             }
-            String currStr = Arrays.toString(freq);
+            String currStr = String.valueOf(freq);
             if (!map.containsKey(currStr)) {
                 map.put(currStr, new ArrayList<>());
             }
