@@ -4,6 +4,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class MostCommonWord {
+
+    private String computeString(String s) {
+        s = s.replaceAll("\\W+", " ");
+        s = s.trim().toLowerCase();
+        return s;
+    }
+
+    // TC -> O(N), SC -> O(N)
     public String mostCommonWord(String paragraph, String[] banned) {
         String str = computeString(paragraph);
         String[] words = str.split(" ");
@@ -32,6 +40,7 @@ public class MostCommonWord {
         return mostCommonWord;
     }
 
+    // TC -> O(N), SC -> O(N)
     public String mostCommonWordII(String paragraph, String[] banned) {
         String str = computeString(paragraph);
         String[] words = str.split(" ");
@@ -48,11 +57,5 @@ public class MostCommonWord {
             if (res == null || map.get(word) > map.get(res))
                 res = word;
         return res;
-    }
-
-    private String computeString(String s) {
-        s = s.replaceAll("\\W+", " ");
-        s = s.trim().toLowerCase();
-        return s;
     }
 }
