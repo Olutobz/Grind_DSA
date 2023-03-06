@@ -30,10 +30,10 @@ public class MostCommonWord {
 
         int max = 0;
         String mostCommonWord = "";
-        for (String key : map.keySet()) {
-            if (map.get(key) > max) {
-                max = map.get(key);
-                mostCommonWord = key;
+        for (String word : map.keySet()) {
+            if (map.get(word) > max) {
+                max = map.get(word);
+                mostCommonWord = word;
             }
         }
 
