@@ -9,10 +9,12 @@ public class ShuffleAnArray {
         this.random = new Random();
     }
 
+    // TC -> O(1), SC -> O(1)
     public int[] reset() {
         return nums;
     }
 
+    // TC -> O(N), SC -> O(1) [If we ignored the returning array]
     public int[] shuffle() {
         if (nums == null) return null;
         int[] res = nums.clone();
@@ -23,6 +25,7 @@ public class ShuffleAnArray {
         return res;
     }
 
+    // TC -> O(1), SC -> O(1)
     private void swap(int[] nums, int a, int b) {
         int temp = nums[a];
         nums[a] = nums[b];
