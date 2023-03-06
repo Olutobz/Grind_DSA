@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 public class DecodeString {
+    // TC -> O(N), SC -> O(N)
     public String decodeString(String s) {
         Stack<Integer> intStack = new Stack<>();
         Stack<StringBuilder> strStack = new Stack<>();
