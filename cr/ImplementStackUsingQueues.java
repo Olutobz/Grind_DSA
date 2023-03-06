@@ -15,6 +15,7 @@ public class ImplementStackUsingQueues {
 
         // TC -> O(N), SC -> O(1)
         // Pushes element x to the top of the stack
+        // Pushes element x to the top of the stack
         public void push(int x) {
             while (!q1.isEmpty()) {
                 q2.offer(q1.remove());
@@ -23,6 +24,16 @@ public class ImplementStackUsingQueues {
             while (!q2.isEmpty()) {
                 q1.offer(q2.remove());
             }
+
+        /* Follow-up: Can you implement the stack using only one queue?
+           q1.offer(x);
+           int n = q1.size();
+           while (n > 1) {
+               q1.offer(q1.remove());
+               n--;
+           }
+
+        */
         }
 
         // TC -> O(1), SC -> O(1)
