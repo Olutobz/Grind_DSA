@@ -11,20 +11,20 @@ import java.util.Map;
 * */
 public class KeyValueStoreWithTransaction {
 
+    /*  1. Access to the next transactions
+       2. get key and value for any transaction id
+   */
+    private static class Transaction {
+        Map<String, String> store = new HashMap<>();
+        Transaction next;
+    }
+
     /* 1. Retrieve most recent transaction completed
        2. Get the total number of transactions
     * */
     private static class TransactionStack {
         int size;
         Transaction top;
-    }
-
-    /*  1. Access to the next transactions
-        2. get key and value for any transaction id
-    */
-    private static class Transaction {
-        Map<String, String> store = new HashMap<>();
-        Transaction next;
     }
 
     private final TransactionStack tStack = new TransactionStack();
@@ -122,8 +122,6 @@ public class KeyValueStoreWithTransaction {
         store.commit();
         store.end();
 
-
     }
-
 
 }
