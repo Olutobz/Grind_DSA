@@ -1,6 +1,32 @@
 public class CountServersThatCommunicate {
-    // TC -> O(N * M), SC -> O(N + M)
+
+    // TC -> O(N * M), SC -> O(N + M); where N -> Rows and M -> Columns
     public int countServers(int[][] grid) {
+        int rows = grid.length, cols = grid[0].length;
+        int[] rowCount = new int[rows], colCount = new int[cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == 1) {
+                    rowCount[i]++;
+                    colCount[j]++;
+                }
+            }
+        }
+
+        int totalServers = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == 1 && (rowCount[i] > 1 || colCount[j] > 1)) {
+                    totalServers++;
+                }
+            }
+        }
+        return totalServers;
+    }
+
+    // TC -> O(N * M), SC -> O(N + M); where N -> Rows and M -> Columns
+    public int countServersII(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) return 0;
         int numRows = grid.length;
         int numCols = grid[0].length;
@@ -31,55 +57,30 @@ public class CountServersThatCommunicate {
         return totalServers;
     }
 
-    // TC -> O(N * M), SC -> O(N + M)
-    public int countServersII(int[][] grid) {
-        int rows = grid.length, cols = grid[0].length;
-        int[] rowCnt = new int[rows], colCnt = new int[cols];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (grid[i][j] == 1) {
-                    rowCnt[i]++;
-                    colCnt[j]++;
-                }
-            }
-        }
-
-        int totalServers = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (grid[i][j] == 1 && (rowCnt[i] > 1 || colCnt[j] > 1)) {
-                    totalServers++;
-                }
-            }
-        }
-
-        return totalServers;
-    }
-
-
-    // TC -> O(N * M), SC -> O(N + M)
+    // TC -> O(N * M), SC -> O(N + M); where N -> Rows and M -> Columns
     public int countServersIII(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
-        // rc, cc for row count, column count;
-        int[] rc = new int[m];
-        int[] cc = new int[n];
-        int res = 0;
+
+        int[] rowCount = new int[m];
+        int[] colCount = new int[n];
+        int totalServers = 0;
+
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] != 1) continue;
-                rc[i]++;
-                cc[j]++;
+                rowCount[i]++;
+                colCount[j]++;
             }
         }
+
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] != 1) continue;
-                if (rc[i] > 1 || cc[j] > 1) res++;
+                if (rowCount[i] > 1 || colCount[j] > 1) totalServers++;
             }
         }
-        return res;
+        return totalServers;
     }
 
 }

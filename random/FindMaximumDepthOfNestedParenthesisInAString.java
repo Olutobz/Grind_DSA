@@ -12,7 +12,7 @@ public class FindMaximumDepthOfNestedParenthesisInAString {
         Stack<Integer> st = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(')
-                st.push(i);//pushing the bracket in the stack
+                st.push(i);
             else if (s.charAt(i) == ')') {
                 count = Math.max(count, st.size());
                 st.pop();

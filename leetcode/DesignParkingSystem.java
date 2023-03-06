@@ -6,10 +6,10 @@ import java.util.Map;
  * ParkingSystem obj = new ParkingSystem(big, medium, small);
  * boolean param_1 = obj.addCar(carType);
  */
-public class ParkingSystem {
+public class DesignParkingSystem {
     int big, medium, small;
 
-    public ParkingSystem(int big, int medium, int small) {
+    public DesignParkingSystem(int big, int medium, int small) {
         this.big = big;
         this.medium = medium;
         this.small = small;
@@ -28,7 +28,6 @@ public class ParkingSystem {
 
     static class ParkingSystemII {
         private final Map<Integer, Integer> map = new HashMap<>();
-
         public ParkingSystemII(int big, int medium, int small) {
             this.map.put(1, big);
             this.map.put(2, medium);
@@ -37,9 +36,9 @@ public class ParkingSystem {
 
         // TC -> O(1), SC -> O(N)
         public boolean addCar(int carType) {
-            int r = map.get(carType);
-            if (r > 0) {
-                map.put(carType, r - 1);
+            int parkingSlot = map.get(carType);
+            if (parkingSlot > 0) {
+                map.put(carType, parkingSlot - 1);
                 return true;
             }
             return false;
