@@ -41,13 +41,13 @@ public class FibonacciNumber {
 
     }
 
-    // TC -> O(2^N), SC -> O(1)
-    private int getFibFromMap(int N, HashMap<Integer, Integer> map) {
-        if (!map.containsKey(N)) {
-            int currenFib = getFibFromMap(N - 1, map) + getFibFromMap(N - 2, map);
-            map.put(N, currenFib);
+    // TC -> O(2^n), SC -> O(1)
+    private int getFibFromMap(int n, HashMap<Integer, Integer> map) {
+        if (!map.containsKey(n)) {
+            int currenFib = getFibFromMap(n - 1, map) + getFibFromMap(n - 2, map);
+            map.put(n, currenFib);
         }
-        return map.get(N);
+        return map.get(n);
     }
 
 
