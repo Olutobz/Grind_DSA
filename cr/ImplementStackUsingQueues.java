@@ -1,7 +1,15 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
+ */
 public class ImplementStackUsingQueues {
 
     static class MyStack {
