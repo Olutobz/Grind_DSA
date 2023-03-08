@@ -2,8 +2,7 @@ import java.util.Stack;
 
 class MinStack {
     static class Node {
-        int val;
-        int min;
+        int val, min;
         Node next;
 
         public Node(int val) {
@@ -19,17 +18,12 @@ class MinStack {
 
     Node head;
 
-    public MinStack() {
-
-    }
-
     public void push(int val) {
         if (head == null) {
             head = new Node(val, val, null);
         } else {
             head = new Node(val, Math.min(head.min, val), head);
         }
-
     }
 
     public void pop() {
