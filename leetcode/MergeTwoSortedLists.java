@@ -10,6 +10,8 @@ public class MergeTwoSortedLists {
     }
 
     // TC -> O(N + M), SC -> O(1)
+    // TC -> O(N), SC -> O(1)
+    // where N is the total number of nodes in two lists
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) return l2;
         else if (l2 == null) return l1;
@@ -29,7 +31,9 @@ public class MergeTwoSortedLists {
         return dummy.next;
     }
 
-    // TC -> O(N + M), SC -> O(N + M)
+    // TC -> O(N + M), SC -> O(N + M), OR
+    // TC -> O(N), SC -> O(N)
+    // where N is the total number of nodes in two lists
     public ListNode mergeTwoListsII(ListNode l1, ListNode l2) {
         if (l1 == null) return l2;
         if (l2 == null) return l1;
