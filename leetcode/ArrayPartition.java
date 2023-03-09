@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class ArrayPartition {
 
-    // TC -> O(N), SC -> O(1)
+    // TC -> O(NLogN), SC -> O(1)
     public int arrayPairSum(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         Arrays.sort(nums);
