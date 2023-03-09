@@ -1,5 +1,6 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class MergeKSortedLists {
 
@@ -45,7 +46,7 @@ public class MergeKSortedLists {
         return dummy.next;
     }
 
-    // TC -> O(NLogK), SC -> O(LogK)
+    // TC -> O(N*logK), SC -> O(logK)
     // K is the sizeOf(lists) and N is total number of nodes
     public ListNode merge(ListNode[] lists, int left, int right) {
         if (left == right) return lists[left];
@@ -62,6 +63,31 @@ public class MergeKSortedLists {
         if (lists == null || lists.length == 0) return null;
 
         return merge(lists, 0, lists.length - 1);
+    }
+
+    // TC -> O(n*log(k)), SC -> O(K)
+    public ListNode mergeKListsII(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+
+        Queue<Integer> minHeap = new PriorityQueue<>();
+
+        for (ListNode nodes : lists) {
+            ListNode current = nodes;
+            while (current != null) {
+                minHeap.offer(current.val);
+                current = current.next;
+            }
+        }
+
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        while (!minHeap.isEmpty()) {
+            current.next = new ListNode(minHeap.poll());
+            current = current.next;
+        }
+
+        return dummy.next;
     }
 
 }
