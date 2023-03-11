@@ -4,7 +4,8 @@ public class MaximumSubarray {
     public int maxSubArray(int[] nums) {
         int maxSoFar = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i, runningSum = 0; j < nums.length; j++) {
+            int runningSum = 0;
+            for (int j = i; j < nums.length; j++) {
                 runningSum += nums[j];
                 maxSoFar = Math.max(maxSoFar, runningSum);
             }
