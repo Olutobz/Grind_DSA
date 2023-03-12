@@ -13,9 +13,7 @@ public class BasicCalculator {
                     sum = sum * 10 + s.charAt(i + 1) - '0';
                     i++;
                 }
-
                 result += sum * sign;
-
             } else if (s.charAt(i) == '+') {
                 sign = 1;
             } else if (s.charAt(i) == '-') {
