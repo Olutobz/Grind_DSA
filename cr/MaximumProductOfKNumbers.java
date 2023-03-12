@@ -37,5 +37,20 @@ public class MaximumProductOfKNumbers {
         }
 
         return Math.max(max, intNum);
+
+        /*
+        int allRight = 1;
+        int allLeft = 1;
+
+        while (!minHeap.isEmpty()) {
+            allRight *= minHeap.poll();
+        }
+
+        allRight *= minHeap.peek();
+        int neg = maxHeap.poll();
+        while (maxHeap.size() > 0) {
+            allLeft *= maxHeap.poll();
+        }
+        return Math.max(Math.max(allRight, allLeft * neg), allLeft * minHeap.peek());*/
     }
 }
