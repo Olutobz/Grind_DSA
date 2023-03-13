@@ -13,7 +13,7 @@ public class UniquePathsII {
         for (int i = 0; i < m; i++) {
             if (obstacleGrid[i][0] == 1) {
                 path[i][0] = 0;
-                //First row, once obstacle found, the rest are blocked, no need to comtinue
+                //First row, once obstacle found, the rest are blocked, no need to continue
                 break;
             } else {
                 path[i][0] = 1;
@@ -23,7 +23,7 @@ public class UniquePathsII {
         for (int j = 0; j < n; j++) {
             if (obstacleGrid[0][j] == 1) {
                 path[0][j] = 0;
-                //First column, once obstacle found, the rest are blocked, no need to comtinue
+                //First column, once obstacle found, the rest are blocked, no need to continue
                 break;
             } else {
                 path[0][j] = 1;
