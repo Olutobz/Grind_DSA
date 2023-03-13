@@ -8,6 +8,7 @@ public class FindTheStringsInTheInnermostLevel {
         System.out.println(getString(str));
     }
 
+    // TC -> O(N), SC -> O(N)
     public static List<String> getString(String str) {
         List<String> res = new ArrayList<>();
         if (str == null || str.length() == 0) return res;

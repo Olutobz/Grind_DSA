@@ -21,6 +21,7 @@ public class FindMaximumDepthOfNestedParenthesisInAString {
         return count;
     }
 
+    // TC -> O(N), SC -> O(1)
     private int maxDepthII(String str) {
         int count = 0;
         int max = 0;
