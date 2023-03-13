@@ -1,4 +1,6 @@
 public class UniquePathsIII {
+
+    // TC ->O(4 * 3^(M*N) - 1) ~O(3^(M*N)), SC -> O(max(M, N))
     public int uniquePathsIII(int[][] grid) {
         if (grid == null || grid.length == 0) return 0;
 
@@ -39,15 +41,16 @@ public class UniquePathsIII {
         zero--;
 
         // calculate all the paths available in 4 directions
-        int totalPaths = path(grid, x + 1, y, zero) + path(grid, x - 1, y, zero)
-                + path(grid, x, y + 1, zero) + path(grid, x, y - 1, zero);
+        int totalPaths = path(grid, x + 1, y, zero)
+                + path(grid, x - 1, y, zero)
+                + path(grid, x, y + 1, zero)
+                + path(grid, x, y - 1, zero);
 
-        // back-track if we cannot reach all the paths
+        // backtrack if we cannot reach all the paths
         grid[x][y] = 0;
         zero++;
 
         return totalPaths;
 
     }
-
 }
