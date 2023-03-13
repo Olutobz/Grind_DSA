@@ -27,7 +27,7 @@ public class UniquePathsIII {
         }
 
         if (grid[x][y] == 2) {
-            // Why zero = -1, because in above example we have 9 zero's
+            // Why zero = -1, because in above example we have 9 zeros
             // So, when we reach the final cell we are covering one cell extra
             // then the zero counts again
             // If that's the case we find the path and return '1' otherwise return '0'
