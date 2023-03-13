@@ -20,4 +20,19 @@ public class FindMaximumDepthOfNestedParenthesisInAString {
         }
         return count;
     }
+
+    private int maxDepthII(String str) {
+        int count = 0;
+        int max = 0;
+        for (char c : str.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                count++;
+                max = Math.max(count, max);
+            } else if (c == ')' || c == '}' || c == ']') {
+                count--;
+            }
+
+        }
+        return max;
+    }
 }
