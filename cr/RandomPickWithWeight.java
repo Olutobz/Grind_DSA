@@ -3,11 +3,9 @@ import java.util.Random;
 public class RandomPickWithWeight {
 
     static class Solution {
-
         Random random;
         int[] weightSums;
 
-        // TC -> O(N), SC -> O(N)
         public Solution(int[] w) {
             this.random = new Random();
             for (int i = 1; i < w.length; i++) {
@@ -16,7 +14,6 @@ public class RandomPickWithWeight {
             this.weightSums = w;
         }
 
-        // TC -> O(LogN), SC -> O(N)
         public int pickIndex() {
             int len = weightSums.length;
             // there is no 0 weight, we need to +1 to avoid getting 0 from the random function
@@ -27,7 +24,7 @@ public class RandomPickWithWeight {
                 int mid = start + (end - start) / 2;
                 if (weightSums[mid] == idx) {
                     return mid;
-                } else if (weightSums[mid] > idx) {
+                } else if (weightSums[mid] < idx) {
                     start = mid + 1;
                 } else {
                     end = mid - 1;
