@@ -4,6 +4,7 @@ import java.util.List;
 
 public class MergeIntervals {
 
+    // TC -> O(NLogN), SC -> O(N)
     public int[][] merge(int[][] intervals) {
         if (intervals == null || intervals.length == 0) {
             return new int[0][0];
@@ -35,6 +36,7 @@ public class MergeIntervals {
         return res.toArray(new int[res.size()][]);
     }
 
+    // TC -> O(NLogN), SC -> O(N)
     public List<int[]> merge(List<int[]> intervals) {
         // sort start&end
         int n = intervals.size();
