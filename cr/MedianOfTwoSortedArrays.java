@@ -34,6 +34,7 @@ public class MedianOfTwoSortedArrays {
         return median;
     }
 
+    // TC -> O(Log(N + M)), SC -> O(N + M)
     public double findMedianSortedArraysII(int[] nums1, int[] nums2) {
         // Deal with invalid corner case.
         if (nums1 == null || nums2 == null) return 0.0;
