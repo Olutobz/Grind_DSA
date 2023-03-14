@@ -6,6 +6,7 @@ public class RandomPickWithWeight {
         Random random;
         int[] weightSums;
 
+        // TC -> O(N), SC -> O(N)
         public Solution(int[] w) {
             this.random = new Random();
             for (int i = 1; i < w.length; i++) {
@@ -14,6 +15,7 @@ public class RandomPickWithWeight {
             this.weightSums = w;
         }
 
+        // TC -> O(LogN), SC -> O(1)
         public int pickIndex() {
             int len = weightSums.length;
             // there is no 0 weight, we need to +1 to avoid getting 0 from the random function
