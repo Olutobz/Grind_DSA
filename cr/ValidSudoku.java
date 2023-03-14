@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class ValidSudoku {
 
-    // TC -> O(9^2), SC -> O(N) {if we use N = 9}
+    // TC -> O(n^2 + n^2 + n^2) = O(n^2) ~O(9^2), SC -> O(N) = ~O(1) {if we use N = 9}
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length == 0 || board[0].length == 0) {
             return false;
@@ -69,7 +69,7 @@ public class ValidSudoku {
         return true;
     }
 
-    // TC -> O(9^2), SC -> O(N) {if we use N = 9}
+    // TC -> O(n^2 + n^2 + n^2) = O(n^2) ~O(9^2), SC -> O(N) = ~O(1) {if we use N = 9}
     public boolean isValidSudokuII(char[][] board) {
         if (board == null || board.length == 0 || board[0].length == 0) {
             return false;
@@ -91,8 +91,8 @@ public class ValidSudoku {
                     return false;
             }
         }
-        return true;
 
+        return true;
     }
 
 }
