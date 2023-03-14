@@ -24,6 +24,7 @@ public class ProductOfTheLastKNumbers {
         } else if (list.isEmpty()) {
             list.add(num);
         } else {
+            // Store the product upfront
             int n = list.get(list.size() - 1);
             list.add(n * num);
         }
