@@ -21,6 +21,7 @@ public class TheSkylineProblem {
      */
 
 
+    // TC -> O(NLogN), SC -> O(N)
     public List<List<Integer>> getSkyline(int[][] buildings) {
         List<List<Integer>> list = new ArrayList<>();
 
