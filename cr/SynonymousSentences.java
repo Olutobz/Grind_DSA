@@ -52,6 +52,7 @@ public class SynonymousSentences {
             map.getOrDefault(b, new HashSet<>()).add(a);
         }
 
+        // "\\W+" matches all characters except alphanumeric characters and
         String[] split = text.split("\\W+");
         helper(split, 0, "");
 
