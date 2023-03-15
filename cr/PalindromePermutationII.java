@@ -15,7 +15,6 @@ public class PalindromePermutationII {
      * Output: []
      */
 
-    // TC -> O(N^2), SC -> O(N)
     public List<String> generatePalindromes(String s) {
 
         List<String> result = new ArrayList<>();
