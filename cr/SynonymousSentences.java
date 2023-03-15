@@ -37,6 +37,7 @@ public class SynonymousSentences {
         visitedStrings.add(text);
         for (String each : map.get(text)) {
             if (!visitedStrings.contains(each)) {
+                // recursively find all other choices
                 getSynonyms(each, visitedStrings, choicesList);
             }
         }
