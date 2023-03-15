@@ -93,7 +93,6 @@ public class ZigZagIterator {
         public boolean hasNext() {
             return !q.isEmpty();
         }
-
     }
 
 }
