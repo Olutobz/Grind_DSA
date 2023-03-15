@@ -22,6 +22,8 @@ public class SynonymousSentences {
     // TC -> O(N) + O(2^n * L) = O(2^n * L)
     // SC -> O(2^n * L)
 
+    /* Approach : Union search, recursive enumeration
+     * */
 
     // word => its similar words set
     Map<String, Set<String>> map = new HashMap<>();
@@ -65,7 +67,7 @@ public class SynonymousSentences {
 
         if (map.containsKey(wordsArray[index])) {
             List<String> choices = new ArrayList<>();
-            //find all synonyms related to s
+            //find all synonyms related to text
             getSynonyms(wordsArray[index], new HashSet<>(), choices);
 
             //try to change word at index to every possible synonyms word
