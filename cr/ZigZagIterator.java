@@ -74,6 +74,7 @@ public class ZigZagIterator {
         public ZigzagIteratorK(List<List<Integer>> vectors) {
             this.vectors = vectors;
             for (int i = 0; i < vectors.size(); i++) {
+                // each pair stores the first and last index of the iterator.
                 q.offer(new int[]{i, 0, vectors.get(i).size()});
             }
         }
