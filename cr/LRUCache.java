@@ -3,6 +3,13 @@ import java.util.Map;
 
 public class LRUCache {
 
+    /**
+     * 1.The key to solve this problem is using a double linked list which enables us to quickly move nodes.
+     * 2.The LRU cache is a hash table of keys and double linked nodes.
+     * The hash table makes the time of get() to be O(1).
+     * The list of double linked nodes make the nodes adding/removal operations O(1).
+     */
+
     private static class Node {
         private final int key;
         private final int val;
