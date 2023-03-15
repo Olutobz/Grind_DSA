@@ -32,6 +32,7 @@ public class NumberOfIslands {
         clearRestOfLand(grid, x, y + 1);
     }
 
+    // TC -> O(M*N + 4(M*N*LogK) * LogK) = O(MN*LogK), SC -> O(M * N)
     public int numIslandsII(char[][] grid) {
         if (grid.length == 0) {
             return 0;
