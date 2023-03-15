@@ -36,26 +36,44 @@ public class ZigZagIterator {
         }
     }
 
+    // TC -> O(M + N), SC -> O(N), where N = size of v1 list and M = size of v2 list
     public static class ZigzagIterator {
         List<Integer> result = new ArrayList<>();
         int index = 0;
 
         public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
 
-            for (int i = 0; i < Math.max(v1.size(), v2.size()); i++) {
-                if (i < v1.size()) {
-                    result.add(v1.get(i));
-                }
-                if (i < v2.size()) {
-                    result.add(v2.get(i));
-                }
+//            for (int i = 0; i < Math.max(v1.size(), v2.size()); i++) {
+//                if (i < v1.size()) {
+//                    result.add(v1.get(i));
+//                }
+//                if (i < v2.size()) {
+//                    result.add(v2.get(i));
+//                }
+//            }
+
+            int len1 = v1.size(), len2 = v2.size();
+            int i = 0;
+            while (i < len1 && i < len2) {
+                result.add(v1.get(i));
+                result.add(v2.get(i));
+                i++;
+            }
+
+            while (i < len1) {
+                result.add(v1.get(i));
+                i++;
+            }
+
+            while (i < len2) {
+                result.add(v2.get(i));
+                i++;
             }
         }
 
         public int next() {
             int value = result.get(index);
             index++;
-
             return value;
         }
 
@@ -64,6 +82,7 @@ public class ZigZagIterator {
         }
     }
 
+    // TC -> O(M*N(logK)), SC -> O(N), where N = size of v1 list and M = size of v2 list
     public static class ZigzagIteratorK {
 
         // int[0] is index of vector of vectors list,
@@ -93,6 +112,40 @@ public class ZigZagIterator {
 
         public boolean hasNext() {
             return !q.isEmpty();
+        }
+    }
+
+    // TC -> O(1), SC -> O(1)
+    public static class ZigzagIteratorIII {
+        Iterator<Integer> it1 = null, it2 = null;
+
+        public ZigzagIteratorIII(List<Integer> v1, List<Integer> v2) {
+            if (v1 != null) it1 = v1.iterator();
+            if (v2 != null) it2 = v2.iterator();
+        }
+
+        public int next() {
+            int val = -1;
+            if (hasNext()) {
+                if (it1.hasNext()) {
+                    val = it1.next();
+                    swap();
+                } else {
+                    swap();
+                    val = it1.next();
+                }
+            }
+            return val;
+        }
+
+        private void swap() {
+            Iterator<Integer> temp = it1;
+            it1 = it2;
+            it2 = temp;
+        }
+
+        public boolean hasNext() {
+            return it1.hasNext() || it2.hasNext();
         }
     }
 
