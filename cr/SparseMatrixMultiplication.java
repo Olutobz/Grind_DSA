@@ -18,6 +18,7 @@ public class SparseMatrixMultiplication {
      * Output: [[0]]
      */
 
+    // TC -> O(N * M), SC -> O(max(N, M)), where M = mat1 and N = mat2
     public int[][] multiply(int[][] mat1, int[][] mat2) {
         int r1 = mat1.length;
         int c1 = mat1[0].length;
@@ -44,6 +45,8 @@ public class SparseMatrixMultiplication {
                 }
             }
         }
+
         return res;
     }
+
 }
