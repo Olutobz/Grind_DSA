@@ -1,28 +1,18 @@
 public class RobotBoundedInCircle {
+
+    // TC -> O(N), SC -> O(1)
     public boolean isRobotBounded(String instructions) {
-        if (instructions.length() == 0)
+        if (instructions.length() == 0) {
             return false;
-        int x = 0;
-        int y = 0;  // initial points of the robot
+        }
+
+        // initial points of the robot
+        int x = 0, y = 0;
         // initial direction of robot
         String directions = "North";
-        /*
-                    North
-            West                East
-                    South
 
-        */
-
-        // TC -> O(N), SC -> O(1)
         for (char ch : instructions.toCharArray()) {
             if (ch == 'G') {
-                /*
-                switch (directions) {
-                    case "North" -> y += 1;
-                    case "South" -> y -= 1;
-                    case "East" -> x += 1;
-                    default -> x -= 1;
-                }*/
                 if (directions.equals("North"))
                     y += 1;
                 else if (directions.equals("South"))
@@ -49,6 +39,7 @@ public class RobotBoundedInCircle {
                 else directions = "North";
             }
         }
+
         if (x == 0 && y == 0)
             return true;
         return !directions.equals("North");
