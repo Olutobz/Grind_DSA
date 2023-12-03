@@ -22,7 +22,7 @@ public class MaximumTime {
 
     // TC -> O(1), SC -> O(64)
     public String getMaxTime(String time) {
-        if (time == null || time.length() == 0) return "";
+        if (time == null || time.isEmpty()) return "";
 
         char[] timeChar = time.toCharArray();
 
