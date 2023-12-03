@@ -3,9 +3,9 @@ import java.util.Map;
 
 public class FirstUniqueCharacterInAString {
 
-    // TC -> O(N), SC -> O(1);
+    // TC -> O(N^2), SC -> O(1);
     public int firstUniqCharIII(String s) {
-        if (s == null || s.length() == 0) return -1;
+        if (s == null || s.isEmpty()) return -1;
         for (char c : s.toCharArray()) {
             int index = s.indexOf(c);
             int lastIndex = s.lastIndexOf(c);
@@ -17,7 +17,7 @@ public class FirstUniqueCharacterInAString {
 
     // TC -> O(N), SC -> O(26);
     public int firstUniqCharII(String s) {
-        if (s == null || s.length() == 0) return -1;
+        if (s == null || s.isEmpty()) return -1;
         int[] freq = new int[26];
         for (int i = 0; i < s.length(); i++) {
             freq[s.charAt(i) - 'a']++;
@@ -32,7 +32,7 @@ public class FirstUniqueCharacterInAString {
 
     // TC -> O(N), SC -> O(N);
     public int firstUniqChar(String s) {
-        if (s == null || s.length() == 0) return -1;
+        if (s == null || s.isEmpty()) return -1;
 
         Map<Character, Integer> map = new HashMap<>();
         for (char ch : s.toCharArray()) {
