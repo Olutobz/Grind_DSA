@@ -11,7 +11,7 @@ public class FindTheStringsInTheInnermostLevel {
     // TC -> O(N), SC -> O(N)
     public static List<String> getString(String str) {
         List<String> res = new ArrayList<>();
-        if (str == null || str.length() == 0) return res;
+        if (str == null || str.isEmpty()) return res;
 
         int count = 0;
         int max = countNestedBrackets(str);
