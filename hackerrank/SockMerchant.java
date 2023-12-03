@@ -6,7 +6,7 @@ public class SockMerchant {
 
     // TC -> O(N), SC -> O(N)
     public static int sockMerchant(List<Integer> arr) {
-        if (arr == null || arr.size() == 0) return -1;
+        if (arr == null || arr.isEmpty()) return -1;
 
         Set<Integer> set = new HashSet<>();
         int pairs = 0;
