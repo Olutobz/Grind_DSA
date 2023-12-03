@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Hahh {
+public class MinimumClickCount {
     /* A recently launched supplemental typing keypad gained significant popularity on Amazon Shopping due to its flexibility. This keypad can be connected to any electronic device and has 9 buttons, where each button can have up to 3 lowercase English letters. The buyer has the freedom to choose which letters to place on a button while ensuring that the arrangement is valid. A keypad design is said to be valid if:
 All 26 letters of the English alphabet exist on the keypad.
 Each letter is mapped to exactly one button
