@@ -6,6 +6,14 @@ package bloomberg;
  * EMAIL: damexxey94@gmail.com
  */
 public class FlattenAMultilevelDoublyLinkedList {
+
+    /**
+     * 1. Start form the head , move one step each time to the next node
+     * 2. When meet with a node with child, say node p, follow its child chain to the end
+     * and connect the tail node with p.next, by doing this we merged the child chain back to the main thread
+     * 3. Return to p and proceed until find next node with child.
+     * 4. Repeat until reach null
+     */
     public Node flatten(Node head) {
         if (head == null) return head;
         // Pointer

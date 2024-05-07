@@ -43,14 +43,16 @@ public class ZigZagIterator {
 
         public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
 
-//            for (int i = 0; i < Math.max(v1.size(), v2.size()); i++) {
-//                if (i < v1.size()) {
-//                    result.add(v1.get(i));
-//                }
-//                if (i < v2.size()) {
-//                    result.add(v2.get(i));
-//                }
-//            }
+/*
+            for (int i = 0; i < Math.max(v1.size(), v2.size()); i++) {
+                if (i < v1.size()) {
+                    result.add(v1.get(i));
+                }
+                if (i < v2.size()) {
+                    result.add(v2.get(i));
+                }
+            }
+*/
 
             int len1 = v1.size(), len2 = v2.size();
             int i = 0;

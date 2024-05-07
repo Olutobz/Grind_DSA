@@ -3,13 +3,13 @@ import java.util.*;
 public class GroupAnagrams {
 
     // TC -> O(N*MLogM), SC -> O(N)
-    public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0) {
+    public List<List<String>> groupAnagrams(String[] str) {
+        if (str == null || str.length == 0) {
             return new ArrayList<>();
         }
 
         Map<String, List<String>> map = new HashMap<>();
-        for (String word : strs) {
+        for (String word : str) {
             char[] ch = word.toCharArray();
             Arrays.sort(ch);
             String currStr = Arrays.toString(ch);

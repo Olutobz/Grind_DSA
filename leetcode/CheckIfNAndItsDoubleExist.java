@@ -6,9 +6,9 @@ public class CheckIfNAndItsDoubleExist {
     // TC -> O(N^2), SC -> O(1)
     public boolean checkIfExist(int[] arr) {
         if (arr == null) return false;
-        for (int n = 0; n < arr.length; n++) {
-            for (int m = 0; m < arr.length; m++) {
-                if (arr[n] == arr[m] * 2 && n != m) return true;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j] * 2 && i != j) return true;
             }
         }
         return false;
