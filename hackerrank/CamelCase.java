@@ -2,18 +2,14 @@ public class CamelCase {
 
     // TC -> O(N), SC -> O(N)
     public static int camelcase(String s) {
-        // Write your code here
-        if (s == null || s.length() == 0) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
         char[] chars = s.toCharArray();
         int count = 0;
-        for (char aChar : chars) {
-            if (Character.isUpperCase(aChar)) {
-                count++;
-            }
+        for (char currChar : chars) {
+            if (Character.isUpperCase(currChar)) count++;
         }
-        return count + 1;
+        return count;
     }
-
 }
