@@ -19,10 +19,8 @@ public class ReverseLinkedList {
     }
 
     // TC -> O(N), SC -> O(1)
-    // Iterative method
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
-
         while (head != null) {
             ListNode next = head.next;
             head.next = prev;
@@ -33,17 +31,13 @@ public class ReverseLinkedList {
 
     }
 
-    /* TC -> O(N), SC -> O(N)
-       Recursive method
-     */
+    // TC -> O(N), SC -> O(N)
     public ListNode reverseListII(ListNode head) {
         return reverseListHelper(head, null);
     }
 
     private ListNode reverseListHelper(ListNode head, ListNode newHead) {
-        // base case
         if (head == null) return newHead;
-
         ListNode next = head.next;
         head.next = newHead;
         return reverseListHelper(next, head);
