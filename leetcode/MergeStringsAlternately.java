@@ -3,45 +3,48 @@
  * DATE: 25 May 2024
  * EMAIL: damexxey94@gmail.com
  */
+
+/*
+Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+*/
 public class MergeStringsAlternately {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(M + N), SC -> O(N + M)
     private String mergeAlternately(String word1, String word2) {
         if (word1.isEmpty() || word2.isEmpty()) {
             return "";
         }
-        StringBuilder result = new StringBuilder();
-        int i = 0;
-        while (i < word1.length() || i < word2.length()) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < word1.length() || i < word2.length(); ++i) {
             if (i < word1.length()) {
-                result.append(word1.charAt(i));
+                builder.append(word1.charAt(i));
             }
             if (i < word2.length()) {
-                result.append(word2.charAt(i));
+                builder.append(word2.charAt(i));
             }
-            i++;
         }
-        return result.toString();
+        return builder.toString();
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(M + N), SC -> O(N + M)
     private String mergeAlternatelyII(String word1, String word2) {
         if (word1.isEmpty() || word2.isEmpty()) {
             return "";
         }
-        StringBuilder result = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         int i, j;
-        for (i = 0, j = 0; i < word1.length() && j < word2.length(); i++, j++) {
-            result.append(word1.charAt(i));
-            result.append(word2.charAt(j));
+        for (i = 0, j = 0; i < word1.length() && j < word2.length(); ++i, ++j) {
+            builder.append(word1.charAt(i));
+            builder.append(word2.charAt(j));
         }
         if (i < word1.length()) {
-            result.append(word1.substring(i));
+            builder.append(word1.substring(i));
         }
         if (j < word2.length()) {
-            result.append(word2.substring(j));
+            builder.append(word2.substring(j));
         }
-        return result.toString();
+        return builder.toString();
     }
 
 }
