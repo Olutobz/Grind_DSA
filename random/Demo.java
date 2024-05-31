@@ -26,7 +26,7 @@ public class Demo {
      *
      * */
 
-    // Time Complexity -> O(N)
+    // Time Complexity -> O(logN)
     // Space Complexity -> O(1)
     public static boolean hasSumWithPairs(final int[] data, int sum) {
         int low = 0;
