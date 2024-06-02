@@ -28,7 +28,7 @@ public class Patterns {
 
     }
 
-    static void rectangularStarPattern() {
+    private static void rectangularStarPattern() {
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
                 System.out.print("* ");
@@ -37,7 +37,7 @@ public class Patterns {
         }
     }
 
-    static void rightAngledTrianglePattern() {
+    private static void rightAngledTrianglePattern() {
         for (int i = 0; i < 5; ++i) {
             for (int j = 0; j <= i; ++j) {
                 System.out.print("* ");
@@ -46,7 +46,7 @@ public class Patterns {
         }
     }
 
-    static void rightAngledNumberPyramid() {
+    private static void rightAngledNumberPyramid() {
         for (int i = 1; i <= 5; ++i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(j + " ");
@@ -55,7 +55,7 @@ public class Patterns {
         }
     }
 
-    static void rightAngledNumberPyramidII() {
+    private static void rightAngledNumberPyramidII() {
         for (int i = 1; i <= 5; ++i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(i + " ");
@@ -64,7 +64,7 @@ public class Patterns {
         }
     }
 
-    static void invertedRightPyramid() {
+    private static void invertedRightPyramid() {
         for (int i = 0; i < 5; ++i) {
             for (int j = 5; j > i; --j) {
                 System.out.print("* ");
@@ -73,7 +73,7 @@ public class Patterns {
         }
     }
 
-    static void invertedNumberedRightPyramid() {
+    private static void invertedNumberedRightPyramid() {
         for (int i = 5; i >= 1; --i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(j + " ");
@@ -82,7 +82,7 @@ public class Patterns {
         }
     }
 
-    static void starPyramid() {
+    private static void starPyramid() {
         for (int i = 1; i <= 5; ++i) {
             for (int j = 5 - i; j > 0; --j) {
                 System.out.print(" ");
@@ -94,7 +94,7 @@ public class Patterns {
         }
     }
 
-    static void invertedStarPyramid() {
+    private static void invertedStarPyramid() {
         for (int i = 5; i >= 1; --i) {
             for (int j = 5 - i; j > 0; --j) {
                 System.out.print(" ");
@@ -106,7 +106,7 @@ public class Patterns {
         }
     }
 
-    static void diamondStarPattern() {
+    private static void diamondStarPattern() {
         starPyramid();
         invertedStarPyramid();
     }
