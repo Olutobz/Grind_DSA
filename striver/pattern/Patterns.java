@@ -26,6 +26,10 @@ public class Patterns {
         showEndOfLineDash();
         diamondStarPattern();
         showEndOfLineDash();
+        halfDiamondStarPattern();
+        showEndOfLineDash();
+        binaryNumberTrianglePattern();
+        showEndOfLineDash();
 
     }
 
@@ -114,6 +118,32 @@ public class Patterns {
     private static void diamondStarPattern() {
         starPyramid();
         invertedStarPyramid();
+    }
+
+    private static void halfDiamondStarPattern() {
+        for (int i = 1; i <= 2 * 4 - 1; ++i) {
+            int stars = i;
+            if (i > 3) {
+                stars = 2 * 4 - i;
+            }
+            for (int j = 1; j <= stars; ++j) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void binaryNumberTrianglePattern() {
+        int start;
+        for (int i = 0; i < 5; ++i) {
+            if (i % 2 == 0) start = 1;
+            else start = 0;
+            for (int j = 0; j <= i; ++j) {
+                System.out.print(start + " ");
+                start = 1 - start;
+            }
+            System.out.println();
+        }
     }
 
 }
