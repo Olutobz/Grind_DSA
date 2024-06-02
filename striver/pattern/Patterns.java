@@ -24,6 +24,7 @@ public class Patterns {
         System.out.println("___________________");
         invertedStarPyramid();
         System.out.println("___________________");
+        diamondStarPattern();
 
     }
 
@@ -103,6 +104,11 @@ public class Patterns {
             }
             System.out.println();
         }
+    }
+
+    static void diamondStarPattern() {
+        starPyramid();
+        invertedStarPyramid();
     }
 
 }
