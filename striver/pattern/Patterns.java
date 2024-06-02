@@ -8,22 +8,22 @@ package pattern;
 public class Patterns {
 
     public static void main(String[] args) {
-        pattern1();
+        rectangularStarPattern();
         System.out.println("___________________________");
-        pattern2();
+        rightAngledTrianglePattern();
         System.out.println("___________________________");
-        pattern3();
+        rightAngledNumberPyramid();
         System.out.println("___________________________");
-        pattern4();
+        rightAngledNumberPyramidII();
         System.out.println("___________________________");
-        pattern5();
+        invertedRightPyramid();
         System.out.println("___________________________");
-        pattern6();
+        invertedNumberedRightPyramid();
         System.out.println("___________________________");
 
     }
 
-    static void pattern1() {
+    static void rectangularStarPattern() {
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
                 System.out.print("* ");
@@ -32,7 +32,7 @@ public class Patterns {
         }
     }
 
-    static void pattern2() {
+    static void rightAngledTrianglePattern() {
         for (int i = 0; i < 5; ++i) {
             for (int j = 0; j <= i; ++j) {
                 System.out.print("* ");
@@ -41,7 +41,7 @@ public class Patterns {
         }
     }
 
-    static void pattern3() {
+    static void rightAngledNumberPyramid() {
         for (int i = 1; i <= 5; ++i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(j + " ");
@@ -50,7 +50,7 @@ public class Patterns {
         }
     }
 
-    static void pattern4() {
+    static void rightAngledNumberPyramidII() {
         for (int i = 1; i <= 5; ++i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(i + " ");
@@ -59,7 +59,7 @@ public class Patterns {
         }
     }
 
-    static void pattern5() {
+    static void invertedRightPyramid() {
         for (int i = 0; i < 5; ++i) {
             for (int j = 5; j > i; --j) {
                 System.out.print("* ");
@@ -68,7 +68,7 @@ public class Patterns {
         }
     }
 
-    static void pattern6() {
+    static void invertedNumberedRightPyramid() {
         for (int i = 5; i >= 1; --i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(j + " ");
