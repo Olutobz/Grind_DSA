@@ -9,23 +9,28 @@ public class Patterns {
 
     public static void main(String[] args) {
         rectangularStarPattern();
-        System.out.println("___________________");
+        showEndOfLineDash();
         rightAngledTrianglePattern();
-        System.out.println("___________________");
+        showEndOfLineDash();
         rightAngledNumberPyramid();
-        System.out.println("___________________");
+        showEndOfLineDash();
         rightAngledNumberPyramidII();
-        System.out.println("___________________");
+        showEndOfLineDash();
         invertedRightPyramid();
-        System.out.println("___________________");
+        showEndOfLineDash();
         invertedNumberedRightPyramid();
-        System.out.println("___________________");
+        showEndOfLineDash();
         starPyramid();
-        System.out.println("___________________");
+        showEndOfLineDash();
         invertedStarPyramid();
-        System.out.println("___________________");
+        showEndOfLineDash();
         diamondStarPattern();
+        showEndOfLineDash();
 
+    }
+
+    private static void showEndOfLineDash() {
+        System.out.println("___________________");
     }
 
     private static void rectangularStarPattern() {
