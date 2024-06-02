@@ -9,17 +9,21 @@ public class Patterns {
 
     public static void main(String[] args) {
         rectangularStarPattern();
-        System.out.println("___________________________");
+        System.out.println("___________________");
         rightAngledTrianglePattern();
-        System.out.println("___________________________");
+        System.out.println("___________________");
         rightAngledNumberPyramid();
-        System.out.println("___________________________");
+        System.out.println("___________________");
         rightAngledNumberPyramidII();
-        System.out.println("___________________________");
+        System.out.println("___________________");
         invertedRightPyramid();
-        System.out.println("___________________________");
+        System.out.println("___________________");
         invertedNumberedRightPyramid();
-        System.out.println("___________________________");
+        System.out.println("___________________");
+        starPyramid();
+        System.out.println("___________________");
+        invertedStarPyramid();
+        System.out.println("___________________");
 
     }
 
@@ -72,6 +76,30 @@ public class Patterns {
         for (int i = 5; i >= 1; --i) {
             for (int j = 1; j <= i; ++j) {
                 System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void starPyramid() {
+        for (int i = 1; i <= 5; ++i) {
+            for (int j = 5 - i; j > 0; --j) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); ++k) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void invertedStarPyramid() {
+        for (int i = 5; i >= 1; --i) {
+            for (int j = 5 - i; j > 0; --j) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= (2 * i - 1); ++k) {
+                System.out.print("*");
             }
             System.out.println();
         }
