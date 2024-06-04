@@ -1,7 +1,5 @@
 package arraysNstrings;
 
-import java.util.*;
-
 public class ArraysAndStrings {
 
     // TC -> O(sqrt(x)), SC -> O(1)
