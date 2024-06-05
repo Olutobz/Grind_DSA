@@ -1,3 +1,14 @@
+/**
+ * Input: x = 121
+ * Output: true
+ * Explanation: 121 reads as 121 from left to right and from right to left.
+ * <p>
+ * Input: x = -121
+ * Output: false
+ * Explanation: From left to right, it reads -121. From right to left, it becomes 121-.
+ * therefore it is not a palindrome.
+ */
+
 public class PalindromeNumber {
 
     // TC -> O(log x), SC -> O(1);
