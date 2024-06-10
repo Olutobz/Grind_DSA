@@ -1,3 +1,13 @@
+/**
+ * Input: nums = [-1,0,3,5,9,12], target = 9
+ * Output: 4
+ * Explanation: 9 exists in nums and its index is 4
+ * <p>
+ * Input: nums = [-1,0,3,5,9,12], target = 2
+ * Output: -1
+ * Explanation: 2 does not exist in nums so return -1
+ */
+
 public class BinarySearch {
 
     // TC -> O(LogN), SC -> O(1)
@@ -29,12 +39,31 @@ public class BinarySearch {
         int end = nums.length - 1;
         while (start < end) {
             int mid = start + (end - start) / 2;
-            if (nums[mid] >= target) {
-                end = mid;
-            } else {
+            if (nums[mid] < target) {
                 start = mid + 1;
+            } else {
+                end = mid;
             }
         }
         return nums[start] == target ? start : -1;
+    }
+
+    // TC -> O(LogN), SC -> O(LogN)
+    private int searchIII(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+        return recursiveSearch(nums, target, start, end);
+    }
+
+    private int recursiveSearch(int[] nums, int target, int start, int end) {
+        if (nums == null || nums.length == 0 || start > end) {
+            return -1;
+        }
+        int mid = start + (end - start) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            return recursiveSearch(nums, target, mid + 1, end);
+        } else return recursiveSearch(nums, target, start, mid - 1);
     }
 }
