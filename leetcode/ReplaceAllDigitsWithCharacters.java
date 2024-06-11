@@ -1,13 +1,15 @@
 /**
  * Input: s = "a1c1e1"
  * Output: "abcdef"
+ * <p>
  * Explanation: The digits are replaced as follows:
  * - s[1] -> shift('a',1) = 'b'
  * - s[3] -> shift('c',1) = 'd'
  * - s[5] -> shift('e',1) = 'f'
- * *
+ * <p>
  * Input: s = "a1b2c3d4e"
  * Output: "abbdcfdhe"
+ * <p>
  * Explanation: The digits are replaced as follows:
  * - s[1] -> shift('a',1) = 'b'
  * - s[3] -> shift('b',2) = 'd'
@@ -17,14 +19,15 @@
 
 public class ReplaceAllDigitsWithCharacters {
     // TC -> O(N), SC -> O(N)
-    public String replaceDigits(String s) {
-        if (s == null || s.isEmpty()) return "";
-
-        char[] charArr = s.toCharArray();
-        for (int i = 1; i < s.length(); i += 2) {
-            charArr[i] = (char) (charArr[i - 1] + charArr[i] - '0');
+    private static String replaceDigits(String s) {
+        if (s == null || s.isEmpty()) {
+            return "";
         }
-
-        return String.valueOf(charArr);
+        char[] result = s.toCharArray();
+        for (int i = 1; i < result.length; i += 2) {
+            int digit = result[i] - '0';
+            result[i] = (char) (result[i - 1] + digit);
+        }
+        return new String(result);
     }
 }
