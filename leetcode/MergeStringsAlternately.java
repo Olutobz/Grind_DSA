@@ -4,10 +4,15 @@
  * EMAIL: damexxey94@gmail.com
  */
 
-/*
-Input: word1 = "abc", word2 = "pqr"
-Output: "apbqcr"
-*/
+/**
+ * <blockquote> <pre>
+ * Input: word1 = "abc", word2 = "pqr"
+ * Output: "apbqcr"
+ *
+ * Input: word1 = "ab", word2 = "pqrs"
+ * Output: "apbqrs"
+ * </pre></blockquote>
+ */
 public class MergeStringsAlternately {
 
     // TC -> O(M + N), SC -> O(N + M)

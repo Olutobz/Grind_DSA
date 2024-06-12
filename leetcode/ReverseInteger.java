@@ -1,6 +1,8 @@
-/*
+/**
+ * <blockquote> <pre>
  * Input: x = 123 => Output: 321
  * Input: x = -123 => Output: -321
+ * </pre></blockquote>
  */
 public class ReverseInteger {
 
