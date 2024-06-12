@@ -9,32 +9,35 @@ public class Patterns {
 
     public static void main(String[] args) {
         rectangularStarPattern();
-        showEndOfLineDash();
+        addLineSeparator();
         rightAngledTrianglePattern();
-        showEndOfLineDash();
+        addLineSeparator();
         rightAngledNumberPyramid();
-        showEndOfLineDash();
+        addLineSeparator();
         rightAngledNumberPyramidII();
-        showEndOfLineDash();
+        addLineSeparator();
         invertedRightPyramid();
-        showEndOfLineDash();
+        addLineSeparator();
         invertedNumberedRightPyramid();
-        showEndOfLineDash();
+        addLineSeparator();
         starPyramid();
-        showEndOfLineDash();
+        addLineSeparator();
         invertedStarPyramid();
-        showEndOfLineDash();
+        addLineSeparator();
         diamondStarPattern();
-        showEndOfLineDash();
+        addLineSeparator();
         halfDiamondStarPattern();
-        showEndOfLineDash();
+        addLineSeparator();
         binaryNumberTrianglePattern();
-        showEndOfLineDash();
-
+        addLineSeparator();
+        numberCrownPattern();
+        addLineSeparator();
+        increasingNumberTrianglePattern();
+        addLineSeparator();
     }
 
-    private static void showEndOfLineDash() {
-        System.out.println("___________________");
+    private static void addLineSeparator() {
+        System.out.println("---------------------");
     }
 
     private static void rectangularStarPattern() {
@@ -127,7 +130,7 @@ public class Patterns {
                 stars = 2 * 4 - i;
             }
             for (int j = 1; j <= stars; ++j) {
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -141,6 +144,33 @@ public class Patterns {
             for (int j = 0; j <= i; ++j) {
                 System.out.print(start + " ");
                 start = 1 - start;
+            }
+            System.out.println();
+        }
+    }
+
+    private static void numberCrownPattern() {
+        for (int i = 1; i <= 4; ++i) {
+            for (int j = 1; j <= i; ++j) {
+                System.out.print(j);
+            }
+            int spaces = 2 * (4 - i);
+            for (int j = 1; j <= spaces; ++j) {
+                System.out.print(" ");
+            }
+            for (int k = i; k >= 1; --k) {
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+    }
+
+    private static void increasingNumberTrianglePattern() {
+        int count = 1;
+        for (int i = 0; i < 5; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                System.out.print(count + " ");
+                ++count;
             }
             System.out.println();
         }
