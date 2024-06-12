@@ -20,8 +20,8 @@ public class EncodeIntegers {
         if (num < 0) {
             throw new IllegalArgumentException("Enter a valid integer number");
         }
+        String numStr = String.valueOf(num);
         StringBuilder encodedStr = new StringBuilder();
-        String numStr = Integer.toString(num);
         int digitCount = 1;
         char prevDigit = numStr.charAt(0);
 
