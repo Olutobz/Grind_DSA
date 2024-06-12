@@ -4,7 +4,12 @@ public class BasicCalculator {
 
     // TC -> O(N), SC -> O(N)
     public int calculate(String s) {
-        int len = s.length(), sign = 1, result = 0;
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
+        int len = s.length();
+        int sign = 1;
+        int result = 0;
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < len; i++) {
             if (Character.isDigit(s.charAt(i))) {
@@ -26,7 +31,6 @@ public class BasicCalculator {
             } else if (s.charAt(i) == ')') {
                 result = result * stack.pop() + stack.pop();
             }
-
         }
         return result;
 
