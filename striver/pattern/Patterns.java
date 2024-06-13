@@ -43,6 +43,10 @@ public class Patterns {
         lineSeparator();
         alphaHillPattern();
         lineSeparator();
+        alphaTrianglePattern();
+        lineSeparator();
+        symmetricVoidPattern();
+        lineSeparator();
     }
 
     private static void lineSeparator() {
@@ -108,7 +112,7 @@ public class Patterns {
             for (int j = 5 - i; j > 0; --j) {
                 System.out.print(" ");
             }
-            for (int k = 1; k <= (2 * i - 1); ++k) {
+            for (int j = 1; j <= (2 * i - 1); ++j) {
                 System.out.print("*");
             }
             System.out.println();
@@ -120,7 +124,7 @@ public class Patterns {
             for (int j = 5 - i; j > 0; --j) {
                 System.out.print(" ");
             }
-            for (int k = 1; k <= (2 * i - 1); ++k) {
+            for (int j = 1; j <= (2 * i - 1); ++j) {
                 System.out.print("*");
             }
             System.out.println();
@@ -167,8 +171,8 @@ public class Patterns {
             for (int j = 1; j <= spaces; ++j) {
                 System.out.print(" ");
             }
-            for (int k = i; k >= 1; --k) {
-                System.out.print(k);
+            for (int j = i; j >= 1; --j) {
+                System.out.print(j);
             }
             System.out.println();
         }
@@ -223,6 +227,49 @@ public class Patterns {
             for (char ch = (char) ('A' + i - 1); ch >= 'A'; --ch) {
                 System.out.print(ch);
             }
+            System.out.println();
+        }
+    }
+
+    private static void alphaTrianglePattern() {
+        char startChar = (char) ('A' + 5 - 1);
+        for (int i = 0; i < 5; i++) {
+            char currentChar = (char) (startChar - i);
+            for (char ch = currentChar; ch <= startChar; ++ch) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void symmetricVoidPattern() {
+        int spaces = 0;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4 - i; ++j) {
+                System.out.print("*");
+            }
+            for (int j = 0; j < spaces; ++j) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < 4 - i; ++j) {
+                System.out.print("*");
+            }
+            spaces += 2;
+            System.out.println();
+        }
+
+        spaces = 2 * 4 - 2;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                System.out.print("*");
+            }
+            for (int j = 0; j < spaces; ++j) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j <= i; ++j) {
+                System.out.print("*");
+            }
+            spaces -= 2;
             System.out.println();
         }
     }
