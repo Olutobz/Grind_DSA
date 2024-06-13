@@ -1,7 +1,5 @@
 package pattern;
 
-import java.util.regex.Pattern;
-
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 01, June 2024
@@ -12,38 +10,42 @@ public class Patterns {
 
     public static void main(String[] args) {
         rectangularStarPattern();
-        addLineSeparator();
+        lineSeparator();
         rightAngledTrianglePattern();
-        addLineSeparator();
+        lineSeparator();
         rightAngledNumberPyramid();
-        addLineSeparator();
+        lineSeparator();
         rightAngledNumberPyramidII();
-        addLineSeparator();
+        lineSeparator();
         invertedRightPyramid();
-        addLineSeparator();
+        lineSeparator();
         invertedNumberedRightPyramid();
-        addLineSeparator();
+        lineSeparator();
         starPyramid();
-        addLineSeparator();
+        lineSeparator();
         invertedStarPyramid();
-        addLineSeparator();
+        lineSeparator();
         diamondStarPattern();
-        addLineSeparator();
+        lineSeparator();
         halfDiamondStarPattern();
-        addLineSeparator();
+        lineSeparator();
         binaryNumberTrianglePattern();
-        addLineSeparator();
+        lineSeparator();
         numberCrownPattern();
-        addLineSeparator();
+        lineSeparator();
         increasingNumberTrianglePattern();
-        addLineSeparator();
+        lineSeparator();
         increasingLetterTrianglePattern();
-        addLineSeparator();
+        lineSeparator();
         reverseLetterTrianglePattern();
-        addLineSeparator();
+        lineSeparator();
+        alphaRampPattern();
+        lineSeparator();
+        alphaHillPattern();
+        lineSeparator();
     }
 
-    private static void addLineSeparator() {
+    private static void lineSeparator() {
         System.out.println("---------------------");
     }
 
@@ -196,6 +198,30 @@ public class Patterns {
         for (int i = 5; i > 0; --i) {
             for (char ch = 'A'; ch < 'A' + i; ++ch) {
                 System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void alphaRampPattern() {
+        for (int i = 0; i < 5; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                System.out.print((char) ('A' + i) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void alphaHillPattern() {
+        for (int i = 0; i < 5; ++i) {
+            for (int j = 5 - i; j > 0; --j) {
+                System.out.print(" ");
+            }
+            for (char ch = 'A'; ch <= 'A' + i; ++ch) {
+                System.out.print(ch);
+            }
+            for (char ch = (char) ('A' + i - 1); ch >= 'A'; --ch) {
+                System.out.print(ch);
             }
             System.out.println();
         }
