@@ -1,3 +1,5 @@
+package pattern;
+
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 02 May 2024
