@@ -1,10 +1,13 @@
 package pattern;
 
+import java.util.regex.Pattern;
+
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 01, June 2024
  * EMAIL: damexxey94@gmail.com
  */
+
 public class Patterns {
 
     public static void main(String[] args) {
@@ -33,6 +36,10 @@ public class Patterns {
         numberCrownPattern();
         addLineSeparator();
         increasingNumberTrianglePattern();
+        addLineSeparator();
+        increasingLetterTrianglePattern();
+        addLineSeparator();
+        reverseLetterTrianglePattern();
         addLineSeparator();
     }
 
@@ -171,6 +178,24 @@ public class Patterns {
             for (int j = 0; j <= i; ++j) {
                 System.out.print(count + " ");
                 ++count;
+            }
+            System.out.println();
+        }
+    }
+
+    private static void increasingLetterTrianglePattern() {
+        for (int i = 0; i < 5; ++i) {
+            for (char ch = 'A'; ch <= 'A' + i; ++ch) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void reverseLetterTrianglePattern() {
+        for (int i = 5; i > 0; --i) {
+            for (char ch = 'A'; ch < 'A' + i; ++ch) {
+                System.out.print(ch + " ");
             }
             System.out.println();
         }
