@@ -1,5 +1,7 @@
 package pattern;
 
+import java.awt.*;
+
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 01, June 2024
@@ -48,6 +50,8 @@ public class Patterns {
         symmetricVoidPattern();
         lineSeparator();
         symmetricButterflyPattern();
+        lineSeparator();
+        hollowRectanglePattern();
         lineSeparator();
     }
 
@@ -297,6 +301,19 @@ public class Patterns {
             System.out.println();
             if (i < 4) spaces -= 2;
             else spaces += 2;
+        }
+    }
+
+    private static void hollowRectanglePattern() {
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                if (i == 0 || i == 4 - 1 || j == 0 || j == 4 - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
         }
     }
 
