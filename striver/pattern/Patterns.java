@@ -47,6 +47,8 @@ public class Patterns {
         lineSeparator();
         symmetricVoidPattern();
         lineSeparator();
+        symmetricButterflyPattern();
+        lineSeparator();
     }
 
     private static void lineSeparator() {
@@ -271,6 +273,30 @@ public class Patterns {
             }
             spaces -= 2;
             System.out.println();
+        }
+    }
+
+    private static void symmetricButterflyPattern() {
+        int spaces = 2 * 4 - 2;
+        for (int i = 1; i <= 2 * 4 - 1; ++i) {
+            int stars = i;
+            if (i > 3) {
+                stars = 2 * 4 - i;
+            }
+            for (int j = 1; j <= stars; ++j) {
+                System.out.print("*");
+            }
+
+            for (int j = 1; j <= spaces; ++j) {
+                System.out.print(" ");
+            }
+
+            for (int j = 1; j <= stars; ++j) {
+                System.out.print("*");
+            }
+            System.out.println();
+            if (i < 4) spaces -= 2;
+            else spaces += 2;
         }
     }
 
