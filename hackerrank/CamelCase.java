@@ -1,6 +1,6 @@
 public class CamelCase {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1)
     public static int camelcase(String s) {
         if (s == null || s.isEmpty()) {
             return 0;
