@@ -51,6 +51,7 @@ public class PatternsProblems {
         lineSeparator();
         hollowRectanglePattern();
         lineSeparator();
+        theNumberPattern();
     }
 
     private static void lineSeparator() {
@@ -310,6 +311,26 @@ public class PatternsProblems {
                 } else {
                     System.out.print(" ");
                 }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void theNumberPattern() {
+        int size = 2 * 4 - 1;
+        int[][] result = new int[size][size];
+        for (int layer = 0; layer < 4; ++layer) {
+            int num = 4 - layer;
+            for (int i = layer; i < size - layer; ++i) {
+                for (int j = layer; j < size - layer; ++j) {
+                    result[i][j] = num;
+                }
+            }
+        }
+
+        for (int[] row : result) {
+            for (int col : row) {
+                System.out.print(col + " ");
             }
             System.out.println();
         }
