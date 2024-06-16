@@ -30,4 +30,20 @@ public class ReplaceAllDigitsWithCharacters {
         }
         return new String(result);
     }
+
+    // TC -> O(N), SC -> O(N)
+    private static String replaceDigitsII(String s) {
+        if (s == null || s.isEmpty()) {
+            return "";
+        }
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
+                result.append(s.charAt(i));
+            } else if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                result.append((char) (s.charAt(i - 1) + s.charAt(i) - '0'));
+            }
+        }
+        return result.toString();
+    }
 }
