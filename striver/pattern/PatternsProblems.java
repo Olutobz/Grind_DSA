@@ -1,14 +1,12 @@
 package pattern;
 
-import java.awt.*;
-
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 01, June 2024
  * EMAIL: damexxey94@gmail.com
  */
 
-public class Patterns {
+public class PatternsProblems {
 
     public static void main(String[] args) {
         rectangularStarPattern();
