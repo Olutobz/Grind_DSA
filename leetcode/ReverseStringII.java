@@ -25,7 +25,7 @@ public class ReverseStringII {
         }
     }
 
-    // TC -> O(N), SC -> O(1)
+    // TC -> O(N), SC -> O(N)
     public String reverseStrII(String s, int k) {
         if (s == null || s.isEmpty()) return s;
         if (k == 0) return s;
