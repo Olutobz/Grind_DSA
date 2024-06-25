@@ -1,4 +1,4 @@
-package pattern;
+package basicMath;
 
 /**
  * Created by Onikoyi Damola Olutoba
