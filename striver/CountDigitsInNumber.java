@@ -19,7 +19,7 @@
  * </pre>
  * </blockquote>
  */
-public class CountDigits {
+public class CountDigitsInNumber {
 
     // TC -> O(1), SC -> O(1)
     public static int countDigits(int digits) {
