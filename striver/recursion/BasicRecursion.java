@@ -46,6 +46,15 @@ public class BasicRecursion {
         System.out.println("Sum of first '" + n + "' natural numbers: " + sum);
     }
 
+    // TC -> O(n), SC -> O(n)
+    static void sumOfFirstNNaturalNumbersRecursively(int n, int sum) {
+        if (n < 1) {
+            System.out.println("Recursion -> Sum of first natural numbers: " + sum);
+            return;
+        }
+        sumOfFirstNNaturalNumbersRecursively(n - 1, sum + n);
+    }
+
     public static void main(String[] args) {
         integerCounter();
         System.out.println();
@@ -55,6 +64,7 @@ public class BasicRecursion {
         System.out.println();
         sumOfFirstNNaturalNumbers(5);
         sumOfFirstNNaturalNumbersII(5);
+        sumOfFirstNNaturalNumbersRecursively(5, 0);
     }
 
 }
