@@ -17,6 +17,12 @@ public class BasicRecursion {
         integerCounter();
     }
 
+    static void backTrackIntegerCounter(int i) {
+        if (i < 1) return;
+        backTrackIntegerCounter(i - 1);
+        System.out.println(i);
+    }
+
     // TC -> O(n), SC -> O(n)
     static void repeatName(int i, int n) {
         if (i > n) return;
@@ -28,6 +34,8 @@ public class BasicRecursion {
         integerCounter();
         System.out.println();
         repeatName(1, 5);
+        System.out.println();
+        backTrackIntegerCounter(5);
     }
 
 }
