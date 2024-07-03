@@ -17,12 +17,6 @@ public class BasicRecursion {
         integerCounter();
     }
 
-    static void backTrackIntegerCounter(int i) {
-        if (i < 1) return;
-        backTrackIntegerCounter(i - 1);
-        System.out.println(i);
-    }
-
     // TC -> O(n), SC -> O(n)
     static void repeatName(int i, int n) {
         if (i > n) return;
@@ -30,12 +24,37 @@ public class BasicRecursion {
         repeatName(i + 1, n);
     }
 
+    // TC -> O(i), SC -> O(i)
+    static void backTrackIntegerCounter(int i) {
+        if (i < 1) return;
+        backTrackIntegerCounter(i - 1);
+        System.out.println(i);
+    }
+
+    // TC -> O(n), SC -> O(1)
+    static void sumOfFirstNNaturalNumbers(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        System.out.println("Sum of first '" + n + "' natural numbers: " + sum);
+    }
+
+    // TC -> O(1), SC -> O(1)
+    static void sumOfFirstNNaturalNumbersII(int n) {
+        int sum = n * (n + 1) / 2;
+        System.out.println("Sum of first '" + n + "' natural numbers: " + sum);
+    }
+
     public static void main(String[] args) {
         integerCounter();
         System.out.println();
-        repeatName(1, 5);
+        repeatName(1, 3);
         System.out.println();
-        backTrackIntegerCounter(5);
+        backTrackIntegerCounter(3);
+        System.out.println();
+        sumOfFirstNNaturalNumbers(5);
+        sumOfFirstNNaturalNumbersII(5);
     }
 
 }
