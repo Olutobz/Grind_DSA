@@ -23,7 +23,7 @@
 public class ValidPalindrome {
 
     // TC -> O(N), SC -> O(1)
-    public boolean isPalindrome(String s) {
+    private static boolean isPalindrome(String s) {
         if (s == null || s.isEmpty()) {
             return false;
         }
@@ -48,8 +48,8 @@ public class ValidPalindrome {
     }
 
     // TC -> O(N), SC -> O(N)
-    public boolean isPalindromeII(String s) {
-        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+    private static boolean isPalindromeII(String s) {
+        s = s.toLowerCase().replaceAll("[^A-Za-z0-9]", "");
         int start = 0;
         int end = s.length() - 1;
         while (start < end) {
@@ -60,5 +60,14 @@ public class ValidPalindrome {
             end--;
         }
         return true;
+    }
+
+    private static boolean isPalindromeIII(String s, int idx) {
+        if (idx >= s.length() / 2) return true;
+        if (Character.toLowerCase(s.charAt(idx))
+                != Character.toLowerCase(s.charAt(s.length() - 1 - idx))) {
+            return false;
+        }
+        return isPalindromeIII(s, idx + 1);
     }
 }
