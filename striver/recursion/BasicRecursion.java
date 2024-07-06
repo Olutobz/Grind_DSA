@@ -9,7 +9,7 @@ package recursion;
 public class BasicRecursion {
     static int count = 0;
 
-    // TC -> O(3), SC -> O(3)
+    // TC -> O(3), SC -> O(3) [O(n) -> if we count for n number of integers]
     static void integerCounter() {
         if (count == 3) return;
         System.out.println(count);
@@ -61,6 +61,21 @@ public class BasicRecursion {
         return n + sumOfFirstNNaturalNumbersRecursivelyII(n - 1);
     }
 
+    // TC -> O(n), SC -> O(1)
+    static int factorial(int n) {
+        int product = 1;
+        for (int i = 1; i <= n; i++) {
+            product *= i;
+        }
+        return product;
+    }
+
+    // TC -> O(n), SC -> O(n)
+    static int factorialRecursively(int n) {
+        if (n == 0) return 1;
+        return n * factorialRecursively(n - 1);
+    }
+
     public static void main(String[] args) {
         integerCounter();
         System.out.println();
@@ -72,6 +87,8 @@ public class BasicRecursion {
         sumOfFirstNNaturalNumbersII(5);
         sumOfFirstNNaturalNumbersRecursively(5, 0);
         System.out.println("Sum of N natural number: " + sumOfFirstNNaturalNumbersRecursivelyII(5));
+        System.out.println("The iterative factorial of " + 5 + " is " + factorial(5));
+        System.out.println("The recursive factorial of " + 5 + " is " + factorialRecursively(5));
     }
 
 }
