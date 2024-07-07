@@ -24,20 +24,19 @@ public class ValidPalindrome {
 
     // TC -> O(N), SC -> O(1)
     private static boolean isPalindrome(String s) {
-        if (s == null || s.isEmpty()) {
-            return false;
-        }
+        if (s == null || s.isEmpty()) return false;
+
         int start = 0;
         int end = s.length() - 1;
         while (start < end) {
-            char currStart = s.charAt(start);
-            char currEnd = s.charAt(end);
+            char currStart = Character.toLowerCase(s.charAt(start));
+            char currEnd = Character.toLowerCase(s.charAt(end));
             if (!Character.isLetterOrDigit(currStart)) {
                 start++;
             } else if (!Character.isLetterOrDigit(currEnd)) {
                 end--;
             } else {
-                if (Character.toLowerCase(currStart) != Character.toLowerCase(currEnd)) {
+                if (currStart != currEnd) {
                     return false;
                 }
                 start++;
@@ -49,7 +48,9 @@ public class ValidPalindrome {
 
     // TC -> O(N), SC -> O(N)
     private static boolean isPalindromeII(String s) {
-        s = s.toLowerCase().replaceAll("[^A-Za-z0-9]", "");
+        if (s == null || s.isEmpty()) return false;
+
+        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
         int start = 0;
         int end = s.length() - 1;
         while (start < end) {
@@ -62,12 +63,17 @@ public class ValidPalindrome {
         return true;
     }
 
-    private static boolean isPalindromeIII(String s, int idx) {
-        if (idx >= s.length() / 2) return true;
-        if (Character.toLowerCase(s.charAt(idx))
-                != Character.toLowerCase(s.charAt(s.length() - 1 - idx))) {
+    // TC -> O(N), SC -> O(N)
+    private static boolean isPalindromeIII(String s, int start, int end) {
+        if (s == null || s.isEmpty()) return false;
+
+        while (start < end && !Character.isLetterOrDigit(s.charAt(start))) start++;
+        while (start < end && !Character.isLetterOrDigit(s.charAt(end))) end--;
+        if (start >= s.length() / 2) return true;
+        else if (Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end))) {
             return false;
+        } else {
+            return isPalindromeIII(s, start + 1, end - 1);
         }
-        return isPalindromeIII(s, idx + 1);
     }
 }
