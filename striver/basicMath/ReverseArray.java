@@ -27,6 +27,12 @@ public class ReverseArray {
         System.out.println();
     }
 
+    // TC -> O(n), SC -> O(1)
+    private static void reverseII(int[] arr) {
+        swap(arr, 0, arr.length - 1);
+        printArray(arr);
+    }
+
     // TC -> O(n), SC -> O(n)
     private static void reverse(int[] arr) {
         int len = arr.length;
@@ -35,12 +41,6 @@ public class ReverseArray {
             result[len - i - 1] = arr[i];
         }
         printArray(result);
-    }
-
-    // TC -> O(n), SC -> O(1)
-    private static void reverseII(int[] arr) {
-        swap(arr, 0, arr.length - 1);
-        printArray(arr);
     }
 
     // TC -> O(n), SC -> O(n)
