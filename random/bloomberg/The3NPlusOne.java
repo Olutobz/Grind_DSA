@@ -7,6 +7,7 @@ import java.util.Scanner;
  * DATE: 03 December 2023
  * EMAIL: damexxey94@gmail.com
  */
+
 public class The3NPlusOne {
 
     private void ThreeNPlus1() {
@@ -15,7 +16,7 @@ public class The3NPlusOne {
         int res = 1;
         while (n != 1) {
             if (n % 2 == 0) {
-                n = n / 2;
+                n /= 2;
             } else {
                 n = (3 * n) + 1;
             }
