@@ -7,9 +7,13 @@ import java.util.Stack;
  * DATE: 03 December 2023
  * EMAIL: damexxey94@gmail.com
  */
+
 public class ReverseWordsInAString {
+
+    // TC -> O(N^2), SC -> O(N)
     public String reverseWords(String s) {
         if (s.isEmpty()) return "";
+
         StringBuilder res = new StringBuilder();
         StringBuilder temp = new StringBuilder();
 
@@ -30,21 +34,23 @@ public class ReverseWordsInAString {
         return res.toString();
     }
 
+    // TC -> O(N^2), SC -> O(N)
     public static String reverseWordsII(String s) {
+        if (s.isEmpty()) return "";
+
         Stack<String> stack = new Stack<>();
         String[] strArray = s.trim().split("\\s+");
-
-        for (String str : strArray) {
-            stack.push(str.strip());
-        }
-
         StringBuilder reverse = new StringBuilder();
 
+        for (String str : strArray) {
+            stack.push(str.trim());
+        }
+
         while (!stack.isEmpty()) {
-            String c = stack.pop();
-            reverse.append(c);
+            String currStr = stack.pop();
+            reverse.append(currStr);
             if (!stack.isEmpty()) {
-                reverse.append(" "); // Add space only if it's not the last word
+                reverse.append(" ");
             }
         }
         return reverse.toString();
