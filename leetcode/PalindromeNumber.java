@@ -16,6 +16,7 @@ public class PalindromeNumber {
     // TC -> O(logN), SC -> O(1);
     private boolean isPalindrome(int n) {
         if (n < 0) return false;
+
         int original = n;
         int reversed = 0;
         while (n != 0) {
@@ -43,9 +44,11 @@ public class PalindromeNumber {
         String temp = Integer.toString(n);
         int i = 0, j = temp.length() - 1;
         while (i < j) {
-            if (temp.charAt(++i) != temp.charAt(--j)) {
+            if (temp.charAt(i) != temp.charAt(j)) {
                 return false;
             }
+            i++;
+            j--;
         }
         return true;
     }
