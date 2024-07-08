@@ -1,5 +1,6 @@
 package bloomberg;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,21 +12,22 @@ import java.util.List;
 public class LetterCombinationsOfAPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
-        LinkedList<String> ans = new LinkedList<String>();
-        if (digits.isEmpty()) return ans;
+        if (digits.isEmpty()) return new ArrayList<>();
 
-        final String[] KEYS = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        ans.add("");
+        LinkedList<String> result = new LinkedList<>();
+        final String[] phoneKeys =
+                new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        result.add("");
 
-        while (ans.peek().length() != digits.length()) {
-            String remove = ans.remove();
-            String map = KEYS[digits.charAt(remove.length()) - '0'];
+        while (result.peek().length() != digits.length()) {
+            String temp = result.remove();
+            String map = phoneKeys[digits.charAt(temp.length()) - '0'];
             for (char c : map.toCharArray()) {
-                ans.addLast(remove + c);
+                result.addLast(temp + c);
             }
         }
 
-        return ans;
+        return result;
     }
 
 }
