@@ -24,9 +24,10 @@ package basicMath;
  * </pre>
  * </blockquote>
  */
+
 public class ArmstrongNumbers {
 
-    // TC -> O(log n), SC -> O(1)
+    // TC -> O(log n) or O(d), SC -> O(1)
     private static boolean isArmstrong(int n) {
         int sum = 0;
         int num = n;
