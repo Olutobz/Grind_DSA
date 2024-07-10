@@ -6,20 +6,20 @@
 public class BasicFrequencyCounter {
 
     public static void main(String[] args) {
-        String s = "abcdd";
-
-        // Assuming only lowercase English letters, create an array to store frequencies
         int[] freq = new int[26];
+        String s = "aabbcddefff";
 
-        // Count the frequency of each character in the string
         for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i) - 'a']++;
+            int index = s.charAt(i) - 'a';
+            freq[index]++;
         }
 
-        // Display the frequencies
-        for (int i = 0; i < 26; i++) {
-            char currentChar = (char) ('a' + i);
-            if (freq[i] != 0) System.out.println(currentChar + ": " + freq[i]);
+        for (int i = 0; i < freq.length; i++) {
+            char currentChar = (char) (i + 'a');
+            if (freq[i] != 0) {
+                System.out.print(currentChar + " -> " + freq[i] + "  ");
+            }
         }
     }
+
 }
