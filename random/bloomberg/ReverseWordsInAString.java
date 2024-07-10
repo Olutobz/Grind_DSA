@@ -10,7 +10,7 @@ import java.util.Stack;
 
 public class ReverseWordsInAString {
 
-    // TC -> O(N^2), SC -> O(N)
+    // TC -> O(N), SC -> O(N)
     public String reverseWords(String s) {
         if (s.isEmpty()) return "";
 
@@ -34,7 +34,7 @@ public class ReverseWordsInAString {
         return res.toString();
     }
 
-    // TC -> O(N^2), SC -> O(N)
+    // TC -> O(N), SC -> O(N)
     public static String reverseWordsII(String s) {
         if (s.isEmpty()) return "";
 
