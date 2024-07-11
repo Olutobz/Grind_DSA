@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 03 December 2023
@@ -19,6 +22,26 @@ public class BasicFrequencyCounter {
             if (freq[i] != 0) {
                 System.out.print(currentChar + " -> " + freq[i] + "  ");
             }
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        System.out.print("\nMap Values: ");
+        for (int value : map.values()) {
+            System.out.print(value + " ");
+        }
+
+        System.out.print("\nMap Keys: ");
+        for (char ch : map.keySet()) {
+            System.out.print(ch + " ");
+        }
+
+        System.out.println("\nMap Entries: ");
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
     }
 
