@@ -3,6 +3,7 @@ package hashing;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Onikoyi Damola Olutoba
@@ -21,7 +22,8 @@ public class BasicHashing {
         }
 
         fetchHashArray(hashArray);
-        simpleHashTableTest();
+        simpleThreadSafeMap();
+        simpleThreadSafeMapII();
 
         Map<Integer, Integer> map = new HashMap<>();
         int[] arrOfInt = {1, 1, 6, 4, 4, 4, 5, 5, 7};
@@ -55,18 +57,31 @@ public class BasicHashing {
         System.out.println();
     }
 
-    private static void simpleHashTableTest() {
-        Hashtable<Integer, String> table = new Hashtable<>();
-        table.put(100, "Android");
-        table.put(102, "Mobile");
-        table.put(107, "United States");
-        table.put(112, "New York");
-        table.put(120, "San Francisco");
+    private static void simpleThreadSafeMap() {
+        Hashtable<Integer, String> hashtable = new Hashtable<>();
+        hashtable.put(100, "Android");
+        hashtable.put(102, "Mobile");
+        hashtable.put(107, "United States");
+        hashtable.put(112, "New York");
+        hashtable.put(120, "San Francisco");
 
-        System.out.println();
-        for (int key : table.keySet()) {
-            System.out.println(Integer.hashCode(key) % 5 + "\t" + table.get(key));
+        System.out.println("Hashtable: " + hashtable);
+        for (int key : hashtable.keySet()) {
+            System.out.println(Integer.hashCode(key) % 5 + " -> " + hashtable.get(key));
         }
+    }
 
+    private static void simpleThreadSafeMapII() {
+        Map<Integer, String> concurrentMap = new ConcurrentHashMap<>();
+        concurrentMap.put(100, "Android");
+        concurrentMap.put(102, "Mobile");
+        concurrentMap.put(107, "United States");
+        concurrentMap.put(112, "Kotlin");
+        concurrentMap.put(120, "San Francisco");
+
+        System.out.println("Concurrent Map: " + concurrentMap);
+        for (int key : concurrentMap.keySet()) {
+            System.out.println(Integer.hashCode(key) % 5 + " -> " + concurrentMap.get(key));
+        }
     }
 }
