@@ -1,6 +1,7 @@
 package hashing;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -20,6 +21,7 @@ public class BasicHashing {
         }
 
         fetchHashArray(hashArray);
+        simpleHashTableTest();
 
         Map<Integer, Integer> map = new HashMap<>();
         int[] arrOfInt = {1, 1, 6, 4, 4, 4, 5, 5, 7};
@@ -28,7 +30,7 @@ public class BasicHashing {
             map.put(item, map.getOrDefault(item, 0) + 1);
         }
 
-        System.out.print("Map values: ");
+        System.out.print("\nMap values: ");
         for (int value : map.values()) {
             System.out.print(value + " ");
         }
@@ -51,5 +53,19 @@ public class BasicHashing {
             System.out.print(item + " ");
         }
         System.out.println();
+    }
+
+    private static void simpleHashTableTest() {
+        Hashtable<Integer, String> table = new Hashtable<>();
+        table.put(100, "Android");
+        table.put(102, "Mobile");
+        table.put(107, "United States");
+        table.put(112, "New York");
+        table.put(120, "San Francisco");
+        System.out.println();
+        for (int key : table.keySet()) {
+            System.out.println(Integer.hashCode(key) % 5 + "\t" + table.get(key));
+        }
+
     }
 }
