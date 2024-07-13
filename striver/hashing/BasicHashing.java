@@ -62,6 +62,7 @@ public class BasicHashing {
         table.put(107, "United States");
         table.put(112, "New York");
         table.put(120, "San Francisco");
+
         System.out.println();
         for (int key : table.keySet()) {
             System.out.println(Integer.hashCode(key) % 5 + "\t" + table.get(key));
