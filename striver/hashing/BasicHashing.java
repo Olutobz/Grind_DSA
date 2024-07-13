@@ -19,7 +19,7 @@ public class BasicHashing {
             hashArray[item] += 1;
         }
 
-        printArray(hashArray);
+        fetchHashArray(hashArray);
 
         Map<Integer, Integer> map = new HashMap<>();
         int[] arrOfInt = {1, 1, 6, 4, 4, 4, 5, 5, 7};
@@ -45,7 +45,7 @@ public class BasicHashing {
 
     }
 
-    private static void printArray(int[] arr) {
+    private static void fetchHashArray(int[] arr) {
         System.out.print("Hash array: ");
         for (int item : arr) {
             System.out.print(item + " ");
