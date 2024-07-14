@@ -21,10 +21,22 @@ public class BasicHashing {
             hashArray[item] += 1;
         }
 
+        setupBasicMapSample();
         fetchHashArray(hashArray);
         simpleThreadSafeMap();
         simpleThreadSafeMapII();
 
+    }
+
+    private static void fetchHashArray(int[] arr) {
+        System.out.print("Hash array: ");
+        for (int item : arr) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    private static void setupBasicMapSample() {
         Map<Integer, Integer> map = new HashMap<>();
         int[] arrOfInt = {1, 1, 6, 4, 4, 4, 5, 5, 7};
 
@@ -46,15 +58,6 @@ public class BasicHashing {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
-
-    }
-
-    private static void fetchHashArray(int[] arr) {
-        System.out.print("Hash array: ");
-        for (int item : arr) {
-            System.out.print(item + " ");
-        }
-        System.out.println();
     }
 
     private static void simpleThreadSafeMap() {
