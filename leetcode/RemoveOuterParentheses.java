@@ -27,11 +27,11 @@ public class RemoveOuterParentheses {
 
         for (char ch : s.toCharArray()) {
             if (ch == '(') {
-                if (stack.size() > 0) builder.append(ch);
+                if (!stack.isEmpty()) builder.append(ch);
                 stack.push(ch);
             } else {
                 stack.pop();
-                if (stack.size() > 0) builder.append(ch);
+                if (!stack.isEmpty()) builder.append(ch);
             }
         }
 
