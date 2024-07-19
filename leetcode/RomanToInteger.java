@@ -58,9 +58,7 @@ public class RomanToInteger {
     public int romanToInt(String s) {
         if (s.isEmpty()) return 0;
 
-        int res = 0;
-        int num = 0;
-        int prev = 0;
+        int res = 0, num = 0, prev = 0;
 
         for (int i = s.length() - 1; i >= 0; i--) {
             char ch = s.charAt(i);
@@ -88,18 +86,15 @@ public class RomanToInteger {
                     break;
             }
 
-            if (num < prev) {
-                res -= num;
-            } else {
-                res += num;
-            }
+            if (num < prev) res -= num;
+            else res += num;
             prev = num;
         }
 
         return res;
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1)
     public int romanToIntII(String s) {
         if (s.isEmpty()) return 0;
 
@@ -115,18 +110,15 @@ public class RomanToInteger {
         int res = 0, prev = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
             int currValue = map.get(s.charAt(i));
-            if (currValue < prev) {
-                res -= currValue;
-            } else {
-                res += currValue;
-            }
+            if (currValue < prev) res -= currValue;
+            else res += currValue;
             prev = currValue;
         }
 
         return res;
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1)
     public int romanToIntIII(String s) {
         if (s.isEmpty()) return 0;
 
