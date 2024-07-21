@@ -1,8 +1,10 @@
 /**
- * Created by Onikoyi Damola Olutoba
+ * Created by Damola Olutoba Onikoyi
  * DATE: 14, July 2024
  * EMAIL: damexxey94@gmail.com
  */
+
+import java.util.Stack;
 
 /**
  * Given a balanced parentheses string s, return the score of the string.
@@ -32,8 +34,20 @@
 
 public class ScoreOfParentheses {
 
+    // TC -> O(N), SC -> O(N)
     public int scoreOfParentheses(String s) {
-        return 0;
+        Stack<Integer> stack = new Stack<>();
+        int score = 0;
+        for (char ch : s.toCharArray()) {
+            if (ch == '(') {
+                stack.push(score);
+                score = 0;
+            } else {
+                score = stack.pop() + Math.max(2 * score, 1);
+            }
+        }
+
+        return score;
     }
 
 }
