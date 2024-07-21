@@ -28,14 +28,35 @@ import java.util.Stack;
  * Example 3:
  * Input: s = "()()"
  * Output: 2
+ *
+ * Example 4:
+ * Input: s = "(()(()))"
+ * Output: 4
  * </pre>
  * </blockquote>
  */
 
 public class ScoreOfParentheses {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1)
     public int scoreOfParentheses(String s) {
+        int depth = 0, score = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                depth++;
+            } else {
+                depth--;
+            }
+            if (s.charAt(i) == ')' && s.charAt(i - 1) == '(') {
+                score += (int) Math.pow(2, depth);
+            }
+        }
+
+        return score;
+    }
+
+    // TC -> O(N), SC -> O(N)
+    public int scoreOfParenthesesII(String s) {
         Stack<Integer> stack = new Stack<>();
         int score = 0;
         for (char ch : s.toCharArray()) {
@@ -48,6 +69,22 @@ public class ScoreOfParentheses {
         }
 
         return score;
+    }
+
+    // TC -> O(N), SC -> O(50) or O(1)
+    public int scoreOfParenthesesIII(String s) {
+        int[] res = new int[50];
+        int idx = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                res[++idx] = 0;
+            } else {
+                res[idx - 1] += Math.max(2 * res[idx], 1);
+                idx--;
+            }
+        }
+
+        return res[0];
     }
 
 }
