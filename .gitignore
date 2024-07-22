@@ -11,7 +11,3 @@
 /.idea
 /out/
 .idea/*
-out/production/Leetcode/*
-/out/*
-.idea/Leetcode.iml
-.idea/misc.xml
