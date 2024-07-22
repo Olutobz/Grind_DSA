@@ -47,16 +47,20 @@ public class UnitConverter {
         toBase.put("min", 1 / 60.0);
         toBase.put("sec", 1 / 3600.0);
 
-        if (fromBase.containsKey(fromUnit) && toBase.containsKey(toUnit)
-                && ((isLengthUnit(fromUnit) && isLengthUnit(toUnit))
-                || (isTimeUnit(fromUnit) && isTimeUnit(toUnit))
-        )) {
+        if (isValidInput(fromBase, toBase, fromUnit, toUnit)) {
             double baseUnitValue = value * toBase.get(fromUnit);
             double convertedValue = baseUnitValue * fromBase.get(toUnit);
             return String.format("%.3f", convertedValue);
         } else {
             return "Not convertible";
         }
+    }
+
+    private static boolean isValidInput(Map<String, Double> fromBase, Map<String, Double> toBase,
+                                        String fromUnit, String toUnit) {
+        return fromBase.containsKey(fromUnit) && toBase.containsKey(toUnit)
+                && ((isLengthUnit(fromUnit) && isLengthUnit(toUnit))
+                || (isTimeUnit(fromUnit) && isTimeUnit(toUnit)));
     }
 
     private static boolean isLengthUnit(String unit) {
