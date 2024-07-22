@@ -9,19 +9,20 @@ import java.util.Stack;
 
 public class FindMaxDepthOfNestedParenthesisInAString {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(N), SC -> O(1)
     private int maxDepth(String str) {
         if (str == null || str.isEmpty()) return 0;
 
         int count = 0;
         int max = 0;
-        for (char ch : str.toCharArray()) {
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
             if (ch == '(' || ch == '{' || ch == '[') {
                 count++;
-                max = Math.max(count, max);
             } else if (ch == ')' || ch == '}' || ch == ']') {
                 count--;
             }
+            max = Math.max(count, max);
         }
         return max;
     }
@@ -30,15 +31,15 @@ public class FindMaxDepthOfNestedParenthesisInAString {
     private int maxDepthII(String str) {
         if (str == null || str.isEmpty()) return 0;
 
-        Stack<Integer> st = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         int max = 0;
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             if (ch == '(' || ch == '{' || ch == '[') {
-                st.push(i);
-                max = Math.max(max, st.size());
+                stack.push(i);
+                max = Math.max(max, stack.size());
             } else if (ch == ')' || ch == '}' || ch == ']') {
-                st.pop();
+                stack.pop();
             }
         }
         return max;

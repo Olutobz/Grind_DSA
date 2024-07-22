@@ -4,7 +4,7 @@ public class MaximumNestingDepthOfTheParentheses {
 
     // TC -> O(N), SC -> O(1)
     public int maxDepth(String s) {
-        if (s == null || s.length() == 0) return 0;
+        if (s == null || s.isEmpty()) return 0;
         int count = 0;
         int max = 0;
 
