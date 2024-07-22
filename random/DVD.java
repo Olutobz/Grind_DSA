@@ -1,4 +1,4 @@
-package arrays;
+// Leetcode Arrays Explore Card
 
 public class DVD {
     private final String name;
