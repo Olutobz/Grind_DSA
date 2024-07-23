@@ -52,16 +52,16 @@ public class GroupThePeopleGivenTheGroupSizeTheyBelongTo {
         Map<Integer, List<Integer>> map = new HashMap<>();
 
         for (int i = 0; i < groupSizes.length; i++) {
-            List<Integer> temp = new ArrayList<>();
-            int currVal = groupSizes[i];
-            if (map.containsKey(currVal)) {
-                temp = map.get(currVal);
+            List<Integer> tempList = new ArrayList<>();
+            int currSize = groupSizes[i];
+            if (map.containsKey(currSize)) {
+                tempList = map.get(currSize);
             }
-            temp.add(i);
-            map.put(currVal, temp);
-            if (temp.size() == currVal) {
-                res.add(temp);
-                map.remove(currVal);
+            tempList.add(i);
+            map.put(currSize, tempList);
+            if (tempList.size() == currSize) {
+                res.add(tempList);
+                map.remove(currSize);
             }
         }
 
