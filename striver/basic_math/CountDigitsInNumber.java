@@ -1,4 +1,4 @@
-package basicMath; /**
+package basic_math; /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 02 May 2024
  * EMAIL: damexxey94@gmail.com
