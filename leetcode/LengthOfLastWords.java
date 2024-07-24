@@ -1,14 +1,15 @@
 public class LengthOfLastWords {
 
     // TC -> O(1), SC -> O(N)
-    public int lengthOfLastWordIII(String s) {
+    public int lengthOfLastWord(String s) {
         if (s == null || s.isEmpty()) return -1;
         String[] strArr = s.split(" ");
-        return strArr[strArr.length - 1].length();
+        int lastItemIndex = strArr.length - 1;
+        return strArr[lastItemIndex].length();
     }
 
     // TC -> O(N), SC -> O(1)
-    public int lengthOfLastWord(String s) {
+    public int lengthOfLastWordII(String s) {
         if (s == null || s.isEmpty()) return -1;
         int count = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
@@ -22,7 +23,7 @@ public class LengthOfLastWords {
     }
 
     // TC -> O(N), SC -> O(1)
-    public int lengthOfLastWordII(String s) {
+    public int lengthOfLastWordIII(String s) {
         if (s == null || s.isEmpty()) return -1;
         s = s.trim();
         int count = 0;
