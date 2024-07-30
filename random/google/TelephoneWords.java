@@ -7,8 +7,7 @@ package google;
  */
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Write a function that takes a 7-digits telephone number and prints out all the possible "words"
@@ -57,10 +56,54 @@ public class TelephoneWords {
         }
     }
 
+    // TC -> O(N * 3^N), SC -> O(N * 3^N)
+    private static List<String> findCombinationsII(String phoneNumber) {
+        List<String> res = new ArrayList<>();
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            return res;
+        }
+
+        findCombinationsHelperII(phoneNumber, 0, new StringBuilder(), res);
+        return res;
+    }
+
+    private static void findCombinationsHelperII(String phoneNumber, int index, StringBuilder currentCombination, List<String> res) {
+        if (index == phoneNumber.length()) {
+            res.add(currentCombination.toString());
+            return;
+        }
+
+        Map<Character, String> keyPadMap = new HashMap<>();
+        keyPadMap.put('1', "");
+        keyPadMap.put('2', "abc");
+        keyPadMap.put('3', "def");
+        keyPadMap.put('4', "ghi");
+        keyPadMap.put('5', "jkl");
+        keyPadMap.put('6', "mno");
+        keyPadMap.put('7', "pqrs");
+        keyPadMap.put('8', "tuv");
+        keyPadMap.put('9', "wxyz");
+
+        char digit = phoneNumber.charAt(index);
+        String letters = keyPadMap.get(digit);
+
+        if (letters != null) {
+            for (char letter : letters.toCharArray()) {
+                currentCombination.append(letter);
+                findCombinationsHelper(phoneNumber, index + 1, currentCombination, res);
+                currentCombination.deleteCharAt(currentCombination.length() - 1);
+            }
+        } else {
+            findCombinationsHelper(phoneNumber, index + 1, currentCombination, res);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(findCombinations("12"));
         System.out.println(findCombinations("03"));
-        System.out.println(findCombinations("88"));
+        System.out.println(findCombinations("82"));
+        System.out.println(findCombinationsII("82"));
     }
+
 
 }
