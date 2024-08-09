@@ -70,7 +70,7 @@ import java.util.Map;
  */
 public class IntegerToRoman {
 
-    // TC -> O(1), SC -> O(1)
+    // TC -> O(13) or O(1), SC -> O(13) or O(1)
     public static String intToRoman(int num) {
         if (num < 1 || num > 3999) return "";
 
@@ -82,7 +82,7 @@ public class IntegerToRoman {
         return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
     }
 
-    // TC -> O(1), SC -> O(1) or [O(N), if we include the output string]
+    // TC -> O(13) or O(1), SC -> O(13) or O(1)
     public String intToRomanII(int num) {
         if (num < 1 || num > 3999) return "";
 
@@ -102,7 +102,7 @@ public class IntegerToRoman {
         return res.toString();
     }
 
-    // TC -> O(1), SC -> O(1) or [O(N), including the output string]
+    // TC -> O(13) or O(1), SC -> O(13) or O(1)
     public String intToRomanIII(int num) {
         if (num < 1 || num > 3999) return "";
 
@@ -130,6 +130,57 @@ public class IntegerToRoman {
         }
 
         return res.toString();
+    }
+
+
+    // TC -> O(13) or O(1), SC -> O(13) or O(1)
+    public String intToRomanIv(int num) {
+        StringBuilder sb = new StringBuilder();
+
+        while (num > 0) {
+            if (num >= 1000) {
+                sb.append("M");
+                num -= 1000;
+            } else if (num >= 900) {
+                sb.append("CM");
+                num -= 900;
+            } else if (num >= 500) {
+                sb.append("D");
+                num -= 500;
+            } else if (num >= 400) {
+                sb.append("CD");
+                num -= 400;
+            } else if (num >= 100) {
+                sb.append("C");
+                num -= 100;
+            } else if (num >= 90) {
+                sb.append("XC");
+                num -= 90;
+            } else if (num >= 50) {
+                sb.append("L");
+                num -= 50;
+            } else if (num >= 40) {
+                sb.append("XL");
+                num -= 40;
+            } else if (num >= 10) {
+                sb.append("X");
+                num -= 10;
+            } else if (num == 9) {
+                sb.append("IX");
+                num -= 9;
+            } else if (num >= 5) {
+                sb.append("V");
+                num -= 5;
+            } else if (num == 4) {
+                sb.append("IV");
+                num -= 4;
+            } else {
+                sb.append("I");
+                num -= 1;
+            }
+        }
+
+        return sb.toString();
     }
 
 }
