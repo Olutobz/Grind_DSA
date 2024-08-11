@@ -44,7 +44,32 @@ import java.util.Map;
 public class ConvertAnArrayIntoA2DArrayWithConditions {
 
     // TC -> O(N), SC -> O(N)
-    public List<List<Integer>> findMatrix(int[] nums) {
+    private List<List<Integer>> findMatrixII(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+
+        int[] freqCounter = new int[nums.length + 1];
+        for (int num : nums) {
+            freqCounter[num]++;
+        }
+
+        for (int i = 1; i <= nums.length; i++) {
+            int freq = freqCounter[i];
+            for (int j = 0; j < freq; j++) {
+                if (result.size() <= j) {
+                    result.add(new ArrayList<>());
+                }
+                result.get(j).add(i);
+            }
+        }
+
+        return result;
+    }
+
+    // TC -> O(N), SC -> O(N)
+    private List<List<Integer>> findMatrix(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums == null || nums.length == 0) {
             return result;
