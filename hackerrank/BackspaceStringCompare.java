@@ -36,10 +36,10 @@ public class BackspaceStringCompare {
             return 0;
         }
 
-        return helper(s1).equals(helper(s2)) ? 1 : 0;
+        return removeBackspacesFromString(s1).equals(removeBackspacesFromString(s2)) ? 1 : 0;
     }
 
-    private static String helper(String str) {
+    private static String removeBackspacesFromString(String str) {
         StringBuilder builder = new StringBuilder();
         int skip = 0;
         for (int i = str.length() - 1; i >= 0; i--) {
