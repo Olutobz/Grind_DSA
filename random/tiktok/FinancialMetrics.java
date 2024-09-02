@@ -8,6 +8,15 @@ import java.util.List;
  * EMAIL: damexxey94@gmail.com
  */
 
+/**
+ * Given an array financial metrics of size n, where each element represents a numerical financial metrics
+ * and a threshold value limit, the goal is to find the maximum length of a non-empty consecutive sequence
+ * of data points in the financial metrics that satisfies the following conditions:
+ * <p>
+ * Each Data point in the sequence must be greater than (limit/length of the sequence).
+ * This sequence is term good sub array for analysis. If there is no good Subarray in the dataset, return -1
+ */
+
 public class FinancialMetrics {
 
     public static int maxLengthGoodSubarray(List<Integer> metrics, int limit) {
