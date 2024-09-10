@@ -22,7 +22,7 @@ import java.util.*;
  * First switch 3 and 4 to get popularity = [4,3,1,2]
  * Then switch 1 and 2 to get [4,3,2,1]
  * The array is reordered in 2 operations
- *     </pre>
+ * </pre>
  * </blockquote>
  */
 
@@ -53,6 +53,41 @@ public class MinimumSwapsToOrder {
             while (!visited[j]) {
                 visited[j] = true;
                 j = originalIndices.get(sortedPopularity.get(j));
+                cycleSize++;
+            }
+
+            if (cycleSize > 1) {
+                count += cycleSize - 1;
+            }
+        }
+
+        return count;
+    }
+
+    // TC -> O(n log n), SC -> O(n)
+    private static int minimumSwapsII(List<Integer> popularity) {
+        if (popularity.isEmpty()) return 0;
+
+        List<int[]> originalIndices = new ArrayList<>();
+        int n = popularity.size();
+        boolean[] visited = new boolean[n];
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            originalIndices.add(new int[]{popularity.get(i), i});
+        }
+
+        originalIndices.sort((a, b) -> b[0] - a[0]);
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i] || originalIndices.get(i)[1] == i) {
+                continue;
+            }
+            int cycleSize = 0;
+            int j = i;
+            while (!visited[j]) {
+                visited[j] = true;
+                j = originalIndices.get(i)[1];
                 cycleSize++;
             }
 
