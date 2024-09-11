@@ -42,13 +42,13 @@ public class DailyTemperatures {
         int[] answer = new int[temperatures.length];
         Stack<Integer> stack = new Stack<>();
 
-        for (int i = 0; i < temperatures.length; i++) {
-            while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
-                int index = stack.pop();
-                answer[index] = i - index;
+        for (int currDay = 0; currDay < temperatures.length; currDay++) {
+            while (!stack.isEmpty() && temperatures[currDay] > temperatures[stack.peek()]) {
+                int prevDay = stack.pop();
+                answer[prevDay] = currDay - prevDay;
             }
 
-            stack.push(i);
+            stack.push(currDay);
         }
 
         return answer;
@@ -64,14 +64,14 @@ public class DailyTemperatures {
         int[] stack = new int[temperatures.length];
         int top = -1;
 
-        for (int i = 0; i < temperatures.length; i++) {
-            while (top > -1 && temperatures[i] > temperatures[stack[top]]) {
-                int index = stack[top];
-                answer[index] = i - index;
+        for (int currDay = 0; currDay < temperatures.length; currDay++) {
+            while (top > -1 && temperatures[currDay] > temperatures[stack[top]]) {
+                int prevDay = stack[top];
+                answer[prevDay] = currDay - prevDay;
                 top--;
             }
 
-            stack[++top] = i;
+            stack[++top] = currDay;
         }
 
         return answer;
