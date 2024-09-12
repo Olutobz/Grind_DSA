@@ -25,30 +25,30 @@
  * Input: s = "iiii", k = 1
  * Output: 36
  * Explanation: The operations are as follows:
- * - Convert: "iiii" ➝ "(9)(9)(9)(9)" ➝ "9999" ➝ 9999
- * - Transform #1: 9999 ➝ 9 + 9 + 9 + 9 ➝ 36
+ * Convert: "iiii" ➝ "(9)(9)(9)(9)" ➝ "9999" ➝ 9999
+ * Transform #1: 9999 ➝ 9 + 9 + 9 + 9 ➝ 36
  * Thus the resulting integer is 36.
  *
  * Example 2:
  * Input: s = "leetcode", k = 2
  * Output: 6
  * Explanation: The operations are as follows:
- * - Convert: "leetcode" ➝ "(12)(5)(5)(20)(3)(15)(4)(5)" ➝ "12552031545" ➝ 12552031545
- * - Transform #1: 12552031545 ➝ 1 + 2 + 5 + 5 + 2 + 0 + 3 + 1 + 5 + 4 + 5 ➝ 33
- * - Transform #2: 33 ➝ 3 + 3 ➝ 6
+ * Convert: "leetcode" ➝ "(12)(5)(5)(20)(3)(15)(4)(5)" ➝ "12552031545" ➝ 12552031545
+ * Transform #1: 12552031545 ➝ 1 + 2 + 5 + 5 + 2 + 0 + 3 + 1 + 5 + 4 + 5 ➝ 33
+ * Transform #2: 33 ➝ 3 + 3 ➝ 6
  * Thus the resulting integer is 6.
  *
  * Example 3:
- *
  * Input: s = "zbax", k = 2
  * Output: 8
  * </pre>
  * </blockquote>
  */
+
 public class SumOfDigitsOfStringAfterConvert {
 
-    // TC -> O(kn), SC -> O(1)
-    public int getLucky(String s, int k) {
+    // TC -> O(k * n), SC -> O(1)
+    private int getLucky(String s, int k) {
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             int digit = s.charAt(i) - 'a' + 1;
@@ -68,8 +68,8 @@ public class SumOfDigitsOfStringAfterConvert {
         return sum;
     }
 
-    // TC -> O(kn), SC -> O(n)
-    public int getLuckyII(String s, int k) {
+    // TC -> O(k * n), SC -> O(n)
+    private int getLuckyII(String s, int k) {
         if (s == null || s.isEmpty()) {
             return 0;
         }
