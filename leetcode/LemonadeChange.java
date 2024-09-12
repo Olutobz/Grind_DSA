@@ -42,29 +42,62 @@
 public class LemonadeChange {
 
     // TC -> O(N), SC -> O(1)
-    public boolean lemonadeChange(int[] bills) {
+    private boolean lemonadeChange(int[] bills) {
         if (bills == null || bills.length == 0) {
             return false;
         }
 
-        int count5 = 0;
-        int count10 = 0;
+        int five_dollars = 0;
+        int ten_dollars = 0;
+
+        for (int currBill : bills) {
+            if (currBill == 5) {
+                five_dollars++;
+            } else if (currBill == 10) {
+                if (five_dollars == 0) {
+                    return false;
+                }
+                five_dollars--;
+                ten_dollars++;
+            } else {
+                if (five_dollars > 0 && ten_dollars > 0) {
+                    five_dollars--;
+                    ten_dollars--;
+                } else if (five_dollars > 2) {
+                    five_dollars -= 3;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    // TC -> O(N), SC -> O(1)
+    private boolean lemonadeChangeII(int[] bills) {
+        if (bills == null || bills.length == 0) {
+            return false;
+        }
+
+        int five_dollars = 0;
+        int ten_dollars = 0;
 
         for (int bill : bills) {
             if (bill == 5) {
-                count5++;
+                five_dollars++;
             } else if (bill == 10) {
-                count5--;
-                count10++;
+                five_dollars--;
+                ten_dollars++;
             } else {
-                if (count10 > 0) {
-                    count10--;
-                    count5--;
+                if (ten_dollars > 0) {
+                    ten_dollars--;
+                    five_dollars--;
                 } else {
-                    count5 -= 3;
+                    five_dollars -= 3;
                 }
             }
-            if (count5 < 0) {
+            if (five_dollars < 0) {
                 return false;
             }
         }
