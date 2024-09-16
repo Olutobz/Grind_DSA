@@ -11,7 +11,6 @@ import java.util.Set;
  * EMAIL: damexxey94@gmail.com
  */
 
-
 /**
  * Write a program that accepts two sets of alphanumeric characters and performs an efficient match between them.
  * Finally, display the results.
@@ -27,6 +26,7 @@ import java.util.Set;
  * </pre>
  * </blockquote>
  */
+
 public class CommonCharactersOfTwoStrings {
 
     public static void main(String[] args) {
@@ -38,6 +38,7 @@ public class CommonCharactersOfTwoStrings {
         System.out.println(findCommonCharactersOfTwoStrings("1 2 3 A B C", "X 11 G M 2 9 3 C N R"));
     }
 
+    // TC -> O(n), SC -> O(n)
     private static String findCommonCharactersOfTwoStrings(String str1, String str2) {
         if (str1.isEmpty() || str2.isEmpty()) {
             return "null";

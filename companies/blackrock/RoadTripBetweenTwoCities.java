@@ -35,8 +35,9 @@ import java.util.Scanner;
 
 public class RoadTripBetweenTwoCities {
 
+    // TC -> O(n log n), SC -> O(N)
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String input = "Rkbs,5453; Wdqiz,1245; Rwds,3890; Ujma,5589; Tbzmo,1303;";
         String[] cityDistancePairs = input.split(";");
 
