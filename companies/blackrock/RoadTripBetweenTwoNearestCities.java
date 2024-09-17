@@ -33,7 +33,7 @@ import java.util.Scanner;
  * </blockquote>
  */
 
-public class RoadTripBetweenTwoCities {
+public class RoadTripBetweenTwoNearestCities {
 
     // TC -> O(n log n), SC -> O(N)
     public static void main(String[] args) {
