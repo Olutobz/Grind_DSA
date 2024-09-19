@@ -22,6 +22,7 @@ package ziprecruiter;
 
 public class DistinctDigitsCounter {
 
+    // TC -> O(n), SC -> O(1)
     public static int countDistinctDigitNumbers(int left, int right) {
         int count = 0;
 
