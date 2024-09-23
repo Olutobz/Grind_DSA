@@ -33,6 +33,7 @@ import java.util.Set;
  * </pre>
  * </blockquote>
  */
+
 public class CircularClip {
 
     public static int contentStrength(String clip) {
@@ -43,12 +44,12 @@ public class CircularClip {
         for (int i = 0; i < n; i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 1; j <= n; j++) {
-                char currCh = circularClip.charAt(i + j - 1);
+                char currChar = circularClip.charAt(i + j - 1);
 
-                if (isVowel(currCh)) {
+                if (isVowel(currChar)) {
                     break;
                 }
-                sb.append(currCh);
+                sb.append(currChar);
                 uniqueSubstrings.add(sb.toString());
             }
         }
