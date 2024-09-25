@@ -33,7 +33,7 @@
 
 public class FlippingAnImage {
 
-    // TC -> O(N^2), SC -> O(1)
+    // TC -> O(n^2), SC -> O(1)
     public int[][] flipAndInvertImage(int[][] image) {
         if (image == null || image.length == 0 || image[0].length == 0) {
             return image;
@@ -53,5 +53,34 @@ public class FlippingAnImage {
         }
 
         return image;
+    }
+
+    // TC -> O(n^2), SC -> O(n)
+    public int[][] flipAndInvertImageII(int[][] image) {
+        if (image == null || image.length == 0 || image[0].length == 0) {
+            return image;
+        }
+
+        for (int i = 0; i < image.length; i++) {
+            image[i] = reverseImage(image[i]);
+        }
+
+        return image;
+    }
+
+    private int[] reverseImage(int[] arr) {
+        int j = 0;
+        int[] ans = new int[arr.length];
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == 0) {
+                ans[j] = 1;
+            } else if (arr[i] == 1) {
+                ans[j] = 0;
+            }
+            j++;
+        }
+
+        return ans;
     }
 }
