@@ -58,4 +58,10 @@ public class CountingPairs {
         return count;
     }
 
+    public static void main(String[] args) {
+        System.out.println(countValidPairs(new int[]{1, 1, 1, 2}, 1));
+        System.out.println(countValidPairs(new int[]{1, 1, 2, 9, 5}, 2));
+        // a + k = b; k = 2
+    }
+
 }
