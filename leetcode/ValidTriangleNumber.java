@@ -35,14 +35,8 @@ public class ValidTriangleNumber {
 
     // TC -> O(n^2), SC -> O(1)
     public int triangleNumber(int[] nums) {
-      /*   a + b > c
-         a + c > b
-         b + c > a
-         where a < b < c
-      */
         Arrays.sort(nums);
         int count = 0;
-
         for (int k = nums.length - 1; k > 1; k--) {
             int l = 0;
             int r = k - 1;
