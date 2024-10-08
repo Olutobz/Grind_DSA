@@ -14,23 +14,23 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BasicHashing {
 
     public static void main(String[] args) {
-        int[] hashArray = new int[8];
+        int[] occurrences = new int[8];
         int[] arr = {1, 2, 1, 3, 2};
 
         for (int item : arr) {
-            hashArray[item] += 1;
+            occurrences[item]++;
         }
 
+        fetchHashArray(occurrences);
         setupBasicMapSample();
-        fetchHashArray(hashArray);
         simpleThreadSafeMap();
         simpleThreadSafeMapII();
 
     }
 
-    private static void fetchHashArray(int[] arr) {
+    private static void fetchHashArray(int[] freq) {
         System.out.print("Hash array: ");
-        for (int item : arr) {
+        for (int item : freq) {
             System.out.print(item + " ");
         }
         System.out.println();
@@ -38,10 +38,10 @@ public class BasicHashing {
 
     private static void setupBasicMapSample() {
         Map<Integer, Integer> map = new HashMap<>();
-        int[] arrOfInt = {1, 1, 6, 4, 4, 4, 5, 5, 7};
+        int[] occurrences = {1, 1, 6, 4, 4, 4, 5, 5, 7};
 
-        for (int item : arrOfInt) {
-            map.put(item, map.getOrDefault(item, 0) + 1);
+        for (int currVal : occurrences) {
+            map.put(currVal, map.getOrDefault(currVal, 0) + 1);
         }
 
         System.out.print("\nMap values: ");
