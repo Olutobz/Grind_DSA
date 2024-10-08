@@ -17,6 +17,33 @@ public class FindTheHighestLowestFreqElement {
         countHighestLowestFreqII(arr);
     }
 
+    // TC -> O(n), SC -> O(n)
+    private static void countHighestLowestFreqII(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int maxElement = 0, maxFreq = 0;
+        int minElement = 0, minFreq = arr.length;
+
+        for (int item : arr) {
+            map.put(item, map.getOrDefault(item, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            int element = entry.getKey();
+            int count = entry.getValue();
+
+            if (count > maxFreq) {
+                maxFreq = count;
+                maxElement = element;
+            } else if (count < minFreq) {
+                minFreq = count;
+                minElement = element;
+            }
+        }
+
+        System.out.println("The highest frequency element is " + maxElement + " with a freq count of " + maxFreq);
+        System.out.println("The lowest frequency element is " + minElement + " with a freq count of " + minFreq);
+    }
+
     // TC -> O(n^2), SC -> O(n)
     private static void countHighestLowestFreq(int[] arr) {
         int len = arr.length;
@@ -40,33 +67,6 @@ public class FindTheHighestLowestFreqElement {
             } else if (count < minFreq) {
                 minFreq = count;
                 minElement = arr[i];
-            }
-        }
-
-        System.out.println("The highest frequency element is " + maxElement + " with a freq count of " + maxFreq);
-        System.out.println("The lowest frequency element is " + minElement + " with a freq count of " + minFreq);
-    }
-
-    // TC -> O(n), SC -> O(n)
-    private static void countHighestLowestFreqII(int[] arr) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int maxElement = 0, maxFreq = 0;
-        int minElement = 0, minFreq = arr.length;
-
-        for (int item : arr) {
-            map.put(item, map.getOrDefault(item, 0) + 1);
-        }
-
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int element = entry.getKey();
-            int count = entry.getValue();
-
-            if (count > maxFreq) {
-                maxFreq = count;
-                maxElement = element;
-            } else if (count < minFreq) {
-                minFreq = count;
-                minElement = element;
             }
         }
 

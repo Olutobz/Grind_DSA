@@ -24,8 +24,8 @@ public class CountFreqOfEachElementInArray {
             return;
         }
 
-        boolean[] visited = new boolean[arr.length];
         System.out.println("Using boolean array: ");
+        boolean[] visited = new boolean[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
             if (visited[i]) continue;
@@ -48,8 +48,8 @@ public class CountFreqOfEachElementInArray {
             return;
         }
 
-        Map<Integer, Integer> map = new HashMap<>();
         System.out.println("Using HashMap: ");
+        Map<Integer, Integer> map = new HashMap<>();
         for (int item : arr) {
             map.put(item, map.getOrDefault(item, 0) + 1);
         }
