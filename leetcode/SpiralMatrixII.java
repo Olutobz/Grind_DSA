@@ -19,13 +19,14 @@
  * </pre>
  * </blockquote>
  */
+
 public class SpiralMatrixII {
 
     // TC -> O(n^2), SC -> O(1)
     public int[][] generateMatrix(int n) {
         int[][] res = new int[n][n];
         int left = 0, top = 0;
-        int right = n - 1, down = n - 1;
+        int right = n - 1, bottom = n - 1;
         int count = 1;
 
         while (left <= right) {
@@ -34,17 +35,17 @@ public class SpiralMatrixII {
             }
             top++;
 
-            for (int i = top; i <= down; i++) {
+            for (int i = top; i <= bottom; i++) {
                 res[i][right] = count++;
             }
             right--;
 
             for (int j = right; j >= left; j--) {
-                res[down][j] = count++;
+                res[bottom][j] = count++;
             }
-            down--;
+            bottom--;
 
-            for (int i = down; i >= top; i--) {
+            for (int i = bottom; i >= top; i--) {
                 res[i][left] = count++;
             }
             left++;
