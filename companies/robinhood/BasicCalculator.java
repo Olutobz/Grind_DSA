@@ -40,13 +40,13 @@ public class BasicCalculator {
 
     // TC -> O(N), SC -> O(N)
     public int calculate(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
+        if (s == null || s.isEmpty()) return 0;
+
         int len = s.length();
         int sign = 1;
         int result = 0;
         Stack<Integer> stack = new Stack<>();
+
         for (int i = 0; i < len; i++) {
             if (Character.isDigit(s.charAt(i))) {
                 int sum = s.charAt(i) - '0';
@@ -68,7 +68,7 @@ public class BasicCalculator {
                 result = result * stack.pop() + stack.pop();
             }
         }
-        return result;
 
+        return result;
     }
 }
