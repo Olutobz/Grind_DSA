@@ -9,7 +9,8 @@ package ziprecruiter;
 
 /**
  * Given a range of numbers (left, right), both ends inclusive 100 <= left <= right <= 999,
- * count the number of three-digit numbers having all three digits pairwise distinct (meaning no two digits are the same).
+ * count the number of three-digit numbers having all three digits
+ * pairwise distinct (meaning no two digits are the same).
  * It is guaranteed all numbers within a range have exactly 3 digits
  * <p>
  * <blockquote>
