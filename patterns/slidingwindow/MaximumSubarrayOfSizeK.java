@@ -6,7 +6,7 @@ package slidingwindow;
  * [4,2,1,7,8,1,2,8,1,0],  K = 3
  */
 
-public class MaximumSubarray {
+public class MaximumSubarrayOfSizeK {
 
     // TC -> O(N), SC -> O(1)
     public static int findMaxSumSubArray(int[] nums, int k) {
