@@ -16,6 +16,7 @@ import java.util.List;
 
 public class CombineTwoSortedArrays {
 
+    // TC -> O(N + M), SC -> O(1)
     public List<Integer> combine(int[] arr1, int[] arr2) {
         List<Integer> result = new ArrayList<>();
         int i = 0;

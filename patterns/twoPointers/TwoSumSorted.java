@@ -23,6 +23,7 @@ package twoPointers;
 
 public class TwoSumSorted {
 
+    // TC -> O(N), SC -> O(1)
     public boolean checkForTarget(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
