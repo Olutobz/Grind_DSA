@@ -14,7 +14,7 @@ public class ShuffleAnArray {
         return nums;
     }
 
-    // TC -> O(N), SC -> O(1) [If we ignored the returning array]
+    // TC -> O(N), SC -> O(N)
     public int[] shuffle() {
         if (nums == null) return null;
         int[] res = nums.clone();
