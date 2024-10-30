@@ -38,16 +38,16 @@ public class ReverseString {
     private static void reverseStringII(char[] s) {
         if (s == null || s.length == 0) return;
         int first = 0, last = s.length - 1;
-        swap(s, first, last);
+        swapRecursively(s, first, last);
         System.out.println(Arrays.toString(s));
     }
 
-    private static void swap(char[] s, int first, int last) {
+    private static void swapRecursively(char[] s, int first, int last) {
         if (first >= last) return;
         char temp = s[first];
         s[first] = s[last];
         s[last] = temp;
-        swap(s, ++first, --last);
+        swapRecursively(s, ++first, --last);
     }
 
     // TC -> O(N), SC -> O(N)
