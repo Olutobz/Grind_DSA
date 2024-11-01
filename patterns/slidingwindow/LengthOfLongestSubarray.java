@@ -17,7 +17,7 @@ package slidingwindow;
  * </blockquote>
  */
 
-public class SampleSlidingWindowAlgo {
+public class LengthOfLongestSubarray {
 
     // TC -> O(n), SC -> O(1)
     private int findLength(int[] nums, int k) {
