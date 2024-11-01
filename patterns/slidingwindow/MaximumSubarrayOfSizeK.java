@@ -1,32 +1,39 @@
 package slidingwindow;
 
 /**
- * Find the max sum subarray of a fixed size K
- * Example Input:
- * [4,2,1,7,8,1,2,8,1,0],  K = 3
+ * Find the max sum subarray of a fixed size K.
+ *
+ * <blockquote>
+ * <pre>
+ * Example 1
+ * Input: nums = [4,2,1,7,8,1,2,8,1,0],  K = 3
+ * Output = 16
+ * </pre>
+ * </blockquote>
  */
 
 public class MaximumSubarrayOfSizeK {
 
     // TC -> O(N), SC -> O(1)
     public static int findMaxSumSubArray(int[] nums, int k) {
-        int maxValue = Integer.MIN_VALUE;
-        int currRunningSum = 0;
+        int maxSumSoFar = Integer.MIN_VALUE;
+        int runningSum = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            currRunningSum += nums[i];
-            if (i >= k - 1) {
-                maxValue = Math.max(maxValue, currRunningSum);
-                currRunningSum -= nums[i - (k - 1)];
+        for (int right = 0, left = 0; right < nums.length; right++) {
+            runningSum += nums[right];
+            if (right >= k - 1) {
+                maxSumSoFar = Math.max(maxSumSoFar, runningSum);
+                runningSum -= nums[left];
+                left++;
             }
         }
-        return maxValue;
+        return maxSumSoFar;
     }
 
     public static void main(String[] args) {
-        int[] input = new int[]{4, 2, 1, 7, 8, 1, 2, 8, 1, 0};
+        int[] arr = new int[]{4, 2, 1, 7, 8, 1, 2, 8, 1, 0};
         int k = 3;
-        System.out.println(findMaxSumSubArray(input, k));
+        System.out.println(findMaxSumSubArray(arr, k));
     }
 
 }
