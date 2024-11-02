@@ -1,12 +1,14 @@
+package robinhood;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Damola Olutoba Onikoyi
  * DATE: 08, October 2024
  * EMAIL: damexxey94@gmail.com
  */
 
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * You are given a string allowed consisting of distinct characters and an array of strings words.
