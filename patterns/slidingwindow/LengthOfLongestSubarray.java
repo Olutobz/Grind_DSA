@@ -13,6 +13,7 @@ package slidingwindow;
  * <blockquote>
  * <pre>
  * nums = [3, 1, 2, 7, 4, 2, 1, 1, 5] and k = 8.
+ * output = 4
  * </pre>
  * </blockquote>
  */
