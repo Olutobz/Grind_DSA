@@ -1,14 +1,14 @@
 package robinhood;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Created by Damola Olutoba Onikoyi
  * DATE: 08, October 2024
  * EMAIL: damexxey94@gmail.com
  */
 
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * You are given a string allowed consisting of distinct characters and an array of strings words.
@@ -46,28 +46,6 @@ import java.util.Set;
 
 public class CountTheNumberOfConsistentStrings {
 
-    // TC -> O(N * M), SC -> O(N)
-    public int countConsistentStrings(String allowed, String[] words) {
-        Set<Character> seen = new HashSet<>();
-        int result = words.length;
-
-        for (int i = 0; i < allowed.length(); i++) {
-            seen.add(allowed.charAt(i));
-        }
-
-        for (String word : words) {
-            for (char ch : word.toCharArray()) {
-                if (!seen.contains(ch)) {
-                    result--;
-                    break;
-                }
-            }
-        }
-
-        return result;
-    }
-
-
     // TC -> O(N * M), SC -> O(1)
     public int countConsistentStringsII(String allowed, String[] words) {
         int result = words.length;
@@ -87,6 +65,27 @@ public class CountTheNumberOfConsistentStrings {
         }
 
         return result;
+    }
+
+    // TC -> O(N * M), SC -> O(N)
+    public int countConsistentStrings(String allowed, String[] words) {
+        Set<Character> seen = new HashSet<>();
+        int count = words.length;
+
+        for (char ch : allowed.toCharArray()) {
+            seen.add(ch);
+        }
+
+        for (String word : words) {
+            for (char ch : word.toCharArray()) {
+                if (!seen.contains(ch)) {
+                    count--;
+                    break;
+                }
+            }
+        }
+
+        return count;
     }
 
 }
