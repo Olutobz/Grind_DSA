@@ -31,7 +31,7 @@
 public class RotateString {
 
     // TC -> O(n), SC -> O(n)
-    public boolean rotateString(String s, String goal) {
+    public boolean rotateStringII(String s, String goal) {
         if (s == null || goal == null) {
             return false;
         }
@@ -46,8 +46,29 @@ public class RotateString {
         return doubleString.contains(goal);
     }
 
+    // TC -> O(n^2), SC -> O(1)
+    public boolean rotateString(String s, String goal) {
+        if (s == null || goal == null) {
+            return false;
+        }
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        if (s.isEmpty()) {
+            return true;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (rotateString(s, goal, i)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // TC -> O(n^2), SC -> O(n)
-    public boolean rotateStringII(String s, String goal) {
+    public boolean rotateStringIII(String s, String goal) {
         if (s == null || goal == null) {
             return false;
         }
@@ -67,6 +88,15 @@ public class RotateString {
         }
 
         return false;
+    }
+
+    private boolean rotateString(String s, String goal, int rotation) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != goal.charAt((i + rotation) % goal.length())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private char[] rotateOnce(char[] arr) {
