@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class LongestRepeatingCharacterReplacement {
 
-    // TC -> O(N), SC -> O(26)
+    // TC -> O(N), SC -> O(1)
     public int characterReplacementII(String s, int k) {
         if (s == null || s.isEmpty()) return 0;
 
@@ -42,9 +42,9 @@ public class LongestRepeatingCharacterReplacement {
         int maxChars = 0;
 
         for (int right = 0; right < s.length(); right++) {
-            char currCh = s.charAt(right);
-            freq[currCh - 'A']++;
-            maxFreq = Math.max(maxFreq, freq[currCh - 'A']);
+            char ch = s.charAt(right);
+            freq[ch - 'A']++;
+            maxFreq = Math.max(maxFreq, freq[ch - 'A']);
             int charsToReplace = (right - left + 1) - maxFreq;
             if (charsToReplace > k) {
                 freq[s.charAt(left) - 'A']--;
@@ -52,7 +52,6 @@ public class LongestRepeatingCharacterReplacement {
             }
 
             maxChars = Math.max(maxChars, right - left + 1);
-
         }
 
         return maxChars;
@@ -62,8 +61,8 @@ public class LongestRepeatingCharacterReplacement {
     public int characterReplacement(String s, int k) {
         if (s == null || s.isEmpty()) return 0;
         Map<Character, Integer> map = new HashMap<>();
-        int left = 0, max = 0;
-        int maxFreq = 0;
+        int left = 0, maxFreq = 0;
+        int maxChars = 0;
 
         for (int right = 0; right < s.length(); right++) {
             char ch = s.charAt(right);
@@ -75,10 +74,9 @@ public class LongestRepeatingCharacterReplacement {
                 map.put(s.charAt(left), map.get(s.charAt(left)) - 1);
                 left++;
             }
-            max = Math.max(right - left + 1, max);
+            maxChars = Math.max(right - left + 1, maxChars);
         }
-        return max;
+        return maxChars;
     }
-
 
 }
