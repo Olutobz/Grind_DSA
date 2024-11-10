@@ -61,8 +61,8 @@ public class FlippingAnImage {
             return image;
         }
 
-        for (int i = 0; i < image.length; i++) {
-            image[i] = reverseImage(image[i]);
+        for (int row = 0; row < image.length; row++) {
+            image[row] = reverseImage(image[row]);
         }
 
         return image;
