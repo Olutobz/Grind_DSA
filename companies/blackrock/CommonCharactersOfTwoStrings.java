@@ -2,7 +2,7 @@ package blackrock;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Scanner;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,15 +14,15 @@ import java.util.Set;
 /**
  * Write a program that accepts two sets of alphanumeric characters and performs an efficient match between them.
  * Finally, display the results.
- * <p>
  * NB: Avoid a single pre-built framework function that performs the work in a single line of code.
+ *
  * <blockquote>
  * <pre>
  * Input: two lines of input, each with a space-delimited series of values that represents the two sets,
- * 1 2 3 A B C
- * X 11 G M 2 9 3 C N R
+ * str1 = 2 3 A B C
+ * str2 = X 11 G M 2 9 3 C N R
  * output: 2 3 C
- * if no common values exist, return null
+ * If no common values exist, return null
  * </pre>
  * </blockquote>
  */
@@ -30,12 +30,9 @@ import java.util.Set;
 public class CommonCharactersOfTwoStrings {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String str1 = scanner.nextLine();
-        String str2 = scanner.nextLine();
-
-        // hardcoded args for test
-        System.out.println(findCommonCharactersOfTwoStrings("1 2 3 A B C", "X 11 G M 2 9 3 C N R"));
+        String str1 = "1 2 3 A B C";
+        String str2 = "X 11 G M 2 9 3 C N R";
+        System.out.println(findCommonCharactersOfTwoStrings(str1, str2));
     }
 
     // TC -> O(n), SC -> O(n)
@@ -48,7 +45,7 @@ public class CommonCharactersOfTwoStrings {
         String[] str2Arr = str2.split(" ");
 
         Set<String> set1 = new HashSet<>(Arrays.asList(str1Arr));
-        Set<String> set2 = new HashSet<>(Arrays.asList(str2Arr));
+        Set<String> set2 = new HashSet<>(List.of(str2Arr));
         Set<String> commonElems = new HashSet<>();
 
         for (String elem : set1) {
