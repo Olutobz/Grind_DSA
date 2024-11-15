@@ -1,3 +1,5 @@
+package robinhood;
+
 /**
  * Created by Damola Olutoba Onikoyi
  * DATE: 10, October 2024
@@ -33,32 +35,8 @@ import java.util.Map;
 
 class ContiguousArray {
 
-    // TC -> O(n^2), SC -> O(1)
-    public int findMaxLength(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-
-        int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int zeros = 0, ones = 0;
-            for (int j = i; j < nums.length; j++) {
-                if (nums[j] == 0) {
-                    zeros++;
-                } else {
-                    ones++;
-                }
-                if (zeros == ones) {
-                    count = Math.max(count, j - i + 1);
-                }
-            }
-        }
-
-        return count;
-    }
-
     // TC -> O(n), SC -> O(n)
-    public int findMaxLengthII(int[] nums) {
+    public int findMaxLength(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -67,9 +45,9 @@ class ContiguousArray {
             if (nums[i] == 0) nums[i] = -1;
         }
 
-        int sum = 0, count = 0;
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, -1);
+        int sum = 0, count = 0;
 
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
@@ -83,4 +61,29 @@ class ContiguousArray {
 
         return count;
     }
+
+    // TC -> O(n^2), SC -> O(1)
+    public int findMaxLengthII(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int zeros = 0, ones = 0;
+            for (int j = i; j < nums.length; j++) {
+                if (nums[j] == 0)
+                    zeros++;
+                else {
+                    ones++;
+                }
+                if (zeros == ones) {
+                    count = Math.max(count, j - i + 1);
+                }
+            }
+        }
+
+        return count;
+    }
+
 }
