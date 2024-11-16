@@ -30,9 +30,11 @@ import java.util.Set;
 
 public class LongestPalindrome {
 
-    // TC -> O(N), SC -> O(52)
+    // TC -> O(N), SC -> O(1)
     public int longestPalindrome(String s) {
-        if (s == null || s.isEmpty()) return 0;
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
 
         int[] charsFreq = new int[52];
         int count = 0;
@@ -55,12 +57,14 @@ public class LongestPalindrome {
 
     // TC -> O(N), SC -> O(N)
     public int longestPalindromeII(String s) {
-        if (s == null || s.isEmpty()) return 0;
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
 
         Map<Character, Integer> map = new HashMap<>();
         int count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
+
+        for (char ch : s.toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
@@ -69,12 +73,13 @@ public class LongestPalindrome {
         }
         count = count * 2;
         return Math.min(s.length(), count + 1);
-
     }
 
     // TC -> O(N), SC -> O(N)
     public int longestPalindromeIII(String s) {
-        if (s == null || s.isEmpty()) return 0;
+        if (s == null || s.isEmpty()) {
+            return 0;
+        }
 
         Set<Character> set = new HashSet<>();
         int count = 0;
