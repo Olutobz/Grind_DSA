@@ -1,3 +1,5 @@
+package robinhood;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,8 @@ public class SpiralOrder {
             return list;
         }
 
-        int minRow = 0, minCol = 0;
-        int maxRow = matrix.length - 1, maxCol = matrix[0].length - 1;
+        int minRow = 0, maxRow = matrix.length - 1;
+        int minCol = 0, maxCol = matrix[0].length - 1;
 
         while (minRow <= maxRow && minCol <= maxCol) {
             // Go Right
