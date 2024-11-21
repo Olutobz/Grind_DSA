@@ -21,12 +21,12 @@ import java.util.*;
  * instead of going out to the exchange and will have 0.1 shares of AAPL remaining.
  * If the third customer requests 0.5 shares, Robinhood can fill 0.1 shares out of inventory but will
  * need to go to the exchange for an additional share leaving Robinhood's inventory at 0.6 shares.
+ *
  * If a customer requests a dollar based order, we need to convert it to the relevant number of shares
  * and run through the above steps.
  * Always ensure the firm has a positive quantity in inventory and has under one share after handling an order.
  * There's no need for us to hold onto whole shares!
  * Steps:
- * <p>
  * Handle buying fractional shares.
  * Handle selling fractional shares.
  * Ensure inventory is less than 1 after each order.
@@ -60,18 +60,22 @@ import java.util.*;
  * <p>
  * [input] array.array.string orders
  * <p>
- * A list of orders in the format of [$SYMBOL, $BUY_OR_SELL, $QUANTITY, $CURRENT_PRICE]. Each parameter is a string.
+ * A list of orders in the format of [$SYMBOL, $BUY_OR_SELL, $QUANTITY, $CURRENT_PRICE].
+ * Each parameter is a string.
  * <p>
  * $SYMBOL: Can be "AAPL", "GOOGL", "MEOOOOOW" or anything really.
  * $BUY_OR_SELL: "B" or "S". B for BUY, S for SELL.
  * $QUANTITY: Can be a number or a dollar amount (prefixed with $). e.g. "100" for 1 quantity or "$150" for $1.50.
  * $CURRENT_PRICE: Current price of the symbol with no $ sign. e.g. "1000" for $10.
  * <p>
- * ** All numbers are multiplied by 100 to store two significant digits. e.g. 100 = 1.00, 150 = 1.50, 1025 = 10.25 **
+ * ** All numbers are multiplied by 100 to store two significant digits.
+ * e.g. 100 = 1.00, 150 = 1.50, 1025 = 10.25 **
  * <p>
  * [input] array.array.string inventory
  * <p>
- * Inventory is a list of the inventory of each symbol. Each element in the list a 2 item list of [$SYMBOL, $QUANTITY] (remember quantity is multiplied by 100!).
+ * Inventory is a list of the inventory of each symbol.
+ * Each element in the list a 2 item list of
+ * [$SYMBOL, $QUANTITY] (remember quantity is multiplied by 100!).
  * <p>
  * An example for AAPL of 0.50 shares and GOOGL of 0.75 shares would be:
  * <p>
@@ -79,7 +83,8 @@ import java.util.*;
  * ["GOOG","75"]]
  * [output] array.array.string
  * <p>
- * The output is the final inventory of each symbol after iterating through each trade. This is expected to be in the same order and format as the inventory parameter.
+ * The output is the final inventory of each symbol after iterating through each trade.
+ * This is expected to be in the same order and format as the inventory parameter.
  * <p>
  * e.g.
  * <p>
