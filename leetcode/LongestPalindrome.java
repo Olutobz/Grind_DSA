@@ -62,12 +62,11 @@ public class LongestPalindrome {
         }
 
         Map<Character, Integer> map = new HashMap<>();
-        int count = 0;
-
         for (char ch : s.toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
+        int count = 0;
         for (int res : map.values()) {
             count += res / 2;
         }
