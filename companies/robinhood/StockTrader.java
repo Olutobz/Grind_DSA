@@ -41,9 +41,32 @@ import java.util.PriorityQueue;
 
 public class StockTrader {
 
+    //1. Maintain two PQs -
+    // sellPQ which has all the pending sell orders in a minHeap (smallest elem at the root)
+    // (because a buy order wants to be paired with the lowest priced pending sell order)
+    // and a buyPQ which has all the pending buy orders in a maxHeap
+    // (because a sell order wants to be paired with the highest priced pending buy order).
+
+    //2. Process all the orders one at a time.
+
+    //2a) If it is a SELL order:
+    //i. Check if it can be executed or fulfilled by some pending buy order.
+    //ii. If yes, execute the order by taking the
+    // min(shares needed to fulfill the current order,
+    // shares that can be fulfilled by the topmost pending buy order)
+    //iii. Add the remainder shares to the corresponding PQs for future orders.
+
+    //2b) If it is a BUY order: Repeat the similar steps.
+    //Repeat the process 2 for all the orders.
+
     public static int execute(List<List<String>> orders) {
-        PriorityQueue<Node> buyPQ = new PriorityQueue<>((a, b) -> b.price - a.price);
-        PriorityQueue<Node> sellPQ = new PriorityQueue<>((a, b) -> a.price - b.price);
+        // minHeap
+        PriorityQueue<Node> sellPQ =
+                new PriorityQueue<>((a, b) -> a.price - b.price);
+
+        // maxHeap
+        PriorityQueue<Node> buyPQ =
+                new PriorityQueue<>((a, b) -> b.price - a.price);
 
         int totalExecuted = 0;
 
@@ -56,30 +79,42 @@ public class StockTrader {
 
             // SELL order
             if (isSell) {
-                while (!buyPQ.isEmpty() && buyPQ.peek().price >= curr.price && curr.share > 0) {
+                while (!buyPQ.isEmpty() && curr.share > 0
+                        && buyPQ.peek().price >= curr.price) {
+
+                    // retrieves and removes
                     Node buyNode = buyPQ.poll();
+
                     if (buyNode.share > curr.share) {
                         totalExecuted += curr.share;
                         buyNode.share -= curr.share;
-                        buyPQ.offer(buyNode); // some shares remain
+
+                        // some shares remain
+                        buyPQ.offer(buyNode);
                         curr.share = 0;
                     } else {
                         totalExecuted += buyNode.share;
                         curr.share -= buyNode.share;
                     }
                 }
-                // Push the remaining shares to sell queue if any
+
+                // Push the remaining shares to sell queue if there is any
                 if (curr.share > 0) {
                     sellPQ.offer(curr);
                 }
             }
+
             // BUY order
             else {
-                while (!sellPQ.isEmpty() && sellPQ.peek().price <= curr.price && curr.share > 0) {
+                while (!sellPQ.isEmpty() && curr.share > 0
+                        && sellPQ.peek().price <= curr.price) {
+
                     Node sellNode = sellPQ.poll();
+
                     if (sellNode.share > curr.share) {
                         totalExecuted += curr.share;
                         sellNode.share -= curr.share;
+
                         sellPQ.offer(sellNode);
                         curr.share = 0;
                     } else {
@@ -87,6 +122,7 @@ public class StockTrader {
                         curr.share -= sellNode.share;
                     }
                 }
+
                 if (curr.share > 0) {
                     buyPQ.offer(curr);
                 }
@@ -96,20 +132,15 @@ public class StockTrader {
         return totalExecuted;
     }
 
-    //1. Maintain two PQs -
-    // sellPQ which has all the pending sell orders in a minHeap
-    // (because a buy order wants to be paired with the lowest priced pending sell order)
-    // and a buyPQ which has all the pending buy orders in a maxHeap
-    // (because a sell order wants to be paired with the highest priced pending buy order).
+    static class Node {
+        int price;
+        int share;
 
-    //2. Process all the orders one at a time.
-    //2a) If it is a SELL order:
-    //i. Check if it can be executed or fulfilled by some pending buy order.
-    //ii. If yes, execute the order by taking the min(shares needed to fulfill the current order, shares that can be fulfuilled by the topmost pending buy order)
-    //iii. Add the remainder shares to the corresponding PQs for future orders.
-
-    //2b) If it is a BUY order: Repeat the similar steps.
-    //Repeat the process 2 for all the orders.
+        public Node(int price, int share) {
+            this.price = price;
+            this.share = share;
+        }
+    }
 
     public static void main(String[] args) {
         List<List<String>> orders = new ArrayList<>();
@@ -121,15 +152,5 @@ public class StockTrader {
         orders.add(Arrays.asList("210", "4", "buy"));
 
         System.out.println(execute(orders));
-    }
-
-    static class Node {
-        int price;
-        int share;
-
-        public Node(int p, int s) {
-            price = p;
-            share = s;
-        }
     }
 }

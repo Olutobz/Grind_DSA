@@ -66,23 +66,27 @@ public class StockTraderII {
             return 0;
         }
 
-        PriorityQueue<int[]> buyOrders = new PriorityQueue<>((a, b) -> b[0] - a[0]);
         PriorityQueue<int[]> sellOrders = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> buyOrders = new PriorityQueue<>((a, b) -> b[0] - a[0]);
 
         int totalExecuted = 0;
 
         for (List<String> order : orders) {
             int price = Integer.parseInt(order.get(0));
             int quantity = Integer.parseInt(order.get(1));
-            String side = order.get(2);
+            String option = order.get(2);
 
-            if (side.equals("buy")) {
-                while (!sellOrders.isEmpty() && sellOrders.peek()[0] <= price && quantity > 0) {
+            if (option.equals("buy")) {
+                while (!sellOrders.isEmpty()
+                        && sellOrders.peek()[0] <= price
+                        && quantity > 0) {
+
                     int[] sellOrder = sellOrders.poll();
                     int minQuantity = Math.min(quantity, sellOrder[1]);
                     totalExecuted += minQuantity;
                     quantity -= minQuantity;
                     sellOrder[1] -= minQuantity;
+
                     if (sellOrder[1] > 0) {
                         sellOrders.offer(sellOrder);
                     }
@@ -91,12 +95,16 @@ public class StockTraderII {
                     buyOrders.offer(new int[]{price, quantity});
                 }
             } else { // sell order
-                while (!buyOrders.isEmpty() && buyOrders.peek()[0] >= price && quantity > 0) {
+                while (!buyOrders.isEmpty()
+                        && buyOrders.peek()[0] >= price
+                        && quantity > 0) {
+
                     int[] buyOrder = buyOrders.poll();
                     int minQuantity = Math.min(quantity, buyOrder[1]);
                     totalExecuted += minQuantity;
                     quantity -= minQuantity;
                     buyOrder[1] -= minQuantity;
+
                     if (buyOrder[1] > 0) {
                         buyOrders.offer(buyOrder);
                     }
