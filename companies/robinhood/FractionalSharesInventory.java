@@ -119,8 +119,8 @@ public class FractionalSharesInventory {
             int price = Integer.parseInt(order.get(3));
 
             if (action.equals("B")) {
-                int requiredShares = (quantity + price - 1) / price; // Round up
                 int currentInventory = inventoryMap.getOrDefault(symbol, 0);
+                int requiredShares = (quantity + price - 1) / price; // Round up
                 int additionalShares = Math.max(requiredShares - currentInventory, 0);
                 inventoryMap.put(symbol, currentInventory + additionalShares - quantity);
             } else if (action.equals("S")) {
