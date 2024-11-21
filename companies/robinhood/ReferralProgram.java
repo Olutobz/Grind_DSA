@@ -88,26 +88,26 @@ public class ReferralProgram {
     * */
 
     private static String[] referUsers(String[] rh_users, String[] new_users) {
-        Map<String, Node> graph = buildReferralChain(rh_users, new_users);
+        Map<String, NodeReferral> graph = buildReferralChain(rh_users, new_users);
 
         PriorityQueue<Pair> pq = new PriorityQueue<>((p1, p2) -> {
             if (p2.referrals == p1.referrals) {
-                return p1.node.user.compareTo(p2.node.user);
+                return p1.nodeReferral.user.compareTo(p2.nodeReferral.user);
             }
             return p2.referrals - p1.referrals;
         });
 
         for (String key : graph.keySet()) {
-            Node node = graph.get(key);
-            int res = dfs(node, 0);
-            Pair curPair = new Pair(node, res);
+            NodeReferral nodeReferral = graph.get(key);
+            int res = dfs(nodeReferral, 0);
+            Pair curPair = new Pair(nodeReferral, res);
             pq.add(curPair);
         }
 
         List<String> list = new ArrayList<>();
         while (!pq.isEmpty() && list.size() < 3) {
             Pair curr = pq.poll();
-            if (curr.referrals != 0) list.add(curr.node.user + " " + curr.referrals);
+            if (curr.referrals != 0) list.add(curr.nodeReferral.user + " " + curr.referrals);
         }
 
         String[] leaderBoard = new String[list.size()];
@@ -117,13 +117,13 @@ public class ReferralProgram {
     }
 
     // To recursively count referrals.
-    private static int dfs(Node node, int count) {
-        if (node.children.isEmpty()) {
+    private static int dfs(NodeReferral nodeReferral, int count) {
+        if (nodeReferral.children.isEmpty()) {
             return 0;
         }
 
         int res = 0;
-        for (Node child : node.children) {
+        for (NodeReferral child : nodeReferral.children) {
             res += dfs(child, count + 1) + 1;
         }
         return res;
@@ -131,46 +131,47 @@ public class ReferralProgram {
 
     // The referral network is represented as a graph,
     // where nodes are users and edges represent referral relationships.
-    private static Map<String, Node> buildReferralChain(String[] rhUsers, String[] newUsers) {
-        Map<String, Node> map = new HashMap<>();
+    private static Map<String, NodeReferral> buildReferralChain(String[] rhUsers, String[] newUsers) {
+        Map<String, NodeReferral> map = new HashMap<>();
 
         for (int i = 0; i < rhUsers.length; i++) {
             String rhUser = rhUsers[i];
             String newUser = newUsers[i];
 
-            Node rhUserNode = map.getOrDefault(rhUser, new Node(rhUser));
-            Node newUserNode = map.getOrDefault(newUser, new Node(newUser));
+            NodeReferral rhUserNodeReferral = map.getOrDefault(rhUser, new NodeReferral(rhUser));
+            NodeReferral newUserNodeReferral = map.getOrDefault(newUser, new NodeReferral(newUser));
 
-            rhUserNode.addChild(newUserNode);
+            rhUserNodeReferral.addChild(newUserNodeReferral);
 
-            map.put(rhUser, rhUserNode);
-            map.put(newUser, newUserNode);
+            map.put(rhUser, rhUserNodeReferral);
+            map.put(newUser, newUserNodeReferral);
         }
 
         return map;
     }
 }
 
-class Node {
+// use Node
+class NodeReferral {
     String user;
-    List<Node> children;
+    List<NodeReferral> children;
 
-    Node(String user) {
+    NodeReferral(String user) {
         this.user = user;
         children = new ArrayList<>();
     }
 
-    void addChild(Node child) {
+    void addChild(NodeReferral child) {
         this.children.add(child);
     }
 }
 
 class Pair {
-    Node node;
+    NodeReferral nodeReferral;
     int referrals;
 
-    Pair(Node node, int ref) {
-        this.node = node;
+    Pair(NodeReferral nodeReferral, int ref) {
+        this.nodeReferral = nodeReferral;
         this.referrals = ref;
     }
 }
