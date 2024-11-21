@@ -21,7 +21,7 @@ import java.util.*;
  * instead of going out to the exchange and will have 0.1 shares of AAPL remaining.
  * If the third customer requests 0.5 shares, Robinhood can fill 0.1 shares out of inventory but will
  * need to go to the exchange for an additional share leaving Robinhood's inventory at 0.6 shares.
- *
+ * <p>
  * If a customer requests a dollar based order, we need to convert it to the relevant number of shares
  * and run through the above steps.
  * Always ensure the firm has a positive quantity in inventory and has under one share after handling an order.
