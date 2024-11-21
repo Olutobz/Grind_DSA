@@ -53,8 +53,42 @@ import java.util.*;
 
 public class ReferralProgram {
 
-    private String[] solution(String[] rh_users, String[] new_users) {
-        Map<String, Node> graph = buildGraph(rh_users, new_users);
+    public static void main(String[] args) {
+        String[] rh = new String[]{"A", "B", "C"};
+        String[] newUser = new String[]{"B", "C", "D"};
+        System.out.println(Arrays.toString(referUsers(rh, newUser)));
+    }
+
+    //1. Building the Referral Network:
+    //A graph-like structure is created using a Map to represent users and their referrals.
+    //Each user is represented as a Node with a list of referred users (children).
+    //Referrals are added as edges between nodes in the graph.
+
+    //2. Calculating Referrals:
+    //A Depth-First Search (DFS) algorithm is used to
+    // recursively count the number of referrals for each user.
+    //The DFS starts from a user and traverses their referral tree,
+    // incrementing the count for each child.
+
+    //3. Building the Leaderboard:
+    //A PriorityQueue is used to efficiently sort users based on their referral count.
+    //Users with higher referral counts are prioritized, and ties are broken alphabetically.
+    //The top 3 users are extracted from the queue and added to the leaderboard.
+
+    /*
+    * The Node class represents a user and their referrals.
+    The buildReferralChain method constructs the referral network.
+    The dfs function recursively calculates referrals.
+    The PriorityQueue sorts users based on referrals and alphabetical order.
+    The referUsers method orchestrates the entire process,
+    * building the graph,
+    * calculating referrals,
+    *  and constructing the leaderboard.
+    *
+    * */
+
+    private static String[] referUsers(String[] rh_users, String[] new_users) {
+        Map<String, Node> graph = buildReferralChain(rh_users, new_users);
 
         PriorityQueue<Pair> pq = new PriorityQueue<>((p1, p2) -> {
             if (p2.referrals == p1.referrals) {
@@ -65,7 +99,7 @@ public class ReferralProgram {
 
         for (String key : graph.keySet()) {
             Node node = graph.get(key);
-            int res = graphTraversal(node, 0);
+            int res = dfs(node, 0);
             Pair curPair = new Pair(node, res);
             pq.add(curPair);
         }
@@ -82,19 +116,22 @@ public class ReferralProgram {
         return leaderBoard;
     }
 
-    private int graphTraversal(Node node, int count) {
+    // To recursively count referrals.
+    private static int dfs(Node node, int count) {
         if (node.children.isEmpty()) {
             return 0;
         }
 
         int res = 0;
         for (Node child : node.children) {
-            res += graphTraversal(child, count + 1) + 1;
+            res += dfs(child, count + 1) + 1;
         }
         return res;
     }
 
-    private Map<String, Node> buildGraph(String[] rhUsers, String[] newUsers) {
+    // The referral network is represented as a graph,
+    // where nodes are users and edges represent referral relationships.
+    private static Map<String, Node> buildReferralChain(String[] rhUsers, String[] newUsers) {
         Map<String, Node> map = new HashMap<>();
 
         for (int i = 0; i < rhUsers.length; i++) {
