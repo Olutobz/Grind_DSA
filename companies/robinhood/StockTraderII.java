@@ -1,5 +1,7 @@
 package robinhood;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -38,7 +40,7 @@ import java.util.PriorityQueue;
  * </blockquote>
  */
 
-public class OrderMatching {
+public class StockTraderII {
 
     /*
     Explanation:
@@ -59,7 +61,7 @@ public class OrderMatching {
      The totalExecuted variable keeps track of the total quantity of shares executed.
     * */
 
-    public int executeOrders(List<List<String>> orders) {
+    public static int executeOrders(List<List<String>> orders) {
         if (orders == null || orders.isEmpty()) {
             return 0;
         }
@@ -106,5 +108,17 @@ public class OrderMatching {
         }
 
         return totalExecuted;
+    }
+
+    public static void main(String[] args) {
+        List<List<String>> orders = new ArrayList<>();
+        orders.add(Arrays.asList("150", "5", "buy"));
+        orders.add(Arrays.asList("190", "1", "sell"));
+        orders.add(Arrays.asList("200", "1", "sell"));
+        orders.add(Arrays.asList("100", "9", "buy"));
+        orders.add(Arrays.asList("140", "8", "sell"));
+        orders.add(Arrays.asList("210", "4", "buy"));
+
+        System.out.println(executeOrders(orders));
     }
 }
