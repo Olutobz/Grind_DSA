@@ -46,6 +46,7 @@ public class FindPivotIndex {
     public int pivotIndex(int[] nums) {
         if (nums.length == 0) return -1;
         int leftSum = 0, rightSum = 0;
+
         for (int num : nums) {
             rightSum += num;
         }
@@ -70,7 +71,9 @@ public class FindPivotIndex {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (leftSum * 2 == sum - nums[i]) return i;
+            if (leftSum * 2 == sum - nums[i]) {
+                return i;
+            }
             leftSum += nums[i];
         }
 
