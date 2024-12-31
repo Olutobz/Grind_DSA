@@ -89,10 +89,14 @@ public class FindPivotIndex {
 
     // TC -> O(N), SC -> O(N)
     public int pivotIndexIII(int[] nums) {
-        if (nums == null || nums.length == 0) return -1;
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+
         int length = nums.length;
         int[] leftSum = new int[length];
         int[] rightSum = new int[length];
+
         leftSum[0] = nums[0];
         rightSum[length - 1] = nums[length - 1];
 
@@ -102,7 +106,9 @@ public class FindPivotIndex {
         }
 
         for (int i = 0; i < length; i++) {
-            if (leftSum[i] == rightSum[i]) return i;
+            if (leftSum[i] == rightSum[i]) {
+                return i;
+            }
         }
 
         return -1;
