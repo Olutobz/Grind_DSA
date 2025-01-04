@@ -71,14 +71,14 @@ public class FindPivotIndex {
             return -1;
         }
 
-        int sum = 0, leftSum = 0;
+        int totalSum = 0, leftSum = 0;
 
         for (int num : nums) {
-            sum += num;
+            totalSum += num;
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (leftSum * 2 == sum - nums[i]) {
+            if (leftSum * 2 == totalSum - nums[i]) {
                 return i;
             }
             leftSum += nums[i];
