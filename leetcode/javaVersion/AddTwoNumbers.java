@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class AddTwoNumbers {
 

@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class AddStrings {
     // TC -> O(max(N, M)), SC -> O(1)

@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class AddBinary {
     // TC -> O(max(M,N)), SC -> O(max(M,N))
