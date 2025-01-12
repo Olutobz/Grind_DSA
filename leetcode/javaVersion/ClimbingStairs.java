@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Created by Damola Olutoba Onikoyi
