@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class CountOperationsToObtainZero {
     // TC -> O(Log(min(num1,num2)), SC -> O(1)
