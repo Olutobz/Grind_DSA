@@ -26,7 +26,7 @@ import java.util.Map;
  * Constraints:
  * 2 <= nums.length <= 10^4
  * -10^9 <= nums[i] <= 10^9
- * -10^9 <= target <= 109
+ * -10^9 <= target <= 10^9
  * Only one valid answer exists.
  * </pre>
  * </blockquote>
