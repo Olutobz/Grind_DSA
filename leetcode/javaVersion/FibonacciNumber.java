@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Given an integer N. Print the Fibonacci series up to the Nth term.
