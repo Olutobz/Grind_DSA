@@ -71,7 +71,8 @@ public class FindPivotIndex {
             return -1;
         }
 
-        int totalSum = 0, leftSum = 0;
+        int totalSum = 0;
+        int leftSum = 0;
 
         for (int num : nums) {
             totalSum += num;
