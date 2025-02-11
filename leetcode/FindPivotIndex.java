@@ -44,19 +44,19 @@ public class FindPivotIndex {
 
     // TC -> O(N), SC -> O(1)
     public int pivotIndex(int[] nums) {
-        if (nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return -1;
         }
 
-        int leftSum = 0, rightSum = 0;
+        int totalSum = 0;
 
         for (int num : nums) {
-            rightSum += num;
+            totalSum += num;
         }
 
+        int leftSum = 0;
         for (int i = 0; i < nums.length; i++) {
-            rightSum -= nums[i];
-            if (rightSum == leftSum) {
+            if (leftSum * 2 == totalSum - nums[i]) {
                 return i;
             }
             leftSum += nums[i];
@@ -71,15 +71,15 @@ public class FindPivotIndex {
             return -1;
         }
 
-        int totalSum = 0;
-        int leftSum = 0;
+        int leftSum = 0, rightSum = 0;
 
         for (int num : nums) {
-            totalSum += num;
+            rightSum += num;
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (leftSum * 2 == totalSum - nums[i]) {
+            rightSum -= nums[i];
+            if (rightSum == leftSum) {
                 return i;
             }
             leftSum += nums[i];
