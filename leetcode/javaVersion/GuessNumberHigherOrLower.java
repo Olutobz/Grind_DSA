@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Forward declaration of guess API.
