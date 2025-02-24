@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Given a string s, return the longest
