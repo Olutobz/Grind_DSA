@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class NumberOfStepsToReduceANumberToZero {
     // TC -> O(Log(num), SC -> O(1)
