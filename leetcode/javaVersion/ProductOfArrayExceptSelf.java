@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Given an integer array nums, return an array answer such that answer[i] is equal
