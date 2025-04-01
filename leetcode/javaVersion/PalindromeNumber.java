@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Given an integer x, return true if x is a palindrome and false otherwise.
@@ -12,7 +12,7 @@ package java;
  * Input: x = -121
  * Output: false
  * Explanation: From left to right, it reads -121. From right to left, it becomes 121-.
- * therefore it is not a palindrome.
+ * therefore, it is not a palindrome.
  *
  * Example 3:
  * Input: x = 10
