@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 import java.util.LinkedList;
 import java.util.Queue;
