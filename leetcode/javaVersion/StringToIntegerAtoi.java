@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class StringToIntegerAtoi {
     // TC -> O(N), SC -> O(1)
