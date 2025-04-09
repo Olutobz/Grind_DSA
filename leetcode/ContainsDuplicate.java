@@ -10,13 +10,15 @@ public class ContainsDuplicate {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        Set<Integer> uniques = new HashSet<>();
+
+        Set<Integer> uniqueNums = new HashSet<>();
         for (int num : nums) {
-            if (uniques.contains(num)) {
+            if (uniqueNums.contains(num)) {
                 return true;
             }
-            uniques.add(num);
+            uniqueNums.add(num);
         }
+
         return false;
     }
 
@@ -25,10 +27,12 @@ public class ContainsDuplicate {
         if (nums == null || nums.length == 0) {
             return false;
         }
+
         Set<Integer> set = new HashSet<>();
         for (int i : nums) {
             set.add(i);
         }
+
         return set.size() < nums.length;
     }
 
@@ -37,6 +41,7 @@ public class ContainsDuplicate {
         if (nums == null || nums.length == 0) {
             return false;
         }
+
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             if (map.containsKey(num)) {
@@ -45,6 +50,7 @@ public class ContainsDuplicate {
                 map.put(num, 1);
             }
         }
+
         return false;
     }
 }
