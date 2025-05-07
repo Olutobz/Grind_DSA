@@ -12,7 +12,9 @@ public class FindTheStringsInTheInnermostLevel {
 
     // TC -> O(N), SC -> O(N)
     public static List<String> getInnerMostString(String str) {
-        if (str == null || str.isEmpty()) return new ArrayList<>();
+        if (str == null || str.isEmpty()) {
+            return new ArrayList<>();
+        }
 
         List<String> res = new ArrayList<>();
         StringBuilder temp = new StringBuilder();
