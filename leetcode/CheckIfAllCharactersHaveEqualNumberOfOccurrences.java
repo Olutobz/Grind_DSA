@@ -5,6 +5,9 @@
  */
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given a string s, return true if s is a good string, or false otherwise.
  * <p>
@@ -50,4 +53,25 @@ public class CheckIfAllCharactersHaveEqualNumberOfOccurrences {
 
         return true;
     }
+
+    // TC -> O(N), SC -> O(N)
+    public boolean areOccurrencesEqualII(String s) {
+        if (s.length() == 1) {
+            return true;
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        int freq = map.get(s.charAt(0));
+        for (char key : map.keySet()) {
+            if (map.get(key) != freq)
+                return false;
+        }
+
+        return true;
+    }
 }
+
