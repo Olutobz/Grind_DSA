@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 public class ValidPerfectSquare {
     // TC -> O(log(num)), SC -> O(1)
