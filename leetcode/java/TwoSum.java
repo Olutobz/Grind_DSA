@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class TwoSum {
 
-    // TC -> O(N^2), SC -> O(1)
+    // TC -> O(n^2), SC -> O(1)
     public int[] twoSum(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return new int[0];
@@ -51,7 +51,7 @@ public class TwoSum {
         return new int[0];
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n), SC -> O(n)
     public int[] twoSumII(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
