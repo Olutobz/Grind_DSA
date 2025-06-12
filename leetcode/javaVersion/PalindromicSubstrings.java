@@ -1,4 +1,4 @@
-package java;
+package javaVersion;
 
 /**
  * Given a string s, return the number of palindromic substrings in it.
