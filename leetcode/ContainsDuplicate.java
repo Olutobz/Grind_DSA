@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given an integer array nums, return true if any value appears at least twice in the array,
@@ -35,7 +32,7 @@ import java.util.Set;
 
 public class ContainsDuplicate {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n), SC -> O(n)
     public boolean containsDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
@@ -52,7 +49,7 @@ public class ContainsDuplicate {
         return false;
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n), SC -> O(n)
     public boolean containsDuplicateII(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
@@ -66,7 +63,7 @@ public class ContainsDuplicate {
         return set.size() < nums.length;
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n), SC -> O(n)
     public boolean containsDuplicateIII(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
@@ -83,4 +80,37 @@ public class ContainsDuplicate {
 
         return false;
     }
+
+    // TC -> O(n^2), SC -> O(1)
+    public boolean containsDuplicateIV(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    // TC -> O(NlogN), SC -> O(1)
+    public boolean containsDuplicateV(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
