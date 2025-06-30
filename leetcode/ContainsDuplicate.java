@@ -81,6 +81,21 @@ public class ContainsDuplicate {
         return false;
     }
 
+    // TC -> O(NlogN), SC -> O(1)
+    public boolean containsDuplicateV(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // TC -> O(n^2), SC -> O(1)
     public boolean containsDuplicateIV(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -92,22 +107,6 @@ public class ContainsDuplicate {
                 if (nums[i] == nums[j]) {
                     return true;
                 }
-            }
-        }
-        return false;
-    }
-
-
-    // TC -> O(NlogN), SC -> O(1)
-    public boolean containsDuplicateV(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return false;
-        }
-
-        Arrays.sort(nums);
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
-                return true;
             }
         }
         return false;
