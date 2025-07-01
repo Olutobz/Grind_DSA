@@ -34,7 +34,9 @@ public class TwoSum {
 
     // TC -> O(N^2), SC -> O(1)
     public int[] twoSum(int[] nums, int target) {
-        if (nums == null || nums.length == 0) return new int[0];
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
 
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -45,12 +47,13 @@ public class TwoSum {
         }
 
         return new int[0];
-
     }
 
     // TC -> O(N), SC -> O(N)
     public int[] twoSumII(int[] nums, int target) {
-        if (nums == null || nums.length == 0) return new int[]{};
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
 
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -63,7 +66,6 @@ public class TwoSum {
         }
 
         return new int[]{};
-
     }
 
 }
