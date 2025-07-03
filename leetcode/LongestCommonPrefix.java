@@ -26,12 +26,12 @@ import java.util.Arrays;
 public class LongestCommonPrefix {
 
     // TC -> O(n * m), SC -> O(1)
-    public String longestCommonPrefix(String[] str) {
-        if (str == null || str.length == 0) return "";
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
 
-        String prefix = str[0];
-        for (int i = 1; i < str.length; i++) {
-            while (str[i].indexOf(prefix) != 0) {
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
             }
         }
@@ -39,13 +39,28 @@ public class LongestCommonPrefix {
         return prefix;
     }
 
-    // TC -> O(N * MLogM), SC -> O(1)
-    public String longestCommonPrefixII(String[] str) {
-        if (str == null || str.length == 0) return "";
+    // TC -> O(n * m), SC -> O(1)
+    public String longestCommonPrefixII(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
 
-        Arrays.sort(str);
-        String first = str[0];
-        String last = str[str.length - 1];
+        for (int i = 0; i < strs[0].length(); i++) {
+            for (String s : strs) {
+                if (i == s.length() || strs[0].charAt(i) != s.charAt(i)) {
+                    return s.substring(0, i);
+                }
+            }
+        }
+
+        return strs[0];
+    }
+
+    // TC -> O(N * MLogM), SC -> O(1)
+    public String longestCommonPrefixIII(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+
+        Arrays.sort(strs);
+        String first = strs[0];
+        String last = strs[strs.length - 1];
         int i = 0;
 
         while (i < first.length()) {
