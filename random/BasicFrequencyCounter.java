@@ -20,7 +20,7 @@ public class BasicFrequencyCounter {
         for (int i = 0; i < freq.length; i++) {
             char currentChar = (char) (i + 'a');
             if (freq[i] != 0) {
-                System.out.println(currentChar + " -> count = " + freq[i] + "  ");
+                System.out.println(currentChar + " at index " + i + " has freq count of " + freq[i]);
             }
         }
 
