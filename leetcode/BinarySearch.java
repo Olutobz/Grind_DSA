@@ -1,6 +1,6 @@
 /**
  * Given an array of integers nums which is sorted in ascending order, and an integer target.
- * write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+ * Write a function to search target in nums. If a target exists, then return its index. Otherwise, return -1.
  * <p>
  * You must write an algorithm with O(log n) runtime complexity.
  * <blockquote> <pre>
@@ -18,9 +18,8 @@ public class BinarySearch {
 
     // TC -> O(LogN), SC -> O(1)
     public int search(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
+        if (nums == null || nums.length == 0) return -1;
+
         int start = 0;
         int end = nums.length - 1;
         while (start <= end) {
@@ -33,14 +32,14 @@ public class BinarySearch {
                 end = mid - 1;
             }
         }
+
         return -1;
     }
 
     // TC -> O(LogN), SC -> O(1)
     private int searchII(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
+        if (nums == null || nums.length == 0) return -1;
+
         int start = 0;
         int end = nums.length - 1;
         while (start < end) {
@@ -51,6 +50,7 @@ public class BinarySearch {
                 end = mid;
             }
         }
+
         return nums[start] == target ? start : -1;
     }
 
@@ -62,10 +62,10 @@ public class BinarySearch {
     }
 
     private int recursiveSearch(int[] nums, int target, int start, int end) {
-        if (nums == null || nums.length == 0 || start > end) {
-            return -1;
-        }
+        if (nums == null || nums.length == 0 || start > end) return -1;
+
         int mid = start + (end - start) / 2;
+
         if (nums[mid] == target) {
             return mid;
         } else if (nums[mid] < target) {
