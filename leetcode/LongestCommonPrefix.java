@@ -30,11 +30,12 @@ public class LongestCommonPrefix {
         if (str == null || str.length == 0) return "";
 
         String prefix = str[0];
-        for (int index = 1; index < str.length; index++) {
-            while (str[index].indexOf(prefix) != 0) {
+        for (int i = 1; i < str.length; i++) {
+            while (str[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
             }
         }
+
         return prefix;
     }
 
@@ -45,13 +46,14 @@ public class LongestCommonPrefix {
         Arrays.sort(str);
         String first = str[0];
         String last = str[str.length - 1];
-        int c = 0;
+        int i = 0;
 
-        while (c < first.length()) {
-            if (first.charAt(c) == last.charAt(c)) c++;
+        while (i < first.length()) {
+            if (first.charAt(i) == last.charAt(i)) i++;
             else break;
         }
-        return c == 0 ? "" : first.substring(0, c);
+
+        return i == 0 ? "" : first.substring(0, i);
     }
 
 }
