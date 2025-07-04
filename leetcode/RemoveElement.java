@@ -53,14 +53,13 @@ public class RemoveElement {
 
     // TC -> O(n), SC -> O(1)
     public int removeElement(int[] nums, int val) {
-        if (nums.length == 0) return 0;
+        if (nums == null || nums.length == 0) return 0;
 
         int k = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[k++] = nums[i];
-            }
+        for (int num : nums) {
+            if (num != val) nums[k++] = num;
         }
+
         return k;
     }
 
@@ -74,10 +73,9 @@ public class RemoveElement {
             if (nums[i] == val) {
                 nums[i] = nums[end - 1];
                 end--;
-            } else {
-                i++;
-            }
+            } else i++;
         }
+
         return end;
     }
 
@@ -88,9 +86,7 @@ public class RemoveElement {
         List<Integer> res = new ArrayList<>();
 
         for (int num : nums) {
-            if (num != val) {
-                res.add(num);
-            }
+            if (num != val) res.add(num);
         }
 
         for (int i = 0; i < res.size(); i++) {
