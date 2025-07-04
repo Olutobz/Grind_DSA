@@ -1,45 +1,74 @@
 import java.util.*;
 
+/**
+ * Given an array of strings strs, group the anagrams together.
+ * You can return the answer in any order.
+ *
+ * <blockquote>
+ * <pre>
+ * Example 1:
+ * Input: strs = ["eat","tea","tan","ate","nat","bat"]
+ * Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+ *
+ * Explanation:
+ * There is no string in strs that can be rearranged to form "bat".
+ * The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
+ * The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
+ *
+ * Example 2:
+ * Input: strs = [""]
+ * Output: [[""]]
+ *
+ * Example 3:
+ * Input: strs = ["a"]
+ * Output: [["a"]]
+ *
+ * Constraints:
+ * 1 <= strs.length <= 104
+ * 0 <= strs[i].length <= 100
+ * strs[i] consists of lowercase English letters.
+ * </pre>
+ * </blockquote>
+ */
+
 public class GroupAnagrams {
 
-    // TC -> O(N*MLogM), SC -> O(N)
-    public List<List<String>> groupAnagrams(String[] str) {
-        if (str == null || str.length == 0) {
-            return new ArrayList<>();
-        }
+    // TC -> O(n * m), SC -> O(n)
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs == null || strs.length == 0) return new ArrayList<>();
 
         Map<String, List<String>> map = new HashMap<>();
-        for (String word : str) {
-            char[] ch = word.toCharArray();
-            Arrays.sort(ch);
-            String currStr = Arrays.toString(ch);
-            if (!map.containsKey(currStr)) {
-                map.put(currStr, new ArrayList<>());
+        for (String word : strs) {
+            int[] freqArr = new int[26];
+            for (char ch : word.toCharArray()) {
+                freqArr[ch - 'a']++;
             }
-            map.get(currStr).add(word);
+
+            String currKey = Arrays.toString(freqArr);
+            if (!map.containsKey(currKey)) {
+                map.put(currKey, new ArrayList<>());
+            }
+            map.get(currKey).add(word);
         }
 
         return new ArrayList<>(map.values());
     }
 
-    // TC -> O(N*M), SC -> O(N)
-    public List<List<String>> groupAnagramsII(String[] str) {
-        if (str == null || str.length == 0) {
-            return new ArrayList<>();
-        }
+    // TC -> O(m * nlogn), SC -> O(n)
+    public List<List<String>> groupAnagramsII(String[] strs) {
+        if (strs == null || strs.length == 0) return new ArrayList<>();
 
         Map<String, List<String>> map = new HashMap<>();
-        for (String word : str) {
-            //only lower-case letters. so array of size 26 is enough
-            char[] freq = new char[26];
-            for (char c : word.toCharArray()) {
-                freq[c - 'a']++;
+
+        for (String word : strs) {
+            char[] charArr = word.toCharArray();
+            Arrays.sort(charArr);
+            String currKey = new String(charArr);
+
+            if (!map.containsKey(currKey)) {
+                map.put(currKey, new ArrayList<>());
             }
-            String currStr = String.valueOf(freq);
-            if (!map.containsKey(currStr)) {
-                map.put(currStr, new ArrayList<>());
-            }
-            map.get(currStr).add(word);
+            map.get(currKey).add(word);
         }
 
         return new ArrayList<>(map.values());
