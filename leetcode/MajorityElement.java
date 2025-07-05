@@ -2,24 +2,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class MajorityElement {
 
     // TC -> O(N^2), SC -> O(1)
     public int majorityElement(int[] nums) {
         if (nums.length == 1) return nums[0];
+
         int majorElem = nums.length / 2;
 
         for (int num : nums) {
             int count = 0;
             for (int elem : nums) {
-                if (num == elem) {
-                    count++;
-                }
+                if (num == elem) count++;
             }
-
-            if (count > majorElem) {
-                return num;
-            }
+            if (count > majorElem) return num;
         }
 
         return -1;
@@ -28,6 +25,7 @@ public class MajorityElement {
     // TC -> O(NLogN), SC -> O(1)
     public int majorityElementI(int[] nums) {
         if (nums.length == 1) return nums[0];
+
         int n = nums.length;
         Arrays.sort(nums);
         return nums[n / 2];
@@ -36,6 +34,7 @@ public class MajorityElement {
     // TC -> O(N), SC -> O(N)
     public int majorityElementII(int[] nums) {
         if (nums.length == 1) return nums[0];
+
         int majorElem = nums.length / 2;
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
@@ -56,9 +55,7 @@ public class MajorityElement {
         int candidate = 0, count = 0;
 
         for (int num : nums) {
-            if (count == 0) {
-                candidate = num;
-            }
+            if (count == 0) candidate = num;
             count += (candidate != num) ? -1 : 1;
         }
 
