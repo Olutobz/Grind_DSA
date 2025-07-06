@@ -38,14 +38,14 @@ import java.util.List;
  *
  * Constraints:
  *
- * 0 <= key <= 106
+ * 0 <= key <= 10^6
  * At most 104 calls will be made to add, remove, and contains.
  * </pre>
  * </blockquote>
  */
 
 
-// TC -> O(n), SC -> O(n)
+// TC -> O(1), SC -> O(1000001)
 public class DesignHashSet {
 
     private final boolean[] data;
@@ -68,7 +68,7 @@ public class DesignHashSet {
 }
 
 
-// TC -> O(1), SC -> O(1000001)
+// TC -> O(n), SC -> O(n)
 class DesignHashSetII {
 
     private final List<Integer> list;
