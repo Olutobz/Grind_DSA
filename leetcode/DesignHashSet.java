@@ -47,16 +47,38 @@ import java.util.List;
 
 // TC -> O(n), SC -> O(n)
 public class DesignHashSet {
+
+    private final boolean[] data;
+
+    private DesignHashSet() {
+        data = new boolean[1000001];
+    }
+
+    public void add(int key) {
+        data[key] = true;
+    }
+
+    public void remove(int key) {
+        data[key] = false;
+    }
+
+    public boolean contains(int key) {
+        return data[key];
+    }
+}
+
+
+// TC -> O(1), SC -> O(1000001)
+class DesignHashSetII {
+
     private final List<Integer> list;
 
-    public DesignHashSet() {
+    private DesignHashSetII() {
         list = new ArrayList<>();
     }
 
     public void add(int key) {
-        if (!list.contains(key)) {
-            list.add(key);
-        }
+        if (!list.contains(key)) list.add(key);
     }
 
     public void remove(int key) {
