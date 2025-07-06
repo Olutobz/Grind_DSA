@@ -80,6 +80,7 @@ public class MajorityElement {
 
         int majorElem = nums.length / 2;
         Map<Integer, Integer> map = new HashMap<>();
+
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
             if (map.get(num) > majorElem) {
@@ -95,6 +96,7 @@ public class MajorityElement {
     /* Boyer–Moore majority vote algorithm */
     public int majorityElementIV(int[] nums) {
         if (nums.length == 1) return nums[0];
+
         int candidate = 0;
         int count = 0;
 
