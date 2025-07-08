@@ -38,18 +38,15 @@ public class SortColors {
 
         int i = 0;
         for (int k = 0; k < count0; k++) {
-            nums[i] = 0;
-            i++;
+            nums[i++] = 0;
         }
 
         for (int k = 0; k < count1; k++) {
-            nums[i] = 1;
-            i++;
+            nums[i++] = 1;
         }
 
         for (int k = 0; k < count2; k++) {
-            nums[i] = 2;
-            i++;
+            nums[i++] = 2;
         }
     }
 }
