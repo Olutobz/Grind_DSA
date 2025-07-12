@@ -79,4 +79,22 @@ public class SortColors {
             else nums[i] = 2;
         }
     }
+
+    // TC -> O(n), SC -> O(1)
+    public void sortColorsIII(int[] nums) {
+        if (nums == null || nums.length == 1) return;
+
+        int[] freq = new int[3];
+        for (int num : nums) {
+            freq[num]++;
+        }
+
+        int index = 0;
+        for (int i = 0; i < 3; i++) {
+            while (freq[i]-- > 0) {
+                nums[index++] = i;
+            }
+        }
+    }
+
 }
