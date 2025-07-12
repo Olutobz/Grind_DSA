@@ -1,52 +1,82 @@
 import java.util.Arrays;
 
+/**
+ * Given an array of nums with n objects colored red, white, or blue,
+ * sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+ * We will use the integers 0, 1, and 2 to represent the colors red, white, and blue, respectively.
+ * You must solve this problem without using the library's sort function.
+ *
+ * <blockquote>
+ * <pre>
+ * Example 1:
+ * Input: nums = [2,0,2,1,1,0]
+ * Output: [0,0,1,1,2,2]
+ *
+ * Example 2:
+ * Input: nums = [2,0,1]
+ * Output: [0,1,2]
+ *
+ * Constraints:
+ * n == nums.length
+ * 1 <= n <= 300
+ * nums[i] is either 0, 1, or 2.
+ *
+ *  Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+ * </pre>
+ * </blockquote>
+ */
+
 public class SortColors {
 
-    // TC -> O(NLogN), SC -> O(1)
+    // TC -> O(nlogn), SC -> O(1)
     public void sortColors(int[] nums) {
         Arrays.sort(nums);
     }
 
-    // TC -> O(N), SC -> O(1)
+    // TC -> O(n), SC -> O(1)
     public void sortColorsI(int[] nums) {
-        if (nums == null || nums.length == 1) return;
-        int count0 = 0, count1 = 0, count2 = 0;
-
-        for (int num : nums) {
-            if (num == 0) count0++;
-            else if (num == 1) count1++;
-            else count2++;
+        if (nums == null || nums.length == 1) {
+            return;
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (i < count0) nums[i] = 0;
-            else if (i < count0 + count1) nums[i] = 1;
-            else nums[i] = 2;
+        int countZeros = 0, countOnes = 0, countTwos = 0;
+
+        for (int num : nums) {
+            if (num == 0) countZeros++;
+            else if (num == 1) countOnes++;
+            else countTwos++;
+        }
+
+        int k = 0;
+        for (int i = 0; i < countZeros; i++) {
+            nums[k++] = 0;
+        }
+
+        for (int i = 0; i < countOnes; i++) {
+            nums[k++] = 1;
+        }
+
+        for (int i = 0; i < countTwos; i++) {
+            nums[k++] = 2;
         }
     }
 
-    // TC -> O(N), SC -> O(1)
+    // TC -> O(n), SC -> O(1)
     public void sortColorsII(int[] nums) {
         if (nums == null || nums.length == 1) return;
-        int count0 = 0, count1 = 0, count2 = 0;
+
+        int countZeros = 0, countOnes = 0, countTwos = 0;
 
         for (int num : nums) {
-            if (num == 0) count0++;
-            else if (num == 1) count1++;
-            else count2++;
+            if (num == 0) countZeros++;
+            else if (num == 1) countOnes++;
+            else countTwos++;
         }
 
-        int i = 0;
-        for (int k = 0; k < count0; k++) {
-            nums[i++] = 0;
-        }
-
-        for (int k = 0; k < count1; k++) {
-            nums[i++] = 1;
-        }
-
-        for (int k = 0; k < count2; k++) {
-            nums[i++] = 2;
+        for (int i = 0; i < nums.length; i++) {
+            if (i < countZeros) nums[i] = 0;
+            else if (i < countZeros + countOnes) nums[i] = 1;
+            else nums[i] = 2;
         }
     }
 }
