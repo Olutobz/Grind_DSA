@@ -2,13 +2,15 @@ import java.util.Stack;
 
 /**
  * Your MyQueue object will be instantiated and called as such:
- * <blockquote> <pre>
+ * <blockquote>
+ * <pre>
  * MyQueue obj = new MyQueue();
  * obj.push(x);
  * int param_2 = obj.pop();
  * int param_3 = obj.peek();
  * boolean param_4 = obj.empty();
- * </pre></blockquote>
+ * </pre>
+ * </blockquote>
  */
 
 public class ImplementQueueUsingStacks {
