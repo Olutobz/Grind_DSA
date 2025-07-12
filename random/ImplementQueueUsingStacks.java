@@ -13,44 +13,42 @@ import java.util.Stack;
 
 public class ImplementQueueUsingStacks {
     static class MyQueue {
-        private final Stack<Integer> stack;
-        private final Stack<Integer> tstack;
+        private final Stack<Integer> input;
+        private final Stack<Integer> output;
 
         public MyQueue() {
-            stack = new Stack<>();
-            tstack = new Stack<>();
+            input = new Stack<>();
+            output = new Stack<>();
         }
 
         // TC -> O(1), SC -> O(1)
         public void push(int x) {
-            stack.push(x);
+            input.push(x);
         }
 
         // TC -> O(1), SC -> O(1)
         public int pop() {
-            if (tstack.isEmpty()) {
-                while (!stack.isEmpty()) {
-                    int x = stack.pop();
-                    tstack.push(x);
+            if (output.isEmpty()) {
+                while (!input.isEmpty()) {
+                    output.push(input.pop());
                 }
             }
-            return tstack.pop();
+            return output.pop();
         }
 
         // TC -> O(1), SC -> O(1)
         public int peek() {
-            if (tstack.isEmpty()) {
-                while (!stack.isEmpty()) {
-                    int x = stack.pop();
-                    tstack.push(x);
+            if (output.isEmpty()) {
+                while (!input.isEmpty()) {
+                    output.push(input.pop());
                 }
             }
-            return tstack.peek();
+            return output.peek();
         }
 
         // TC -> O(1), SC -> O(1)
         public boolean empty() {
-            return stack.isEmpty() && tstack.isEmpty();
+            return input.isEmpty() && output.isEmpty();
         }
     }
 }
