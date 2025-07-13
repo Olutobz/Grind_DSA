@@ -1,6 +1,27 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
+ * Return any possible rearrangement of s or return "" if not possible.
+ *
+ * <blockquote>
+ * <pre>
+ * Example 1:
+ * Input: s = "aab"
+ * Output: "aba"
+ *
+ * Example 2:
+ * Input: s = "aaab"
+ * Output: ""
+ *
+ * Constraints:
+ * 1 <= s.length <= 500
+ * s consists of lowercase English letters.
+ *  </pre>
+ * </blockquote>
+ */
+
 public class ReorganizeString {
     /* Intuition:
        1. count letter appearances and store in hash[] or map
@@ -9,7 +30,7 @@ public class ReorganizeString {
        4. put the rest into the array
     */
 
-    // TC -> O(N), SC -> O(N + 26)
+    // TC -> O(n), SC -> O(n + 26)
     public String reorganizeString(String s) {
         if (s == null || s.length() == 1) {
             return s;
@@ -54,7 +75,7 @@ public class ReorganizeString {
         return String.valueOf(res);
     }
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n), SC -> O(n)
     public String reorganizeStringII(String s) {
         if (s == null || s.length() == 1) return s;
 
@@ -62,36 +83,33 @@ public class ReorganizeString {
         char maxChar = s.charAt(0);
         int len = s.length();
 
-        // count chars in map, get max
-        for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
-            if (map.get(c) > map.get(maxChar)) {
-                maxChar = c;
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+            if (map.get(ch) > map.get(maxChar)) {
+                maxChar = ch;
             }
         }
 
         if (map.get(maxChar) > (len + 1) / 2) return "";
 
-        int idx = 0;
-        char[] res = new char[len];
-
-        // put all maxChar's into array (may not reach end of s)
-        while (idx < len && map.get(maxChar) > 0) {
-            res[idx] = maxChar;
+        int i = 0;
+        char[] result = new char[len];
+        while (i < len && map.get(maxChar) > 0) {
+            result[i] = maxChar;
             map.put(maxChar, map.get(maxChar) - 1);
-            idx += 2;
+            i += 2;
         }
 
-        // loop through map, may go through a key where val is 0, but won't do anything
-        for (Character c : map.keySet()) {
-            while (map.get(c) > 0) {
-                if (idx >= len)
-                    idx = 1; // First time it reaches len, reset it.
-                res[idx] = c;
-                map.put(c, map.get(c) - 1);
-                idx += 2;
+        for (Character ch : map.keySet()) {
+            while (map.get(ch) > 0) {
+                if (i >= len)
+                    i = 1;
+                result[i] = ch;
+                map.put(ch, map.get(ch) - 1);
+                i += 2;
             }
         }
-        return new String(res);
+
+        return new String(result);
     }
 }
