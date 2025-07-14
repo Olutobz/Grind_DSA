@@ -25,7 +25,7 @@ public class SudokuSolver {
     }
 
     private boolean isValid(char[][] board, int row, int col, char num) {
-        // Block number is i/3, first element is i/3*3
+        // Block number is i/3, the first element is i/3*3
         int blkRow = (row / 3) * 3, blkCol = (col / 3) * 3;
         for (int i = 0; i < 9; i++)
             if (board[i][col] == num || board[row][i] == num ||
