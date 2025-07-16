@@ -27,45 +27,62 @@
 
 public class ProductOfArrayExceptSelf {
 
-    // TC -> O(N), SC -> O(N)
+    // TC -> O(n^2), SC -> O(n)
+    public int[] productExceptSelfIII(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            int product = 1;
+            for (int j = 0; j < n; j++) {
+                if (i == j) continue;
+                product *= nums[j];
+            }
+            res[i] = product;
+        }
+
+        return res;
+    }
+
+    // TC -> O(n), SC -> O(n)
     public int[] productExceptSelf(int[] nums) {
-        int length = nums.length;
-        int[] answer = new int[length];
-        int[] left = new int[length];
-        int[] right = new int[length];
+        int n = nums.length;
+        int[] result = new int[n];
+        int[] left = new int[n];
+        int[] right = new int[n];
 
         left[0] = 1;
-        for (int i = 1; i < length; i++) {
+        for (int i = 1; i < n; i++) {
             left[i] = left[i - 1] * nums[i - 1];
         }
 
-        right[length - 1] = 1;
-        for (int i = length - 2; i >= 0; i--) {
+        right[n - 1] = 1;
+        for (int i = n - 2; i >= 0; i--) {
             right[i] = right[i + 1] * nums[i + 1];
         }
 
-        for (int k = 0; k < length; k++) {
-            answer[k] = left[k] * right[k];
+        for (int k = 0; k < n; k++) {
+            result[k] = left[k] * right[k];
         }
 
-        return answer;
+        return result;
 
     }
 
-    // TC -> O(N), SC -> O(1) (If we ignore the returned array)
+    // TC -> O(n), SC -> O(1) (If we ignore the returned array)
     public int[] productExceptSelfII(int[] nums) {
-        int length = nums.length;
-        int[] arr = new int[length];
+        int n = nums.length;
+        int[] res = new int[n];
 
-        for (int i = 0, temp = 1; i < length; i++) {
-            arr[i] = temp;
+        for (int i = 0, temp = 1; i < n; i++) {
+            res[i] = temp;
             temp *= nums[i];
         }
-        for (int i = length - 1, temp = 1; i >= 0; i--) {
-            arr[i] *= temp;
+        for (int i = n - 1, temp = 1; i >= 0; i--) {
+            res[i] *= temp;
             temp *= nums[i];
         }
-        return arr;
+        return res;
     }
 
 }
