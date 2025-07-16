@@ -9,7 +9,7 @@ package sortingAlgos;
 
 public class QuickSort {
 
-    // TC -> O(n^2), SC -> O(n)
+    // TC -> O(n^2), SC -> O(log n)
     public void quickSort(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
