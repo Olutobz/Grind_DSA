@@ -2,6 +2,32 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+ * You must write an algorithm that runs in O(n) time.
+ * <blockquote>
+ * <pre>
+ * Example 1:
+ * Input: nums = [100,4,200,1,3,2]
+ * Output: 4
+ * Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+ *
+ * Example 2:
+ * Input: nums = [0,3,7,2,5,8,4,6,0,1]
+ * Output: 9
+ *
+ * Example 3:
+ * Input: nums = [1,0,1,2]
+ * Output: 3
+ *
+ * Constraints:
+ * 0 <= nums.length <= 105
+ * -109 <= nums[i] <= 109
+ * </pre>
+ * </blockquote>
+ */
+
 public class LongestConsecutiveSequence {
 
     // TC -> O(N), SC -> O(N)
@@ -41,10 +67,15 @@ public class LongestConsecutiveSequence {
         for (int num : nums) {
             int left = num - 1;
             int right = num + 1;
-            while (set.remove(left)) left--;
-            while (set.remove(right)) right++;
+            while (set.remove(left)) {
+                left--;
+            }
+            while (set.remove(right)) {
+                right++;
+            }
             ans = Math.max(ans, right - left - 1);
-            if (set.isEmpty()) return ans;//save time if there are items in nums, but no item in hashset.
+            //save time if there are items in nums, but no item in hashset.
+            if (set.isEmpty()) return ans;
         }
         return ans;
     }
