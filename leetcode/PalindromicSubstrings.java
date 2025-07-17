@@ -30,9 +30,9 @@ public class PalindromicSubstrings {
         if (s == null || s.isEmpty()) return 0;
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
-            // odd length palindromic sub-string
+            // odd length palindromic substring
             count += countPalindromes(s, i, i);
-            //even length palindromic sub-string
+            //even length palindromic substring
             count += countPalindromes(s, i, i + 1);
         }
         return count;
