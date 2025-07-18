@@ -1,4 +1,4 @@
-package slidingwindow;
+package slidingWindow;
 
 /**
  * Created by Damola Olutoba Onikoyi

@@ -1,4 +1,4 @@
-package sortingAlgos;
+package sorting;
 
 /**
  * Created by Damola Olutoba Onikoyi

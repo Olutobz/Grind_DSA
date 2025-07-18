@@ -1,4 +1,4 @@
-package slidingwindow;
+package slidingWindow;
 
 /**
  * Find the max sum subarray of a fixed size K.
