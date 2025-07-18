@@ -4,7 +4,7 @@ import java.util.List;
 
 public class MergeIntervals {
 
-    // TC -> O(NLogN), SC -> O(N)
+    // TC -> O(nlogn), SC -> O(n)
     public int[][] merge(int[][] intervals) {
         if (intervals == null || intervals.length == 0) {
             return new int[0][0];
@@ -23,7 +23,6 @@ public class MergeIntervals {
         Arrays.sort(ends);
         List<int[]> res = new ArrayList<>();
 
-        // Two pointers
         int endIndex = 0, startIndex = 0;
         while (endIndex < n) {
             if (endIndex == n - 1 || starts[endIndex + 1] > ends[endIndex]) {
@@ -36,9 +35,12 @@ public class MergeIntervals {
         return res.toArray(new int[res.size()][]);
     }
 
-    // TC -> O(NLogN), SC -> O(N)
+    // TC -> O(nlogn), SC -> O(n)
     public List<int[]> merge(List<int[]> intervals) {
-        // sort start&end
+        if (intervals == null || intervals.isEmpty()) {
+            return new ArrayList<>();
+        }
+
         int n = intervals.size();
         int[] starts = new int[n];
         int[] ends = new int[n];
@@ -50,11 +52,10 @@ public class MergeIntervals {
         Arrays.sort(ends);
 
         List<int[]> res = new ArrayList<>();
-        for (int i = 0, j = 0; i < n; i++) {
-            // j is start of interval.
-            if (i == n - 1 || starts[i + 1] > ends[i]) {
-                res.add(new int[]{starts[j], ends[i]});
-                j = i + 1;
+        for (int endIndex = 0, startIndex = 0; endIndex < n; endIndex++) {
+            if (endIndex == n - 1 || starts[endIndex + 1] > ends[endIndex]) {
+                res.add(new int[]{starts[startIndex], ends[endIndex]});
+                startIndex = endIndex + 1;
             }
         }
         return res;
