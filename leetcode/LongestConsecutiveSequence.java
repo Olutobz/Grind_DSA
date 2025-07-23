@@ -74,7 +74,6 @@ public class LongestConsecutiveSequence {
                 right++;
             }
             ans = Math.max(ans, right - left - 1);
-            //save time if there are items in nums, but no item in hashset.
             if (set.isEmpty()) return ans;
         }
         return ans;
