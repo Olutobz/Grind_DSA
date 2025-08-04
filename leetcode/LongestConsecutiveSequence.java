@@ -35,18 +35,18 @@ public class LongestConsecutiveSequence {
         if (nums == null || nums.length == 0) return 0;
         if (nums.length == 1) return 1;
 
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> numSet = new HashSet<>();
         int longestStreak = 0;
 
         for (int num : nums) {
-            set.add(num);
+            numSet.add(num);
         }
 
-        for (int num : set) {
-            if (!set.contains(num - 1)) {
+        for (int num : numSet) {
+            if (!numSet.contains(num - 1)) {
                 int currStreak = 1;
 
-                while (set.contains(num + 1)) {
+                while (numSet.contains(num + 1)) {
                     num++;
                     currStreak++;
                 }
@@ -61,24 +61,24 @@ public class LongestConsecutiveSequence {
     public int longestConsecutiveII(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
 
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> numSet = new HashSet<>();
         for (int i : nums) {
-            set.add(i);
+            numSet.add(i);
         }
 
         int ans = 0;
         for (int num : nums) {
             int left = num - 1;
             int right = num + 1;
-            while (set.remove(left)) {
+            while (numSet.remove(left)) {
                 left--;
             }
-            while (set.remove(right)) {
+            while (numSet.remove(right)) {
                 right++;
             }
             ans = Math.max(ans, right - left - 1);
 
-            if (set.isEmpty()) return ans;
+            if (numSet.isEmpty()) return ans;
         }
 
         return ans;
