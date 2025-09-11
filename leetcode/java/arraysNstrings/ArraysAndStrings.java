@@ -1,4 +1,4 @@
-package arraysNstrings;
+package java.arraysNstrings;
 
 public class ArraysAndStrings {
 

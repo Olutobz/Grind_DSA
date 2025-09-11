@@ -1,3 +1,5 @@
+package java;
+
 public class AddBinary {
     // TC -> O(max(M,N)), SC -> O(max(M,N))
     public String addBinary(String a, String b) {

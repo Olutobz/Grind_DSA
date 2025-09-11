@@ -1,3 +1,5 @@
+package java;
+
 public class AddStrings {
     // TC -> O(max(N, M)), SC -> O(1)
     public String addStrings(String num1, String num2) {
