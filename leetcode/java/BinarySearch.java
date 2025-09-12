@@ -1,3 +1,5 @@
+package java;
+
 /**
  * Given an array of integers nums which is sorted in ascending order, and an integer target.
  * Write a function to search target in nums. If a target exists, then return its index. Otherwise, return -1.

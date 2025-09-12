@@ -1,3 +1,5 @@
+package java;
+
 public class CarPooling {
 
     /*  passengerCount: [...2,2,2,2,2,2,2,2....]

@@ -1,3 +1,5 @@
+package java;
+
 public class BreakAPalindrome {
 
     // TC -> O(N), SC -> O(N)
