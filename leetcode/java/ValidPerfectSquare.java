@@ -1,3 +1,5 @@
+package java;
+
 public class ValidPerfectSquare {
     // TC -> O(log(num)), SC -> O(1)
     public boolean isPerfectSquare(int num) {

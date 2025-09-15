@@ -1,3 +1,5 @@
+package java;
+
 public class WordSearch {
 
     // TC ->O(M * N * 3^L),  SC -> O(L) where M*N is the size of the board

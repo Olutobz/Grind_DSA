@@ -1,3 +1,5 @@
+package java;
+
 public class WildcardMatching {
 
     /* The basic idea is to have one pointer for the string and one pointer for the pattern.
