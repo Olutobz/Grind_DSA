@@ -84,7 +84,7 @@ public class ContainsDuplicate {
     }
 
     // TC -> O(NlogN), SC -> O(1)
-    public boolean containsDuplicateV(int[] nums) {
+    public boolean containsDuplicateIV(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
         }
@@ -99,7 +99,7 @@ public class ContainsDuplicate {
     }
 
     // TC -> O(n^2), SC -> O(1)
-    public boolean containsDuplicateIV(int[] nums) {
+    public boolean containsDuplicateV(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
         }
