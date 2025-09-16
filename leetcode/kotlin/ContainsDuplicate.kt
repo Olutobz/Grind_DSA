@@ -36,76 +36,74 @@ package kotlin
  * </blockquote>
  */
 
-class ContainsDuplicate {
 
-    // TC -> O(n^2), SC -> O(1)
-    fun containsDuplicate(nums: IntArray): Boolean {
-        if (nums.isEmpty()) return false
+// TC -> O(n^2), SC -> O(1)
+fun containsDuplicate(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
 
-        for (i in nums.indices) {
-            for (j in i + 1 until nums.size) {
-                if (nums[i] == nums[j]) return true
-            }
+    for (i in nums.indices) {
+        for (j in i + 1 until nums.size) {
+            if (nums[i] == nums[j]) return true
         }
-
-        return false
     }
 
-    // TC -> O(nlogn), SC -> O(1)
-    fun containsDuplicateII(nums: IntArray): Boolean {
-        if (nums.isEmpty()) return false
-
-        nums.sort()
-        for (i in 1 until nums.size) {
-            if (nums[i] == nums[i - 1]) return true
-        }
-
-        return false
-    }
-
-    // TC -> O(n), SC -> O(n)
-    fun containsDuplicateIII(nums: IntArray): Boolean {
-        if (nums.isEmpty()) return false
-
-        val uniqueNumbers = hashSetOf<Int>()
-        for (i in nums.indices) {
-            if (uniqueNumbers.contains(nums[i])) {
-                return true
-            }
-            uniqueNumbers.add(nums[i])
-        }
-
-        return false
-    }
-
-    // TC -> O(n), SC -> O(n)
-    fun containsDuplicateIV(nums: IntArray): Boolean {
-        if (nums.isEmpty()) return false
-
-        val uniqueNumbers = hashSetOf<Int>()
-        for (i in nums.indices) {
-            if (!uniqueNumbers.add(nums[i])) {
-                return true
-            }
-        }
-
-        return false
-    }
-
-    // TC -> O(n), SC -> O(n)
-    fun containsDuplicateV(nums: IntArray): Boolean {
-        if (nums.isEmpty()) return false
-
-        val map = hashMapOf<Int, Int>()
-        for (i in nums.indices) {
-            if (map.containsKey(nums[i])) {
-                return true
-            }
-
-            map.put(nums[i], 1)
-        }
-
-        return false
-    }
-
+    return false
 }
+
+// TC -> O(nlogn), SC -> O(1)
+fun containsDuplicateII(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    nums.sort()
+    for (i in 1 until nums.size) {
+        if (nums[i] == nums[i - 1]) return true
+    }
+
+    return false
+}
+
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateIII(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    val uniqueNumbers = hashSetOf<Int>()
+    for (i in nums.indices) {
+        if (uniqueNumbers.contains(nums[i])) {
+            return true
+        }
+        uniqueNumbers.add(nums[i])
+    }
+
+    return false
+}
+
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateIV(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    val uniqueNumbers = hashSetOf<Int>()
+    for (i in nums.indices) {
+        if (!uniqueNumbers.add(nums[i])) {
+            return true
+        }
+    }
+
+    return false
+}
+
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateV(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    val map = hashMapOf<Int, Int>()
+    for (i in nums.indices) {
+        if (map.containsKey(nums[i])) {
+            return true
+        }
+
+        map.put(nums[i], 1)
+    }
+
+    return false
+}
+
