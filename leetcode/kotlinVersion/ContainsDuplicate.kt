@@ -1,4 +1,4 @@
-package kotlin
+package kotlinVersion
 
 /**
  * Created by Damola Olutoba Onikoyi
@@ -65,11 +65,11 @@ fun containsDuplicateIII(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
-    for (i in nums.indices) {
-        if (uniqueNumbers.contains(nums[i])) {
+    for (num in nums) {
+        if (uniqueNumbers.contains(num)) {
             return true
         }
-        uniqueNumbers.add(nums[i])
+        uniqueNumbers.add(num)
     }
     return false
 }
@@ -79,24 +79,35 @@ fun containsDuplicateIV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
-    for (i in nums.indices) {
-        if (!uniqueNumbers.add(nums[i])) {
+    for (num in nums) {
+        if (!uniqueNumbers.add(num)) {
             return true
         }
     }
     return false
 }
 
-// TC -> O(n), SC -> O(n)
 fun containsDuplicateV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
+    val uniqueNumbers = mutableSetOf<Int>()
+    for (num in nums) {
+        uniqueNumbers.add(num)
+    }
+
+    return uniqueNumbers.size < nums.size
+}
+
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateVI(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
     val map = mutableMapOf<Int, Int>()
-    for (i in nums.indices) {
-        if (map.containsKey(nums[i])) {
+    for (num in nums) {
+        if (map.containsKey(num)) {
             return true
         }
-        map.put(nums[i], 1)
+        map.put(num, 1)
     }
     return false
 }
