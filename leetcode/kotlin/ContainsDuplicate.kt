@@ -30,7 +30,7 @@ package kotlin
  * Output: true
  *
  * Constraints:
- * 1 <= nums.length <= 105-109 <= nums[i] <= 109
+ * 1 <= nums.length <= 10^5-10^9 <= nums[i] <= 10^9
  *
  * </pre>
  * </blockquote>
@@ -46,7 +46,6 @@ fun containsDuplicate(nums: IntArray): Boolean {
             if (nums[i] == nums[j]) return true
         }
     }
-
     return false
 }
 
@@ -58,7 +57,6 @@ fun containsDuplicateII(nums: IntArray): Boolean {
     for (i in 1 until nums.size) {
         if (nums[i] == nums[i - 1]) return true
     }
-
     return false
 }
 
@@ -66,14 +64,13 @@ fun containsDuplicateII(nums: IntArray): Boolean {
 fun containsDuplicateIII(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
-    val uniqueNumbers = hashSetOf<Int>()
+    val uniqueNumbers = mutableSetOf<Int>()
     for (i in nums.indices) {
         if (uniqueNumbers.contains(nums[i])) {
             return true
         }
         uniqueNumbers.add(nums[i])
     }
-
     return false
 }
 
@@ -81,13 +78,12 @@ fun containsDuplicateIII(nums: IntArray): Boolean {
 fun containsDuplicateIV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
-    val uniqueNumbers = hashSetOf<Int>()
+    val uniqueNumbers = mutableSetOf<Int>()
     for (i in nums.indices) {
         if (!uniqueNumbers.add(nums[i])) {
             return true
         }
     }
-
     return false
 }
 
@@ -95,15 +91,12 @@ fun containsDuplicateIV(nums: IntArray): Boolean {
 fun containsDuplicateV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
-    val map = hashMapOf<Int, Int>()
+    val map = mutableMapOf<Int, Int>()
     for (i in nums.indices) {
         if (map.containsKey(nums[i])) {
             return true
         }
-
         map.put(nums[i], 1)
     }
-
     return false
 }
-
