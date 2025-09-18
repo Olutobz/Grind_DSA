@@ -1,4 +1,4 @@
-package kotlin
+package kotlinVersion
 
 /**
  * Created by Damola Olutoba Onikoyi
@@ -138,4 +138,8 @@ fun isAnagramVI(s: String, t: String): Boolean {
     }
 
     return freq.all { it == 0 }
+}
+
+fun main() {
+    print("hello you")
 }
