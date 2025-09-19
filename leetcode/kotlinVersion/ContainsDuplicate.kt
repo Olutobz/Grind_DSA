@@ -87,6 +87,7 @@ fun containsDuplicateIV(nums: IntArray): Boolean {
     return false
 }
 
+// TC -> O(n), SC -> O(n)
 fun containsDuplicateV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
