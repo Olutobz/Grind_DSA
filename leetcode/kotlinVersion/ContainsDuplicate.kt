@@ -108,7 +108,7 @@ fun containsDuplicateVI(nums: IntArray): Boolean {
         if (map.containsKey(num)) {
             return true
         }
-        map.put(num, 1)
+        map[num] = 1
     }
     return false
 }
