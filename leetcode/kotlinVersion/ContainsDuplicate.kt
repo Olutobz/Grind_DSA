@@ -64,6 +64,20 @@ fun containsDuplicateII(nums: IntArray): Boolean {
 fun containsDuplicateIII(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
+    val map = mutableMapOf<Int, Int>()
+    for (num in nums) {
+        if (map.containsKey(num)) {
+            return true
+        }
+        map[num] = 1
+    }
+    return false
+}
+
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateIV(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
     val uniqueNumbers = mutableSetOf<Int>()
     for (num in nums) {
         if (uniqueNumbers.contains(num)) {
@@ -75,7 +89,7 @@ fun containsDuplicateIII(nums: IntArray): Boolean {
 }
 
 // TC -> O(n), SC -> O(n)
-fun containsDuplicateIV(nums: IntArray): Boolean {
+fun containsDuplicateV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
@@ -88,7 +102,7 @@ fun containsDuplicateIV(nums: IntArray): Boolean {
 }
 
 // TC -> O(n), SC -> O(n)
-fun containsDuplicateV(nums: IntArray): Boolean {
+fun containsDuplicateVI(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
@@ -99,16 +113,4 @@ fun containsDuplicateV(nums: IntArray): Boolean {
     return uniqueNumbers.size < nums.size
 }
 
-// TC -> O(n), SC -> O(n)
-fun containsDuplicateVI(nums: IntArray): Boolean {
-    if (nums.isEmpty()) return false
 
-    val map = mutableMapOf<Int, Int>()
-    for (num in nums) {
-        if (map.containsKey(num)) {
-            return true
-        }
-        map[num] = 1
-    }
-    return false
-}
