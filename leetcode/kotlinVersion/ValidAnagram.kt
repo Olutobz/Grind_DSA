@@ -139,7 +139,3 @@ fun isAnagramVI(s: String, t: String): Boolean {
 
     return freq.all { it == 0 }
 }
-
-fun main() {
-    print("hello you")
-}
