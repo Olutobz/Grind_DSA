@@ -37,45 +37,8 @@ package kotlinVersion
  */
 
 
-// TC -> O(n^2), SC -> O(1)
+// TC -> O(n), SC -> O(n)
 fun containsDuplicate(nums: IntArray): Boolean {
-    if (nums.isEmpty()) return false
-
-    for (i in nums.indices) {
-        for (j in i + 1 until nums.size) {
-            if (nums[i] == nums[j]) return true
-        }
-    }
-    return false
-}
-
-// TC -> O(nlogn), SC -> O(1)
-fun containsDuplicateII(nums: IntArray): Boolean {
-    if (nums.isEmpty()) return false
-
-    nums.sort()
-    for (i in 1 until nums.size) {
-        if (nums[i] == nums[i - 1]) return true
-    }
-    return false
-}
-
-// TC -> O(n), SC -> O(n)
-fun containsDuplicateIII(nums: IntArray): Boolean {
-    if (nums.isEmpty()) return false
-
-    val map = mutableMapOf<Int, Int>()
-    for (num in nums) {
-        if (map.containsKey(num)) {
-            return true
-        }
-        map[num] = 1
-    }
-    return false
-}
-
-// TC -> O(n), SC -> O(n)
-fun containsDuplicateIV(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
@@ -89,7 +52,7 @@ fun containsDuplicateIV(nums: IntArray): Boolean {
 }
 
 // TC -> O(n), SC -> O(n)
-fun containsDuplicateV(nums: IntArray): Boolean {
+fun containsDuplicateII(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
@@ -102,7 +65,7 @@ fun containsDuplicateV(nums: IntArray): Boolean {
 }
 
 // TC -> O(n), SC -> O(n)
-fun containsDuplicateVI(nums: IntArray): Boolean {
+fun containsDuplicateIII(nums: IntArray): Boolean {
     if (nums.isEmpty()) return false
 
     val uniqueNumbers = mutableSetOf<Int>()
@@ -113,4 +76,39 @@ fun containsDuplicateVI(nums: IntArray): Boolean {
     return uniqueNumbers.size < nums.size
 }
 
+// TC -> O(n), SC -> O(n)
+fun containsDuplicateIV(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
 
+    val map = mutableMapOf<Int, Int>()
+    for (num in nums) {
+        if (map.containsKey(num)) {
+            return true
+        }
+        map[num] = 1
+    }
+    return false
+}
+
+// TC -> O(nlogn), SC -> O(1)
+fun containsDuplicateV(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    nums.sort()
+    for (i in 1 until nums.size) {
+        if (nums[i] == nums[i - 1]) return true
+    }
+    return false
+}
+
+// TC -> O(n^2), SC -> O(1)
+fun containsDuplicateVI(nums: IntArray): Boolean {
+    if (nums.isEmpty()) return false
+
+    for (i in nums.indices) {
+        for (j in i + 1 until nums.size) {
+            if (nums[i] == nums[j]) return true
+        }
+    }
+    return false
+}
