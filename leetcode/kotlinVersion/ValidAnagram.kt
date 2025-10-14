@@ -31,7 +31,7 @@ package kotlinVersion
  */
 
 
-// TC -> O(nlogn), SC -> O(n)
+// TC -> O(n), SC -> O(1)
 fun isAnagram(s: String, t: String): Boolean {
     if (s.isEmpty() && t.isEmpty()) {
         return true
@@ -41,15 +41,22 @@ fun isAnagram(s: String, t: String): Boolean {
         return false
     }
 
-    val s1 = s.toCharArray()
-    val t1 = t.toCharArray()
-    s1.sort()
-    t1.sort()
+    val freq = IntArray(26)
+    for (ch in s) {
+        freq[ch - 'a']++
+    }
+    for (ch in t) {
+        freq[ch - 'a']--
+    }
 
-    return s1.contentEquals(t1)
+    for (count in freq) {
+        if (count != 0) return false
+    }
+
+    return true
 }
 
-// TC -> O(n), SC -> O(n)
+// TC -> O(n), SC -> O(1)
 fun isAnagramII(s: String, t: String): Boolean {
     if (s.isEmpty() && t.isEmpty()) {
         return true
@@ -59,15 +66,16 @@ fun isAnagramII(s: String, t: String): Boolean {
         return false
     }
 
-    val sMap = mutableMapOf<Char, Int>()
-    val tMap = mutableMapOf<Char, Int>()
-
-    for (i in s.indices) {
-        sMap[s[i]] = sMap.getOrDefault(key = s[i], defaultValue = 0) + 1
-        tMap[t[i]] = tMap.getOrDefault(key = t[i], defaultValue = 0) + 1
+    val freq = IntArray(26)
+    for (ch in s) {
+        freq[ch - 'a']++
     }
 
-    return sMap == tMap
+    for (ch in t) {
+        freq[ch - 'a']--
+    }
+
+    return freq.all { it == 0 }
 }
 
 // TC -> O(n), SC -> O(n)
@@ -93,7 +101,7 @@ fun isAnagramIII(s: String, t: String): Boolean {
     return true
 }
 
-// TC -> O(n), SC -> O(1)
+// TC -> O(n), SC -> O(n)
 fun isAnagramIV(s: String, t: String): Boolean {
     if (s.isEmpty() && t.isEmpty()) {
         return true
@@ -103,23 +111,19 @@ fun isAnagramIV(s: String, t: String): Boolean {
         return false
     }
 
-    val freq = IntArray(26)
-    for (ch in s) {
-        freq[ch - 'a']++
-    }
-    for (ch in t) {
-        freq[ch - 'a']--
+    val sMap = mutableMapOf<Char, Int>()
+    val tMap = mutableMapOf<Char, Int>()
+
+    for (i in s.indices) {
+        sMap[s[i]] = sMap.getOrDefault(key = s[i], defaultValue = 0) + 1
+        tMap[t[i]] = tMap.getOrDefault(key = t[i], defaultValue = 0) + 1
     }
 
-    for (count in freq) {
-        if (count != 0) return false
-    }
-
-    return true
+    return sMap == tMap
 }
 
-// TC -> O(n), SC -> O(1)
-fun isAnagramVI(s: String, t: String): Boolean {
+// TC -> O(nlogn), SC -> O(n)
+fun isAnagramV(s: String, t: String): Boolean {
     if (s.isEmpty() && t.isEmpty()) {
         return true
     } else if (s.isEmpty() || t.isEmpty()) {
@@ -128,14 +132,10 @@ fun isAnagramVI(s: String, t: String): Boolean {
         return false
     }
 
-    val freq = IntArray(26)
-    for (ch in s) {
-        freq[ch - 'a']++
-    }
+    val s1 = s.toCharArray()
+    val t1 = t.toCharArray()
+    s1.sort()
+    t1.sort()
 
-    for (ch in t) {
-        freq[ch - 'a']--
-    }
-
-    return freq.all { it == 0 }
+    return s1.contentEquals(t1)
 }
