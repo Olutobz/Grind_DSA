@@ -63,8 +63,8 @@ fun isAnagramII(s: String, t: String): Boolean {
     val tMap = mutableMapOf<Char, Int>()
 
     for (i in s.indices) {
-        sMap.put(s[i], sMap.getOrDefault(s[i], 0) + 1)
-        tMap.put(t[i], tMap.getOrDefault(t[i], 0) + 1)
+        sMap[s[i]] = sMap.getOrDefault(key = s[i], defaultValue = 0) + 1
+        tMap[t[i]] = tMap.getOrDefault(key = t[i], defaultValue = 0) + 1
     }
 
     return sMap == tMap
@@ -86,8 +86,8 @@ fun isAnagramIII(s: String, t: String): Boolean {
         map[t[i]] = map.getOrDefault(t[i], 0) - 1
     }
 
-    for (value in map.values) {
-        if (value != 0) return false
+    for (currValue in map.values) {
+        if (currValue != 0) return false
     }
 
     return true
