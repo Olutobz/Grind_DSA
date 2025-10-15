@@ -39,9 +39,7 @@ package kotlinVersion
 
 // TC -> O(n), SC -> O(n)
 fun twoSum(nums: IntArray, target: Int): IntArray {
-    if (nums.isEmpty()) {
-        return intArrayOf()
-    }
+    if (nums.isEmpty()) return intArrayOf()
 
     val map = mutableMapOf<Int, Int>()
     for (i in nums.indices) {
@@ -57,9 +55,7 @@ fun twoSum(nums: IntArray, target: Int): IntArray {
 
 // TC -> O(n^2), SC -> O(1)
 fun twoSumII(nums: IntArray, target: Int): IntArray {
-    if (nums.isEmpty()) {
-        return intArrayOf()
-    }
+    if (nums.isEmpty()) return intArrayOf()
 
     for (i in nums.indices) {
         for (j in i + 1 until nums.size) {
