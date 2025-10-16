@@ -60,6 +60,7 @@ public class TopKFrequentElements {
 
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
+            if (maxHeap.isEmpty()) break;
             result[i] = maxHeap.poll();
         }
 
