@@ -24,13 +24,16 @@ import java.util.PriorityQueue;
  * Input: nums = [1], k = 1
  * Output: [1]
  *
+ * Example 3:
+ * Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
+ * Output: [1,2]
  *
  * Constraints:
  * 1 <= nums.length <= 10^5
  * -10^4 <= nums[i] <= 10^4
  * k is in the range [1, the number of unique elements in the array].
  * It is guaranteed that the answer is unique.
- * F
+ *
  * Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
  * </pre>
  * </blockquote>
@@ -39,27 +42,28 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElements {
 
-    // TC -> O(k * log n), SC -> O(k)
+    // TC -> O(n log k), SC -> O(n + k)
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
+        if (nums == null || nums.length == 0) return new int[]{};
+        if (k == nums.length) return nums;
 
+        Map<Integer, Integer> freqMap = new HashMap<>();
         for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
         }
 
         PriorityQueue<Integer> maxHeap =
-                new PriorityQueue<>((a, b) -> map.get(b) - map.get(a));
-
-        for (int key : map.keySet()) {
-            maxHeap.offer(key);
+                new PriorityQueue<>((a, b) -> freqMap.get(b) - freqMap.get(a));
+        for (int currKey : freqMap.keySet()) {
+            maxHeap.offer(currKey);
         }
 
-        int[] res = new int[k];
+        int[] result = new int[k];
         for (int i = 0; i < k; i++) {
-            res[i] = maxHeap.poll();
+            result[i] = maxHeap.poll();
         }
 
-        return res;
+        return result;
     }
 
 }
