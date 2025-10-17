@@ -1,8 +1,6 @@
 package javaVersion;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by Damola Olutoba Onikoyi
@@ -42,8 +40,39 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElements {
 
-    // TC -> O(n log k), SC -> O(n + k)
+    // TC -> O(n), SC -> O(n)
     public int[] topKFrequent(int[] nums, int k) {
+        if (nums == null || nums.length == 0) return new int[]{};
+        if (k == nums.length) return nums;
+
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : nums) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+
+        List<List<Integer>> bucket = new ArrayList<>();
+        for (int i = 0; i < nums.length + 1; i++) {
+            bucket.add(new ArrayList<>());
+        }
+
+        for (Map.Entry<Integer, Integer> entries : freqMap.entrySet()) {
+            bucket.get(entries.getValue()).add(entries.getKey());
+        }
+
+        int[] result = new int[k];
+        int index = 0;
+        for (int i = bucket.size() - 1; i > 0; i--) {
+            for (int num : bucket.get(i)) {
+                if (index == k) return result;
+                result[index++] = num;
+            }
+        }
+
+        return result;
+    }
+
+    // TC -> O(n log k), SC -> O(n + k)
+    public int[] topKFrequentII(int[] nums, int k) {
         if (nums == null || nums.length == 0) return new int[]{};
         if (k == nums.length) return nums;
 
