@@ -40,8 +40,34 @@ import java.util.*
  */
 
 
-// TC -> O(n log k), SC -> O(n + k)
+// TC -> O(n), SC -> O(n)
 fun topKFrequent(nums: IntArray, k: Int): IntArray {
+    if (nums.isEmpty()) return intArrayOf()
+    if (k == nums.size) return nums
+
+    val freqMap = mutableMapOf<Int, Int>()
+    for (num in nums) {
+        freqMap[num] = freqMap.getOrDefault(num, 0) + 1
+    }
+
+    val bucketArr = Array(nums.size + 1) { mutableListOf<Int>() }
+    for ((num, freq) in freqMap) {
+        bucketArr[freq].add(num)
+    }
+
+    val result = mutableListOf<Int>()
+    for (i in bucketArr.size - 1 downTo 1) {
+        for (num in bucketArr[i]) {
+            if (result.size == k) return result.toIntArray()
+            result.add(num)
+        }
+    }
+
+    return result.toIntArray()
+}
+
+// TC -> O(n log k), SC -> O(n + k)
+fun topKFrequentII(nums: IntArray, k: Int): IntArray {
     if (nums.isEmpty()) return intArrayOf()
     if (k == nums.size) return nums
 
@@ -64,7 +90,7 @@ fun topKFrequent(nums: IntArray, k: Int): IntArray {
 }
 
 // TC -> O(n log k), SC -> O(n + k)
-fun topKFrequentII(nums: IntArray, k: Int): IntArray {
+fun topKFrequentIII(nums: IntArray, k: Int): IntArray {
     if (nums.isEmpty()) return intArrayOf()
 
     val freqMap = mutableMapOf<Int, Int>()
@@ -86,7 +112,7 @@ fun topKFrequentII(nums: IntArray, k: Int): IntArray {
 }
 
 // TC -> O(n log k), SC -> O(n + k)
-fun topKFrequentIII(nums: IntArray, k: Int): IntArray {
+fun topKFrequentIV(nums: IntArray, k: Int): IntArray {
     if (nums.isEmpty()) return intArrayOf()
 
     val freqMap = mutableMapOf<Int, Int>()
@@ -108,7 +134,7 @@ fun topKFrequentIII(nums: IntArray, k: Int): IntArray {
 }
 
 // TC -> O(n log n), SC -> O(n)
-fun topKFrequentIV(nums: IntArray, k: Int): IntArray {
+fun topKFrequentV(nums: IntArray, k: Int): IntArray {
     if (nums.isEmpty()) return intArrayOf()
 
     val freqMap = mutableMapOf<Int, Int>()
@@ -117,8 +143,8 @@ fun topKFrequentIV(nums: IntArray, k: Int): IntArray {
     }
 
     val pairList = mutableListOf<Pair<Int, Int>>()
-    for ((currKey, currValue) in freqMap) {
-        pairList.add(Pair(currKey, currValue))
+    for ((currNum, currFreq) in freqMap) {
+        pairList.add(Pair(currNum, currFreq))
     }
     pairList.sortByDescending { it.second }
 
