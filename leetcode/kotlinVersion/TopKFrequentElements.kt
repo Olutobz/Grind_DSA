@@ -46,8 +46,8 @@ fun topKFrequent(nums: IntArray, k: Int): IntArray {
     if (k == nums.size) return nums
 
     val freqMap = mutableMapOf<Int, Int>()
-    for (num in nums) {
-        freqMap[num] = freqMap.getOrDefault(num, 0) + 1
+    nums.forEach {
+        freqMap[it] = freqMap.getOrDefault(it, 0) + 1
     }
 
     val bucketArr = Array(nums.size + 1) { mutableListOf<Int>() }
