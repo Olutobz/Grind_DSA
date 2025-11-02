@@ -35,3 +35,20 @@ package kotlinVersion
  */
 
 
+// TC -> O(n^2), SC -> O(n)
+fun productExceptSelf(nums: IntArray): IntArray {
+    if (nums.isEmpty()) return intArrayOf()
+
+    val result = IntArray(nums.size)
+    for (i in 0 until nums.size) {
+        var product = 1
+        for (j in 0 until nums.size) {
+            if (nums[i] == nums[j]) continue
+            product *= nums[j]
+        }
+        result[i] = product
+    }
+
+    return result
+}
+
