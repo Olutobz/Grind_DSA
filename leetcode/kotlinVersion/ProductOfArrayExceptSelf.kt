@@ -52,3 +52,28 @@ fun productExceptSelf(nums: IntArray): IntArray {
     return result
 }
 
+// TC -> O(n), SC -> O(n)
+fun productExceptSelfII(nums: IntArray): IntArray {
+    if (nums.isEmpty()) return intArrayOf()
+
+    val n = nums.size
+    val result = IntArray(n)
+    val prefix = IntArray(n)
+    val suffix = IntArray(n)
+
+    prefix[0] = 1
+    for (i in 1 until n) {
+        prefix[i] = nums[i - 1] * prefix[i - 1]
+    }
+
+    suffix[n - 1] = 1
+    for (i in n - 2 downTo 1) {
+        suffix[i] = nums[i + 1] * suffix[i + 1]
+    }
+
+    for (i in 0 until n) {
+        result[i] = prefix[i] * suffix[i]
+    }
+
+    return result
+}
